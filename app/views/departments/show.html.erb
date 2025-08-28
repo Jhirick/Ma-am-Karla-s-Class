@@ -23,6 +23,27 @@
   </tbody>
 </table>
 
+<h3>List of Teachers:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Program</th>
+      <th>Year Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @department.students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.program %></td>
+        <td><%= student.year_level %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <div>
   <%= link_to "Edit this department", edit_department_path(@department) %> |
   <%= link_to "Back to departments", departments_path %>
