@@ -29,16 +29,18 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Program</th>
-      <th>Year Level</th>
+      <th>Email</th>
+      <th>Specialization</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
-    <% @department.students.each do |student| %>
+    <% @department.teachers.each do |teachers| %>
       <tr>
-        <td><%= student.name %></td>
-        <td><%= student.program %></td>
-        <td><%= student.year_level %></td>
+        <td><%= teachers.name %></td>
+        <td><%= teachers.email %></td>
+        <td><%= teachers.specialization %></td>
+        <td><%= teachers.status %></td>
       </tr>
     <% end %>
   </tbody>
