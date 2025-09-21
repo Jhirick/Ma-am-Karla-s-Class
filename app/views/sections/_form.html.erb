@@ -30,7 +30,7 @@
     <%= form.label :subject_id, "Subject", style: "display: block" %>
     <%= form.collection_select :subject_id, Subject.all, :id, :name, prompt: "Select a subject" %>
   </div>
-
+  
   <div>
     <%= form.submit %>
   </div>
