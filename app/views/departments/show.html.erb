@@ -46,6 +46,9 @@
   </tbody>
 </table>
 
+<h3>Number of Employee: <%=@department.employee_count%></h3>
+<h3>Number of Student: <%=@department.student_count%></h3>
+
 <div>
   <%= link_to "Edit this department", edit_department_path(@department) %> |
   <%= link_to "Back to departments", departments_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_21_102638) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_02_065519) do
   create_table "classlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.bigint "section_id", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_21_102638) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_count", default: 0
+    t.integer "employee_count", default: 0
   end
 
   create_table "sections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -36,6 +38,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_21_102638) do
     t.datetime "updated_at", null: false
     t.integer "number_of_students", default: 0
     t.index ["subject_id"], name: "index_sections_on_subject_id"
+  end
+
+  create_table "staffs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.float "monthly_salary"
+    t.string "status"
+    t.bigint "department_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_staffs_on_department_id"
   end
 
   create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -75,6 +88,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_21_102638) do
   add_foreign_key "classlists", "sections"
   add_foreign_key "classlists", "students"
   add_foreign_key "sections", "subjects"
+  add_foreign_key "staffs", "departments"
   add_foreign_key "students", "departments"
   add_foreign_key "subjects", "teachers"
   add_foreign_key "teachers", "departments"
