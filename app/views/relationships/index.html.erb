@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Relationships" %>
+
+<h1>List of Student-Guardian</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Guardian</th>
+      <th>Relationship</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @relationships.each do |relationship| %>
+    <tr>
+      <td><%= relationship.student.name %></td>
+      <td><%= relationship.guardian.name %></td>
+      <td><%= relationship.relationship %></td>
+      <td><%= link_to "Show this relationship", relationship %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div id="relationships">
+  <% @relationships.each do |relationship| %>
+    <%= render relationship %>
+    <p>
+      <%= link_to "Show this relationship", relationship %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New relationship", new_relationship_path %>

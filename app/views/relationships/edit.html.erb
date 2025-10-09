@@ -1,0 +1,12 @@
+<% content_for :title, "Editing relationship" %>
+
+<h1>Editing relationship</h1>
+
+<%= render "form", relationship: @relationship %>
+
+<br>
+
+<div>
+  <%= link_to "Show this relationship", @relationship %> |
+  <%= link_to "Back to relationships", relationships_path %>
+</div>

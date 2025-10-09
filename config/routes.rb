@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get "guardians/index"
+  get "guardians/show"
+  get "guardians/new"
+  get "guardians/edit"
+  resources :relationships
+  resources :guardians
   resources :staffs
   resources :classlists
   resources :sections

@@ -1,0 +1,19 @@
+<h1>Guardians#show</h1>
+<p>Find me in app/views/guardians/show.html.erb</p>
+<h2>List of Students</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Relationship</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @guardian.student_guardians.each do |student_guardian|%>
+      <tr>
+        <td><%= student_guardian.student.name %></td>
+        <td><%= student_guardian.relationship %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<table>

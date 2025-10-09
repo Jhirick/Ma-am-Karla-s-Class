@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @relationship %>
+
+<div>
+  <%= link_to "Edit this relationship", edit_relationship_path(@relationship) %> |
+  <%= link_to "Back to relationships", relationships_path %>
+
+  <%= button_to "Destroy this relationship", @relationship, method: :delete %>
+</div>
