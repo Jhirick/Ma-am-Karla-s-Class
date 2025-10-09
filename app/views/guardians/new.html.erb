@@ -1,2 +1,11 @@
-<h1>Guardians#new</h1>
-<p>Find me in app/views/guardians/new.html.erb</p>
+<% content_for :title, "New guardian" %>
+
+<h1>New guardian</h1>
+
+<%= render "form", guardian: @guardian %>
+
+<br>
+
+<div>
+  <%= link_to "Back to guardians", guardians_path %>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :student_guardians
   get "guardians/index"
   get "guardians/show"
   get "guardians/new"

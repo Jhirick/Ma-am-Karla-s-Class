@@ -18,7 +18,6 @@ class GuardiansTest < ApplicationSystemTestCase
     fill_in "Email address", with: @guardian.email_address
     fill_in "Name", with: @guardian.name
     fill_in "Number of students", with: @guardian.number_of_students
-    fill_in "Student", with: @guardian.student_id
     click_on "Create Guardian"
 
     assert_text "Guardian was successfully created"
@@ -33,7 +32,6 @@ class GuardiansTest < ApplicationSystemTestCase
     fill_in "Email address", with: @guardian.email_address
     fill_in "Name", with: @guardian.name
     fill_in "Number of students", with: @guardian.number_of_students
-    fill_in "Student", with: @guardian.student_id
     click_on "Update Guardian"
 
     assert_text "Guardian was successfully updated"
