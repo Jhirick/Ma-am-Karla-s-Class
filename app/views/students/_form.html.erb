@@ -1,37 +1,41 @@
-<%= form_with(model: student) do |form| %>
-  <% if student.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-        <% student.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<div class="card shadow-sm">
+  <div class="card-header bg-light">
+    <h5 class="mb-0"><%= student.new_record? ? "New Student" : "Edit Student" %></h5>
   </div>
+  <div class="card-body">
+    <%= form_with(model: student) do |f| %>
 
-  <div>
-    <%= form.label :year_level, style: "display: block" %>
-    <%= form.number_field :year_level %>
+      <% if student.errors.any? %>
+        <div class="alert alert-danger">
+          <strong><%= pluralize(student.errors.count, "error") %> prevented this student from being saved:</strong>
+          <ul class="mb-0">
+            <% student.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label fw-bold" %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Enter student name" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :year_level, class: "form-label fw-bold" %>
+        <%= f.number_field :year_level, class: "form-control", placeholder: "Enter current year level" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :program, class: "form-label fw-bold" %>
+        <%= f.text_field :program, class: "form-control", placeholder: "Enter program/course" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :department_id, "Department", class: "form-label fw-bold" %>
+        <%= f.collection_select :department_id, Department.all, :id, :name,
+            { prompt: "Select a department" },
+            { class: "form-select" } %>
+      </div>
+      <div class="text-end">
+        <%= f.submit(student.new_record? ? "Create Student" : "Update Student", class: "btn btn-primary") %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :program, style: "display: block" %>
-    <%= form.text_field :program %>
-  </div>
-
-  <div>
-    <%= form.label :department_id, "Department", style: "display: block" %>
-    <%= form.collection_select :department_id, Department.all, :id, :name, prompt: "Select a department" %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

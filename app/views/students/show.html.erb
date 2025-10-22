@@ -1,33 +1,52 @@
-<p style="color: green"><%= notice %></p>
+<div class="student-show-container">
+  <div class="card student-card shadow-sm">
+    <div class="card-header d-flex align-items-center">
+      <i class="bi bi-person-vcard-fill ms-1 me-3 fs-1"></i>
+      <div>
+        <h3 class="student-name mb-0"><%= @student.name %></h3>
+        <p class="student-subinfo mb-0">
+          <%= @student.program %> | <%= @student.department.name %>
+        </p>
+      </div>
+    </div>
 
-<%= render @student %>
+    <div class="card-body">
+      <p><strong>Year Level:</strong> <%= @student.year_level %></p>
+      <p><strong>Total Assessment:</strong> ₱<%= number_with_precision(@student.total_assessment, precision: 2) %></p>
+      <p><strong>Total Units:</strong> <%= @student.number_of_units %></p>
+      <p><strong>Number of Guardians:</strong> <%= @student.number_of_guardians %></p>
+    </div>
+  </div>
 
-<h3>List of Subjects:</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Section</th>
-      <th>Subject</th>
-      <th>Units</th>
-      <th>Teacher</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @student.classlists.each do |classlist| %>
+
+  <h4 class="subject-list-title">📚 List of Subjects</h4>
+  <table class="table table-bordered subject-table">
+    <thead>
       <tr>
-        <td><%= classlist.section.name %></td>
-        <td><%= classlist.section.subject.name %></td>
-        <td><%= classlist.section.subject.number_of_units %></td>
-        <td><%= classlist.section.subject.teacher.name %></td>
+        <th>Section</th>
+        <th>Subject</th>
+        <th>Units</th>
+        <th>Teacher</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @student.classlists.each do |classlist| %>
+        <tr>
+          <td><%= classlist.section.name %></td>
+          <td><%= classlist.section.subject.name %></td>
+          <td><%= classlist.section.subject.number_of_units %></td>
+          <td><%= classlist.section.subject.teacher.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<div>
-  <%= link_to "Edit this student", edit_student_path(@student) %> |
-  <%= link_to "Back to students", students_path %>
-
-  <%= button_to "Destroy this student", @student, method: :delete %>
+  <div class="student-actions-container">
+  <div class="student-actions">
+    <%= link_to "Back to Students", students_path, class: "action-btn back-btn" %>
+    <%= link_to "Edit Student", edit_student_path(@student), class: "action-btn edit-btn" %>
+    <%= button_to "Delete Student", @student, method: :delete, data: { confirm: "Are you sure?" }, class: "action-btn delete-btn" %>
+  </div>
 </div>
+

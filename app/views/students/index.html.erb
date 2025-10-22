@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Students" %>
 
-<h1>Students</h1>
-  <table>
-      <thead>
+<div class="students-container">
+  <table class="table table-bordered table-striped">
+  <thead>
+      <!-- Title Row -->
+        <tr>
+          <th colspan="7" class="table-title">Students</th>
+        </tr>
+
+      <!-- Header Row -->
         <tr>
           <th>Name</th>
           <th>Year Level</th>
@@ -12,9 +16,10 @@
           <th>Department</th>
           <th>Number of Units</th>
           <th>Total Assessment</th>
-          <th>Show</th>
+          <th>Actions</th>
         </tr>
       </thead>
+      
       <tbody>
       <% @students.each do | student | %>
           <tr>
@@ -24,10 +29,16 @@
             <td><%= student.department.name %></td>
             <td><%= student.number_of_units %></td>
             <td><%= student.total_assessment %></td>
-            <td><%= link_to "Show this student", student %></td>
+            <td> 
+              <%= link_to "Show", student, class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
+              <%= link_to "Edit", edit_student_path(student), class: "btn btn-sm btn-warning" %>
+              <%= link_to "Delete", student, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
 
-<%= link_to "New student", new_student_path %>
+<%= link_to "New Student", new_student_path, class: "btn btn-success mt-3" %>
+</div>
+

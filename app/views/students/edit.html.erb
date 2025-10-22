@@ -1,12 +1,19 @@
 <% content_for :title, "Editing student" %>
 
-<h1>Editing student</h1>
+<div class="student-edit-container">
+  <div class="student-edit-header d-flex align-items-center">
+    <i class="bi bi-person-fill-gear ms-3 me-2 fs-3"></i>
+    <h1>Update Student Information</h1>
+  </div>
 
-<%= render "form", student: @student %>
+  <div class="student-edit-form">
+    <%= render "form", student: @student %>
+  </div>
 
-<br>
-
-<div>
-  <%= link_to "Show this student", @student %> |
-  <%= link_to "Back to students", students_path %>
+  <div class="student-actions-container">
+    <div class="student-actions">
+      <%= link_to "Back to students", students_path, class: "action-btn back-btn" %>
+      <%= link_to "Show this student", @student, class: "action-btn btn-sm", style: "background-color: #343a40; color: white;" %>
+    </div>
+  </div>
 </div>

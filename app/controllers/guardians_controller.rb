@@ -60,11 +60,11 @@ class GuardiansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guardian
-      @guardian = Guardian.find(params.expect(:id))
+      @guardian = Guardian.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def guardian_params
-      params.expect(guardian: [ :name, :email_address, :contact_number, :number_of_students ])
+      params.require(:guardian).permit(:name, :email_address, :contact_number, :number_of_students)
     end
 end
