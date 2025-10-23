@@ -28,14 +28,14 @@ School Manager is a web application built with Ruby on Rails designed to help ed
 - Bootstrap 5  
 - Bootstrap Icons  
 - CSS customizations for sidebar behavior  
-- Database: *(Please fill in: SQLite / PostgreSQL / MySQL)*  
+- Database: MySQL 
 
 ## Getting Started  
 ### Prerequisites  
-- Ruby (version used)  
-- Rails (version used)  
-- A database setup (SQLite/PostgreSQL/MySQL)  
-- Node.js & Yarn (if using Webpacker or asset bundling)  
+- Ruby  
+- Rails   
+- A database setup (MySQL)  
+- Node.js & Yarn (if using Webpacker or asset bundling) 
 
 ### Setup  
 ```bash
