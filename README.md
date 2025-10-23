@@ -1,24 +1,48 @@
-# README
+# School Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview  
+School Manager is a web application built with Ruby on Rails designed to help educational institutions manage core entities such as Students, Teachers, Staff, Guardians, Class Lists, Subjects, Sections, and Departments — all from a simple, modern sidebar-based UI.
 
-Things you may want to cover:
+## Collaborators  
+- **Jhirick**  
+- **Renrenrenrenrenrenrenrenrenrenren**  
+- **ThisIsKristela**
 
-* Ruby version
+## Key Features  
+- Sidebar navigation with hover-expand behavior for quick access to modules  
+- CRUD operations for:
+  - Students  
+  - Teachers  
+  - Staff  
+  - Guardians  
+  - Class Lists  
+  - Subjects  
+  - Sections  
+  - Departments  
+- Responsive layout using Bootstrap and icons from Bootstrap Icons  
+- Smooth page transitions and enhanced UX  
+- Simple expandable sidebar interaction for a modern admin-style feel  
 
-* System dependencies
+## Tech Stack  
+- Ruby on Rails  
+- Bootstrap 5  
+- Bootstrap Icons  
+- CSS customizations for sidebar behavior  
+- Database: *(Please fill in: SQLite / PostgreSQL / MySQL)*  
 
-* Configuration
+## Getting Started  
+### Prerequisites  
+- Ruby (version used)  
+- Rails (version used)  
+- A database setup (SQLite/PostgreSQL/MySQL)  
+- Node.js & Yarn (if using Webpacker or asset bundling)  
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Setup  
+```bash
+git clone https://github.com/Jhirick/Ma-am-Karla-s-Class.git  
+cd Ma-am-Karla-s-Class  
+bundle install  
+rails db:create  
+rails db:migrate  
+rails db:seed  # if seed data exists  
+rails server  
