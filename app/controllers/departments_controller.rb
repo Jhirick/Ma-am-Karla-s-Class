@@ -39,7 +39,7 @@ class DepartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @department.update(department_params)
-        format.html { redirect_to @department, notice: "Department was successfully updated.", status: :see_other }
+        format.html { redirect_to @department, notice: "Department was successfully updated." }
         format.json { render :show, status: :ok, location: @department }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,10 +50,10 @@ class DepartmentsController < ApplicationController
 
   # DELETE /departments/1 or /departments/1.json
   def destroy
-    @department.destroy!
+    @department.destroy
 
     respond_to do |format|
-      format.html { redirect_to departments_path, notice: "Department was successfully destroyed.", status: :see_other }
+      format.html { redirect_to departments_path, notice: "Department was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -61,11 +61,11 @@ class DepartmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_department
-      @department = Department.find(params.expect(:id))
+      @department = Department.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def department_params
-      params.expect(department: [ :name, :location ])
+      params.require(:department).permit(:name, :location)
     end
 end
