@@ -1,5 +1,9 @@
 <% content_for :title, "Students" %>
 
+<div class="d-flex justify-content-end">
+  <%= link_to "New Student", new_student_path, class: "btn btn-success mt-3" %>
+</div>
+
 <div class="students-container">
   <table class="table table-bordered table-striped">
   <thead>
@@ -40,7 +44,6 @@
       </tbody>
     </table>
 
-<%= link_to "New Student", new_student_path, class: "btn btn-success mt-3" %>
 </div>
 
 <!-- Bootstrap Confirmation Modal -->
