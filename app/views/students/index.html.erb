@@ -32,13 +32,33 @@
             <td> 
               <%= link_to "Show", student, class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
               <%= link_to "Edit", edit_student_path(student), class: "btn btn-sm btn-warning" %>
-              <%= link_to "Delete", student, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
-            </td>
+              <%= link_to "Delete", "#", 
+                class: "btn btn-danger btn-sm", 
+                data: { bs_toggle: "modal", bs_target: "#confirmDeleteModal", student_url: student_path(student) } %>
           </tr>
         <% end %>
       </tbody>
     </table>
 
 <%= link_to "New Student", new_student_path, class: "btn btn-success mt-3" %>
+</div>
+
+<!-- Bootstrap Confirmation Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="confirmDeleteLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this student?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
 </div>
 

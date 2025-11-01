@@ -427,3 +427,8 @@ thead tr:nth-child(2) th {
   color: #f5deb3; 
 }
 
+.modal-backdrop.show {
+  opacity: 0.3 !important; /* default is 0.5 */
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
