@@ -1,11 +1,16 @@
-<% content_for :title, "New teacher" %>
+<% content_for :title, "New Teacher" %>
 
-<h1>New teacher</h1>
+<div class="teacher-edit-container">
+  <div class="teacher-edit-header d-flex align-items-center">
+    <i class="bi bi-person-plus-fill ms-3 me-2 fs-3"></i>
+    <h1>Employing Teacher</h1>
+  </div>
 
-<%= render "form", teacher: @teacher %>
+  <%= render "form", teacher: @teacher %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Back to teachers", teachers_path %>
+  <div>
+    <%= link_to "Back to Teachers", teachers_path, class: "action-btn back-btn" %>
+  </div>
 </div>

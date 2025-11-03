@@ -422,13 +422,65 @@ thead tr:nth-child(2) th {
   font-size: 1.5rem;
 }
 
-.student-card .student-subinfo {
-  font-size: 1rem;
-  color: #f5deb3; 
-}
-
 .modal-backdrop.show {
   opacity: 0.3 !important; /* default is 0.5 */
   background-color: rgba(0, 0, 0, 0.3) !important;
 }
+
+.active {
+  background-color: #e0a800 !important;
+  color: black !important;
+}
+
+/* TEACHERS TABLE HEADER STYLING */
+.table thead tr th {
+  background-color: #4b3b2a !important;
+  color: white !important;
+  text-align: left; /* keep header text aligned to the left */
+}
+
+.subject-table thead tr th {
+  background-color: #4b3b2a !important;
+  color: white !important;
+  text-align: left;
+}
+
+.teacher-edit-container {
+  margin-top: 20px;
+}
+
+.teacher-edit-header {
+  background-color: #4b3b2b; /* dark brown */
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.teacher-edit-header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.teacher-edit-container .card {
+  background-color: #fff8e7; /* soft beige like students */
+  border: none;
+  border-radius: 10px;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
 

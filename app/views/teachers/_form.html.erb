@@ -1,42 +1,51 @@
-<%= form_with(model: teacher) do |form| %>
-  <% if teacher.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
-
-      <ul>
-        <% teacher.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<div class="card shadow-sm">
+  <div class="card-header bg-light">
+    <h5 class="mb-0"><%= teacher.new_record? ? "New Teacher" : "Edit Teacher" %></h5>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+  <div class="card-body">
+    <%= form_with(model: teacher) do |f| %>
+      <% if teacher.errors.any? %>
+        <div class="alert alert-danger">
+          <strong><%= pluralize(teacher.errors.count, "error") %> prevented this teacher from being saved:</strong>
+          <ul class="mb-0">
+            <% teacher.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label :specialization, style: "display: block" %>
-    <%= form.text_field :specialization %>
-  </div>
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label fw-bold" %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Enter teacher name" %>
+      </div>
 
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
+      <div class="mb-3">
+        <%= f.label :email, class: "form-label fw-bold" %>
+        <%= f.text_field :email, class: "form-control", placeholder: "Enter email" %>
+      </div>
 
-  <div>
-    <%= form.label :department_id, "Department", style: "display: block" %>
-    <%= form.collection_select :department_id, Department.all, :id, :name, prompt: "Select a department" %>
-  </div>
+      <div class="mb-3">
+        <%= f.label :specialization, class: "form-label fw-bold" %>
+        <%= f.text_field :specialization, class: "form-control", placeholder: "Enter specialization" %>
+      </div>
 
-  <div>
-    <%= form.submit %>
+      <div class="mb-3">
+        <%= f.label :status, class: "form-label fw-bold" %>
+        <%= f.text_field :status, class: "form-control", placeholder: "Enter employment status" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :department_id, "Department", class: "form-label fw-bold" %>
+        <%= f.collection_select :department_id, Department.all, :id, :name,
+            { prompt: "Select a department" },
+            { class: "form-select" } %>
+      </div>
+
+      <div class="text-end">
+        <%= f.submit(teacher.new_record? ? "Create Teacher" : "Update Teacher", class: "btn btn-primary") %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
