@@ -55,7 +55,7 @@ class TeachersController < ApplicationController
     @teacher.department.decrement!(:employee_count)
 
     respond_to do |format|
-      format.html { redirect_to teachers_path, notice: "Teacher was successfully destroyed.", status: :see_other }
+      format.html { redirect_to teachers_path, notice: "Teacher was successfully deleted.", status: :see_other }
       format.json { head :no_content }
     end
   end

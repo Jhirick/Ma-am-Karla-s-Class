@@ -37,7 +37,7 @@
     </div>
 
     <nav class="nav flex-column mt-3">
-      <%= link_to students_path, class: "nav-link text-white" do %>
+      <%= link_to students_path, class: "nav-link text-white #{'active' if controller_name == 'students'}" do %>
         <i class="bi bi-person-lines-fill me-2"></i><span>  Students</span>
       <% end %>
       <%= link_to teachers_path, class: "nav-link text-white" do %>

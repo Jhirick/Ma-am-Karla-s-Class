@@ -1,33 +1,33 @@
-
-
 <% content_for :title, "Teachers" %>
 
-<h1>Teachers</h1>
-  <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Specialization</th>
-          <th>Status</th>
-          <th>Units</th>
-          <th>Monthly Salary</th>
-          <th>Show</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @teachers.each do | teacher | %>
-          <tr>
-            <td><%= teacher.name %></td>
-            <td><%= teacher.email %></td>
-            <td><%= teacher.specialization %></td>
-            <td><%= teacher.status %></td>
-            <td><%= teacher.number_of_units %></td>
-            <td><%= teacher.monthly_salary %></td>
-            <td><%= link_to "Show this teacher", teacher %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Teachers</h1>
+  <%= link_to "New Teacher", new_teacher_path, class: "btn btn-success m-0" %>
+</div>
 
-<%= link_to "New teacher", new_teacher_path %>
+<div class="row">
+  <% @teachers.each do |teacher| %>
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm h-100 text-center p-3 style="max-width: 230px; margin: 0 auto;">
+        <!-- Profile Icon or Photo -->
+        <div class="mb-3">
+          <%# <%= image_tag teacher.photo.url, class: "rounded-circle", width: "80", height: "80" if teacher.photo.present? %>
+          <i class="bi bi-person-circle" style="font-size: 3rem; color: #6c757d;"></i>
+        </div>
+
+        <div class="card-body p-2">
+          <h5 class="card-title mb-2 fw-semibold"><%= teacher.name %></h5>
+
+          <!-- Left-aligned text -->
+          <div class="text-start" style="font-size: 0.9rem;">
+            <p class="card-text mb-1"><strong>Email:</strong> <%= teacher.email %></p>
+            <p class="card-text mb-1"><strong>Specialization:</strong> <%= teacher.specialization %></p>
+            <p class="card-text mb-2"><strong>Status:</strong> <%= teacher.status %></p>
+          </div>
+
+          <%= link_to "Show this teacher", teacher, class: "btn btn-primary btn-sm w-100" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
