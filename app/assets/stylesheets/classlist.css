@@ -1,0 +1,64 @@
+.classlist-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Header bar */
+.classlist-header {
+  background-color: #4b3621;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Table */
+.table-classlist {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #fffaf0;
+}
+
+.table-classlist th {
+  background-color: #4b3621;
+  color: white;
+  padding: 10px;
+}
+
+.table-classlist td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Buttons */
+.btn-green {
+  background-color: #2d6a4f;
+  color: white !important;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-green:hover {
+  background-color: #1b4332;
+}
+
+.btn-gray {
+  background-color: #6c757d;
+  color: white !important;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-gray:hover {
+  background-color: #5a6268;
+}
