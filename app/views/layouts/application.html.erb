@@ -67,15 +67,43 @@
       </nav>
     </div>
 
-  <!-- Main Content -->
+<!-- Main Content -->
   <div class="content">
 
+  <!-- Flash Notification -->
     <% flash.each do |key, message| %>
-      <div class="alert alert-<%= key == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
-        <%= message %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <% end %>
+      <div class="auto-dismiss-alert alert alert-<%= key == "notice" ? "success" : "danger" %>" role="alert"
+        style="
+          position: fixed;
+          top: 80px;            
+          right: 30px;        
+          z-index: 1050;
+          width: auto;
+          opacity: 1;
+          transition: opacity 0.5s ease;
+        ">
+      <%= message %>
+    </div>
+  <% end %>
+
+  <script>
+    // Function that fades and removes alerts
+    function autoDismissAlerts() {
+      const alerts = document.querySelectorAll(".auto-dismiss-alert");
+      alerts.forEach(alert => {
+        setTimeout(() => {
+          alert.style.opacity = "0";
+          setTimeout(() => alert.remove(), 500); // remove after fade-out animation
+        }, 1000); 
+      });
+    }
+
+    // Run on page load
+    document.addEventListener("DOMContentLoaded", autoDismissAlerts);
+
+    // Run again on Turbo navigation (Rails default)
+    document.addEventListener("turbo:load", autoDismissAlerts);
+  </script>
 
     <%= yield %>
     <!-- Bootstrap JS CDN (Optional for dropdowns, nav, etc.) -->
