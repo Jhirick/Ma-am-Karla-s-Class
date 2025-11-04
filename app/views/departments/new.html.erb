@@ -1,11 +1,18 @@
-<% content_for :title, "New department" %>
+<% content_for :title, "New Department" %>
 
-<h1>New department</h1>
+<div class="department-new-container">
+  <div class="department-new-header d-flex align-items-center">
+    <i class="bi bi-building-add ms-3 me-2 fs-3"></i>
+    <h1>Create New Department</h1>
+  </div>
 
-<%= render "form", department: @department %>
+  <div class="department-new-form mt-3 text-right">
+    <%= render "form", department: @department %>
+  </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to departments", departments_path %>
+  <div class="department-actions-container mt-3">
+    <div class="department-actions d-flex gap-2 ms-3 mb-3" style="justify-content: flex-start; width: 100%;">
+      <%= link_to "Back to Departments", departments_path, class: "btn btn-secondary px-3 rounded-1 fw-semibold" %>
+    </div>
+  </div>
 </div>
