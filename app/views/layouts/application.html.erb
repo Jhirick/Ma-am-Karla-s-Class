@@ -49,28 +49,28 @@
       <%= link_to students_path, class: "nav-link text-white #{'active' if controller_name == 'students'}" do %>
         <i class="bi bi-person-lines-fill me-2"></i><span>  Students</span>
       <% end %>
-      <%= link_to teachers_path, class: "nav-link text-white" do %>
+      <%= link_to teachers_path, class: "nav-link text-white #{'active' if controller_name == 'teachers'}" do %>
         <i class="bi bi-person-workspace me-2"></i><span>  Teachers</span>
       <% end %>
-      <%= link_to sections_path, class: "nav-link text-white" do %>
+      <%= link_to sections_path, class: "nav-link text-white #{'active' if controller_name == 'sections'}" do %>
         <i class="bi bi-diagram-3 me-2"></i><span>  Sections</span>
       <% end %>
-      <%= link_to subjects_path, class: "nav-link text-white" do %>
+      <%= link_to subjects_path, class: "nav-link text-white #{'active' if controller_name == 'subjects'}" do %>
         <i class="bi bi-book me-2"></i><span>  Subjects</span>
       <% end %>
-      <%= link_to classlists_path, class: "nav-link text-white" do %>
+      <%= link_to classlists_path, class: "nav-link text-white #{'active' if controller_name == 'classlists'}" do %>
         <i class="bi bi-list-task me-2"></i><span>  Classlists</span>
       <% end %>
-      <%= link_to staffs_path, class: "nav-link text-white" do %>
+      <%= link_to staffs_path, class: "nav-link text-white #{'active' if controller_name == 'staffs'}" do %>
         <i class="bi bi-person-video2 me-2"></i><span>  Staffs</span>
       <% end %>
-      <%= link_to departments_path, class: "nav-link text-white" do %>
+      <%= link_to departments_path, class: "nav-link text-white #{'active' if controller_name == 'departments'}" do %>
         <i class="bi bi-bank2 me-2"></i><span>  Departments</span>
       <% end %>
-      <%= link_to guardians_path, class: "nav-link text-white" do %>
+      <%= link_to guardians_path, class: "nav-link text-white #{'active' if controller_name == 'guardians'}" do %>
         <i class="bi bi-people-fill me-2"></i><span>  Guardians</span>
       <% end %>
-      <%= link_to student_guardians_path, class: "nav-link text-white" do %>
+      <%= link_to student_guardians_path, class: "nav-link text-white #{'active' if controller_name == 'student_guardians'}" do %>
         <i class="bi bi-person-hearts me-2"></i><span>  Relationships</span>
       <% end %>
       </nav>

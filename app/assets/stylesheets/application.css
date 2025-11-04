@@ -303,18 +303,21 @@ body {
 }
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px; /* sits right below the topbar */
+  left: 0;
+  bottom: 0;
   width: 90px;
   background-color: #fdfdfd;
   border-right: 1px solid #e6e6e6;
   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
-  margin-top: 60px;
-  flex-shrink: 0;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* enables scrolling when content overflows */
+  overflow-x: hidden;
   transition: width 0.5s ease;
+  z-index: 999;
 }
 
 .sidebar:hover {
@@ -353,6 +356,25 @@ body {
 
 .nav-link i {
   font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  background-color: #4b3b2b !important; 
+  color: white !important;
+}
+
+.sidebar:not(:hover) .nav-link.active {
+  background-color: transparent !important;
+  color: #4b3b2b !important;  
+}
+
+.sidebar:not(:hover) .nav-link.active i {
+  background-color: #4b3b2b !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 8px;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
@@ -380,11 +402,17 @@ body {
 }
 
 .content {
+  margin-top: 60px;
+  margin-left: 90px;
   flex-grow: 1;
   padding: 30px;
-  margin-top: 60px;
-  width: 100%;
+  transition: margin-left 0.5s ease;
 }
+
+.sidebar:hover ~ .content {
+  margin-left: 250px;
+}
+
 
 .students-container table {
   width: 100%;
