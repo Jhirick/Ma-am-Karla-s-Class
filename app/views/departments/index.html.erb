@@ -1,17 +1,14 @@
 <% content_for :title, "Departments" %>
 
 <div class="departments-container mt-1">
-  <!-- New Department button on top-right -->
   <div class="d-flex justify-content-end mb-2">
     <%= link_to "New Department", new_department_path, class: "btn btn-new" %>
   </div>
 
-  <!-- Brown header below -->
   <div class="departments-header px-3">
     <h1 class="m-0">Departments</h1>
   </div>
 
-  <!-- Grid of department cards -->
   <div class="row mt-3">
     <% @departments.each do |department| %>
       <div class="col-md-2 col-sm-6 mb-4">
