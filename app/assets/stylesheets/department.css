@@ -1,0 +1,227 @@
+.departments-container {
+  min-height: 100vh;
+  padding: 30px;
+  background-color: transparent !important;
+}
+
+/* --- Topbar with New Department Button --- */
+.departments-topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.btn-new {
+  background-color: #198754;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-new:hover {
+  background-color: #157347;
+  transform: translateY(-2px);
+}
+
+/* --- Page Header --- */
+.departments-header {
+  background-color: #4b3b2b;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Department Cards --- */
+.department-card {
+  border: 1px solid #4b3b2b;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.department-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  background-color: #fff8e7;
+}
+
+.department-card .card-title {
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4b3b2b;
+}
+
+.department-card .card-text {
+  text-align: right;
+  color: #3a2e27;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+/* --- Show Button inside Card --- */
+.department-card .show-btn {
+  background-color: #4b3b2b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.department-card .show-btn:hover {
+  background-color: #7b5e43;
+  transform: translateY(-2px);
+}
+
+/* --- Grid Layout --- */
+.departments-container .row {
+  margin-top: 20px;
+  justify-content: start;
+}
+
+.department-show-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px 40px;
+}
+
+.department-edit-container {
+  min-height: 100vh;
+  background-color: transparent;
+  padding: 20px;
+}
+
+.department-edit-header {
+  background-color: #4b3b2b;
+  color: white;
+  padding: 18px 24px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.department-edit-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.department-edit-form {
+  background-color: #fff8e7;
+  border-radius: 10px;
+  padding: 25px 30px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.department-edit-form .form-label {
+  color: #4b3b2b;
+}
+
+.department-edit-form .form-control {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* --- Action Buttons --- */
+.department-actions-container .action-btn {
+  background-color: #4b3b2b;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.department-actions-container .action-btn:hover {
+  background-color: #7b5e43;
+  transform: translateY(-2px);
+}
+
+.department-actions-container .back-btn {
+  background-color: #6c757d;
+}
+
+.department-actions-container .back-btn:hover {
+  background-color: #5a6268;
+}
+
+.department-new-container {
+  min-height: 100vh;
+  background-color: transparent;
+  padding: 20px;
+}
+
+/* Match header style and size with EDIT PAGE */
+.department-new-header {
+  background-color: #4b3b2b;
+  color: white;
+  padding: 18px 24px; 
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.department-new-header h1 {
+  font-size: 1.8rem; 
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Form Section */
+.department-new-form {
+  background-color: #fff8e7;
+  border-radius: 10px;
+  padding: 25px 30px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.department-new-form form .actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* Create button */
+.department-new-form form input[type="submit"] {
+  background-color: #0f5132;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.department-new-form form input[type="submit"]:hover {
+  background-color: #198754;
+  transform: translateY(-2px);
+}
+
+/* Back Button */
+.department-actions-container .btn {
+  transition: all 0.3s ease;
+}
+
+.department-actions-container .btn:hover {
+  transform: translateY(-2px);
+}
