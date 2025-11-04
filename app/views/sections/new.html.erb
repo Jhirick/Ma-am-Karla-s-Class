@@ -1,11 +1,14 @@
-<% content_for :title, "New section" %>
+<div class="section-edit-container">
+  <div class="section-edit-header d-flex align-items-center">
+    <i class="bi bi-journal-plus ms-3 me-2 fs-3"></i>
+    <h3>Creating Section</h3>
+  </div>
 
-<h1>New section</h1>
+  <%= render "form", section: @section %>
 
-<%= render "form", section: @section %>
+  <br>
 
-<br>
-
-<div>
-  <%= link_to "Back to sections", sections_path %>
+  <div>
+    <%= link_to "Back to Sections", sections_path, class: "action-btn back-btn" %>
+  </div>
 </div>
