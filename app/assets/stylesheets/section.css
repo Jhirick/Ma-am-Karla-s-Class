@@ -1,0 +1,27 @@
+.section-edit-header {
+  background-color: #4b3b2b; 
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;     
+  height: 80px;             
+}
+
+.section-edit-container .card {
+  background-color: white;;
+  border: none;
+  border-radius: 10px;
+}
+
+.section-edit-header i {
+  color: white;;             /* icon color */
+}
+
+.section-edit-header h3 {
+  margin: 0;                  /* remove extra top/bottom space */
+  font-weight: 600;
+  color: white;;
+}

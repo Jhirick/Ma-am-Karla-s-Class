@@ -445,15 +445,11 @@ thead tr:nth-child(2) th {
   text-align: left;
 }
 
-.teacher-edit-container {
-  margin-top: 20px;
-}
-
 .teacher-edit-header {
   background-color: #4b3b2b; /* dark brown */
   color: white;
   text-align: center;
-  padding: 25px 0;
+  padding: 15px 20px;
   border-radius: 8px;
   margin-bottom: 16px;
 }

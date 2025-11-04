@@ -1,12 +1,19 @@
-<% content_for :title, "Editing section" %>
+<% content_for :title, "Editing Section" %>
 
-<h1>Editing section</h1>
+<div class="section-edit-container">
+  <div class="section-edit-header d-flex align-items-center">
+    <i class="bi bi-journal-text ms-3 me-2 fs-3"></i>
+    <h3>Update Section Information</h3>
+  </div>
 
-<%= render "form", section: @section %>
+  <div class="section-edit-form">
+    <%= render "form", section: @section %>
+  </div>
 
-<br>
-
-<div>
-  <%= link_to "Show this section", @section %> |
-  <%= link_to "Back to sections", sections_path %>
+  <div class="section-actions-container mt-3">
+    <div class="section-actions d-flex gap-2 ms-3 mb-3">
+      <%= link_to "Back to Sections", sections_path, class: "action-btn back-btn" %>
+      <%= link_to "Show this Section", @section, class: "action-btn btn-sm", style: "background-color: #343a40; color: white;" %>
+    </div>
+  </div>
 </div>
