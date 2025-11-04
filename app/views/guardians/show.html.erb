@@ -1,27 +1,60 @@
+<% content_for :title, "Guardian Details" %>
 
+<div class="guardian-show-container">
+  <!-- Unified Guardian Info Card -->
+  <div class="card guardian-card shadow-sm">
+    <div class="card-header d-flex align-items-center" style="background-color: #4b3b2a; color: white;">
+      <i class="bi bi-person-vcard-fill ms-1 me-3 fs-1"></i>
+      <div>
+        <h3 class="guardian-name mb-0"><%= @guardian.name %></h3>
+        <p class="guardian-subinfo mb-0">Guardian Information</p>
+      </div>
+    </div>
 
-<%= render @guardian %>
+    <div class="card-body">
+      <p><strong>Email Address:</strong> <%= @guardian.email_address %></p>
+      <p><strong>Contact Number:</strong> <%= @guardian.contact_number %></p>
+      <p><strong>Number of Students:</strong> <%= @guardian.students.count %></p>
+    </div>
+  </div>
 
-<h2>List of Students</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Relationship</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @guardian.student_guardians.each do |student_guardian|%>
+<!-- Students Table -->
+<h4 class="student-list-title mt-4">👩‍🎓 List of Students</h4>
+
+<div class="student-table-wrapper">
+  <table class="table table-bordered student-table">
+    <thead>
       <tr>
-        <td><%= student_guardian.student.name %></td>
-        <td><%= student_guardian.relationship %></td>
+        <th>Name</th>
+        <th>Relationship</th>
       </tr>
-    <% end %>
-  </tbody>
-<table>
+    </thead>
+    <tbody>
+      <% @guardian.student_guardians.each do |student_guardian| %>
+        <tr>
+          <td><%= student_guardian.student.name %></td>
+          <td><%= student_guardian.relationship %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<div>
-  <%= link_to "Edit this guardian", edit_guardian_path(@guardian) %> |
-  <%= link_to "Back to guardians", guardians_path %>
-  <%= button_to "Destroy this guardian", @guardian, method: :delete %>
+
+  <!-- Action Buttons -->
+  <div class="d-flex justify-content-between align-items-center w-100 px-3 mt-4">
+    <!-- Left side -->
+    <div class="flex-start">
+      <%= link_to "Back to Guardians", guardians_path, class: "action-btn back-btn" %>
+    </div>
+
+    <!-- Right side -->
+    <div class="flex-end d-flex gap-2">
+      <%= link_to "Edit this Guardian", edit_guardian_path(@guardian), class: "action-btn edit-btn" %>
+      <%= button_to "Delete this Guardian", @guardian,
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this guardian?" },
+            class: "action-btn delete-btn" %>
+    </div>
+  </div>
 </div>
