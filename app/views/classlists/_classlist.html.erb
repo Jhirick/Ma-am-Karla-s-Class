@@ -1,12 +1,6 @@
-<div id="<%= dom_id classlist %>">
-  <p>
-    <strong>Student:</strong>
-    <%= classlist.student.name %>
-  </p>
-
-  <p>
-    <strong>Section:</strong>
-    <%= classlist.section.name %>
-  </p>
-
+<div class="card shadow-sm rounded-4 mb-3">
+  <div class="card-body">
+    <p class="mb-1"><strong>Student:</strong> <%= classlist.student.name %></p>
+    <p class="mb-1"><strong>Section:</strong> <%= classlist.section.name %></p>
+  </div>
 </div>

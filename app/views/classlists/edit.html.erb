@@ -1,12 +1,18 @@
-<% content_for :title, "Editing classlist" %>
+<% content_for :title, "Edit Classlist" %>
 
-<h1>Editing classlist</h1>
+<div class="classlist-form-container mt-4">
+  <div class="card shadow-sm rounded-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0">Edit Classlist</h3>
+    </div>
+    <div class="card-body">
+      <%= render "form", classlist: @classlist %>
+    </div>
+  </div>
 
-<%= render "form", classlist: @classlist %>
-
-<br>
-
-<div>
-  <%= link_to "Show this classlist", @classlist %> |
-  <%= link_to "Back to classlists", classlists_path %>
+  <div class="mt-4">
+    <%= link_to "Back to Classlists", classlists_path,
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #6c757d; border-radius: 8px;" %>
+  </div>
 </div>

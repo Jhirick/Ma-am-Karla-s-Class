@@ -1,64 +1,100 @@
-.classlist-container {
-  background-color: #fff;
+.classlists-container {
+  min-height: 100vh;
+  padding: 30px;
+  background-color: transparent !important;
+}
+
+/* --- Topbar with New Classlist Button --- */
+.btn-new {
+  background-color: #198754;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-new:hover {
+  background-color: #157347;
+  transform: translateY(-2px);
+}
+
+/* --- Page Header --- */
+.classlists-header {
+  background-color: #4b3b2b;
+  color: white;
+  padding: 15px 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Header bar */
-.classlist-header {
-  background-color: #4b3621;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px 10px 0 0;
-  font-weight: bold;
-  font-size: 1.3rem;
+/* --- Classlist Cards --- */
+.classlist-card {
+  width: 230px;
+  border: 1px solid #4b3b2b;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.classlist-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  background-color: #fff8e7;
+}
+
+.classlist-card .card-title {
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4b3b2b;
+}
+
+.classlist-card .card-text {
+  color: #3a2e27;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+/* --- Show Button inside Card --- */
+.classlist-card .show-btn {
+  background-color: #4b3b2b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.classlist-card .show-btn:hover {
+  background-color: #7b5e43;
+  transform: translateY(-2px);
+}
+
+.classlists-container .row {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 10px; /* decrease this number for tighter spacing */
 }
 
-/* Table */
-.table-classlist {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-  background-color: #fffaf0;
+.classlists-container .col-md-3 {
+  flex: 1 1 220px; /* keeps them responsive and evenly sized */
 }
 
-.table-classlist th {
-  background-color: #4b3621;
-  color: white;
-  padding: 10px;
+.classlist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* adjust spacing here */
 }
 
-.table-classlist td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Buttons */
-.btn-green {
-  background-color: #2d6a4f;
-  color: white !important;
-  padding: 6px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.btn-green:hover {
-  background-color: #1b4332;
-}
-
-.btn-gray {
-  background-color: #6c757d;
-  color: white !important;
-  padding: 6px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.btn-gray:hover {
-  background-color: #5a6268;
+.classlist-item {
+  flex: 0 0 auto;
 }
