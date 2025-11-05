@@ -29,14 +29,14 @@
           <td><%= relationship.relationship %></td>
           <td>
             <%= link_to "Show", student_guardian_path(relationship), class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
-            <%= link_to "Edit", edit_student_guardian_path(relationship), class: "btn btn-sm btn-warning" %>
+            <%= link_to "Edit", edit_student_guardian_path(relationship), class: "btn btn-sm btn-warning", style: "background-color: #ffc107; color: black;" %>
 
             <%= link_to "Delete",
                 student_guardian_path(relationship),
                 method: :delete,
                 data: { confirm: "Are you sure you want to delete this relationship?" },
-                class: "btn btn-danger btn-sm"
-            %>
+                class: "btn btn-danger btn-sm",
+                style: "background-color: #b02a37; color: white;" %>
           </td>
         </tr>
       <% end %>
