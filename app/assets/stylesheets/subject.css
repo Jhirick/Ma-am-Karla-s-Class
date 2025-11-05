@@ -52,20 +52,3 @@
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
-/* Subjects index buttons */
-.btn-new {
-  height: 50px;            
-  min-width: 150px;        
-  padding: 0 25px;         
-  font-size: 16px;         
-  line-height: 50px;       
-  border-radius: 8px;
-}    
-
-.show-btn {
-  height: 45px;            
-  font-size: 14px;         
-  line-height: 45px;       
-  border-radius: 6px;
-}

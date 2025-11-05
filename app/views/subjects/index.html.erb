@@ -2,8 +2,7 @@
 
 <div class="subjects-container mt-1">
   <div class="d-flex justify-content-end mb-2">
-    <%= link_to "New Subject", new_subject_path, class: "action-btn back-btn",
-        style: "height:50px; min-width:150px; font-size:16px; line-height:50px; border-radius:8px;" %>
+    <%= link_to "New Subject", new_subject_path, class: "btn btn-new" %>
   </div>
 
   <div class="subjects-header px-3 py-2 mb-3">
@@ -19,8 +18,7 @@
             <p class="mb-1"><strong>Teacher:</strong> <%= subject.teacher.name %></p>
             <p class="mb-1"><strong>Units:</strong> <%= subject.number_of_units %></p>
             <%= link_to "View Subject", subject_path(subject),
-              class: "btn btn-dark w-100 mt-3",
-              style: "height:45px; font-size:14px; line-height:45px; border-radius:6px;" %>
+              class: "btn btn-dark btn-sm w-100 show-btn mt-3" %>
           </div>
         </div>
       </div>
