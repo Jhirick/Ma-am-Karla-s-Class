@@ -1,16 +1,25 @@
-
-
 <% content_for :title, "Staffs" %>
 
-<h1>Staffs</h1>
+<div class="staffs-container mt-1">
+  <div class="d-flex justify-content-end mb-2">
+    <%= link_to "New Staff", new_staff_path, class: "btn btn-new" %>
+  </div>
 
-<div id="staffs">
-  <% @staffs.each do |staff| %>
-    <%= render staff %>
-    <p>
-      <%= link_to "Show this staff", staff %>
-    </p>
-  <% end %>
+  <div class="staffs-header px-3">
+    <h1 class="m-0">Staff</h1>
+  </div>
+
+  <div class="staff-grid mt-3">
+    <% @staffs.each do |staff| %>
+      <div class="staff-item">
+        <div class="card staff-card shadow-sm rounded-4 overflow-hidden">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-2"><%= staff.name %></h5>
+            <p class="card-text mb-3"><strong>Department:</strong> <%= staff.department.name if staff.department %></p>
+            <%= link_to "Show Staff", staff_path(staff), class: "btn btn-sm w-100 mt-auto show-btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New staff", new_staff_path %>

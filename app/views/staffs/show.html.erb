@@ -1,10 +1,56 @@
+<% content_for :title, "Staff Details" %>
 
+<div class="staff-show-container">
+  <!-- Staff Info Card -->
+  <div class="card shadow-sm mb-4 rounded-4 overflow-hidden">
+    <div class="card-header d-flex align-items-center" style="background-color: #4b3b2a; color: white;">
+      <i class="bi bi-person-video2 ms-1 me-3 fs-1"></i>
+      <div>
+        <h3 class="staff-name mb-0"><%= @staff.name %></h3>
+        <p class="staff-subinfo mb-0">
+          <%= @staff.department.name if @staff.department %> | <%= @staff.status %>
+        </p>
+      </div>
+    </div>
 
-<%= render @staff %>
+    <div class="card-body">
+      <p><strong>Email:</strong> <%= @staff.email %></p>
+      <p><strong>Monthly Salary:</strong> ₱<%= number_with_precision(@staff.monthly_salary, precision: 2) %></p>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Edit this staff", edit_staff_path(@staff) %> |
-  <%= link_to "Back to staffs", staffs_path %>
+  <!-- Action Buttons -->
+  <div class="d-flex justify-content-between align-items-center w-100 px-3">  
+    <div class="flex-start">
+      <%= link_to "Back to Staff", staffs_path, class: "action-btn back-btn" %>
+    </div>
 
-  <%= button_to "Destroy this staff", @staff, method: :delete %>
+    <div class="flex-end d-flex gap-2">
+      <%= link_to "Edit this Staff", edit_staff_path(@staff), class: "action-btn edit-btn" %>
+      <%= button_to "Delete this Staff", @staff, method: :delete,
+          data: { confirm: "Are you sure you want to delete this staff?" },
+          class: "action-btn delete-btn" %>
+    </div>
+  </div>
+
+  <!-- Bootstrap Confirmation Modal -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="confirmDeleteLabel">Confirm Delete</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this staff?
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <%= form_with model: @staff, method: :delete, local: true do |f| %>
+            <%= f.submit "Delete", class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

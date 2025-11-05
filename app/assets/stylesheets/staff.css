@@ -1,0 +1,100 @@
+.staffs-container {
+  min-height: 100vh;
+  background-color: transparent !important;
+}
+
+/* --- Topbar with New Button --- */
+.btn-new {
+  background-color: #198754;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-new:hover {
+  background-color: #157347;
+  transform: translateY(-2px);
+}
+
+/* --- Header --- */
+.staffs-header {
+  background-color: #4b3b2b;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Grid --- */
+.staff-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.staff-item {
+  flex: 0 0 auto;
+}
+
+/* --- Cards --- */
+.staff-card {
+  width: 230px;
+  border: 1px solid #4b3b2b;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.staff-card:hover {
+  transform: none; /* card stays static */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  background-color: #fff8e7;
+}
+
+.staff-card .card-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4b3b2b;
+}
+
+.staff-card .card-text {
+  color: #3a2e27;
+  font-size: 0.95rem;
+}
+
+/* --- Buttons --- */
+.show-btn,
+.action-btn,
+.submit-btn,
+.back-btn,
+.edit-btn,
+.delete-btn {
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+  padding: 8px 14px;
+  display: inline-block;
+}
+
+/* Individual button colors */
+.show-btn { background-color: #4b3b2b; }
+.show-btn:hover { background-color: #7b5e43; transform: translateY(-2px); }
+
+.back-btn { background-color: #6c757d; }
+.back-btn:hover { background-color: #5c636a; transform: translateY(-2px); }
+
+.edit-btn, .submit-btn { background-color: #198754; }
+.edit-btn:hover, .submit-btn:hover { background-color: #157347; transform: translateY(-2px); }
+
+.delete-btn { background-color: #dc3545; }
+.delete-btn:hover { background-color: #b02a37; transform: translateY(-2px); }
