@@ -1,11 +1,16 @@
-<% content_for :title, "New staff" %>
+<% content_for :title, "New Staff" %>
 
-<h1>New staff</h1>
+<div class="staff-form-container mt-4">
+  <div class="card shadow-sm rounded-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0">Create Staff</h3>
+    </div>
+    <div class="card-body">
+      <%= render "form", staff: @staff %>
+    </div>
+  </div>
 
-<%= render "form", staff: @staff %>
-
-<br>
-
-<div>
-  <%= link_to "Back to staffs", staffs_path %>
+  <div class="mt-4">
+    <%= link_to "Back to Staff", staffs_path, class: "action-btn back-btn" %>
+  </div>
 </div>
