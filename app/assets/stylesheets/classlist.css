@@ -4,7 +4,7 @@
   background-color: transparent !important;
 }
 
-/* --- Topbar with New Classlist Button --- */
+/* --- Topbar Button --- */
 .btn-new {
   background-color: #198754;
   color: #fff;
@@ -39,16 +39,16 @@
   border: 1px solid #4b3b2b;
   border-radius: 12px;
   background-color: #ffffff;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .classlist-card:hover {
-  transform: translateY(-6px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   background-color: #fff8e7;
 }
 
+/* --- Card Title/Text --- */
 .classlist-card .card-title {
   text-align: left;
   font-weight: 700;
@@ -63,7 +63,8 @@
   margin-bottom: 8px;
 }
 
-/* --- Show Button inside Card --- */
+/* --- Buttons (All) --- */
+.btn,
 .classlist-card .show-btn {
   background-color: #4b3b2b;
   color: #fff;
@@ -74,25 +75,17 @@
   transition: all 0.3s ease;
 }
 
+.btn:hover,
 .classlist-card .show-btn:hover {
   background-color: #7b5e43;
   transform: translateY(-2px);
 }
 
-.classlists-container .row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* decrease this number for tighter spacing */
-}
-
-.classlists-container .col-md-3 {
-  flex: 1 1 220px; /* keeps them responsive and evenly sized */
-}
-
+/* --- Layout --- */
 .classlist-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* adjust spacing here */
+  gap: 15px;
 }
 
 .classlist-item {
