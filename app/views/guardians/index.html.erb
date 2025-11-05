@@ -29,10 +29,11 @@
           <td><%= guardian.contact_number %></td>
           <td>
             <%= link_to "Show", guardian, class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
-            <%= link_to "Edit", edit_guardian_path(guardian), class: "btn btn-sm btn-warning" %>
+            <%= link_to "Edit", edit_guardian_path(guardian), class: "btn btn-sm btn-warning", style: "background-color: #ffc107; color: black;" %>
             <%= link_to "Delete", "#", 
                 class: "btn btn-danger btn-sm", 
-                data: { bs_toggle: "modal", bs_target: "#confirmDeleteModal", guardian_url: guardian_path(guardian) } %>
+                data: { bs_toggle: "modal", bs_target: "#confirmDeleteModal", guardian_url: guardian_path(guardian) },
+                style: "background-color: #b02a37; color: white;" %>
           </td>
         </tr>
       <% end %>
