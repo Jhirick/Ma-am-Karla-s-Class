@@ -1,12 +1,40 @@
-<% content_for :title, "Editing student guardian" %>
+<% content_for :title, "Editing Student-Guardian Relationship" %>
 
-<h1>Editing student guardian</h1>
+<div class="guardian-edit-container w-100 px-0 mx-0">
+  <div class="guardian-edit-header d-flex align-items-center">
+    <i class="bi bi-people-fill ms-3 me-2 fs-3"></i>
+    <h1>Update Relationship Information</h1>
+  </div>
 
-<%= render "form", student_guardian: @student_guardian %>
+  <div class="guardian-edit-form mt-3">
+    <%= form_with(model: @student_guardian, local: true) do |form| %>
+      
+      <div class="form-group mb-3">
+        <%= form.label :student_id, "Student", class: "form-label fw-bold" %>
+        <%= form.collection_select :student_id, Student.all, :id, :name, {}, class: "form-select shadow-sm" %>
+      </div>
 
-<br>
+      <div class="form-group mb-3">
+        <%= form.label :guardian_id, "Guardian", class: "form-label fw-bold" %>
+        <%= form.collection_select :guardian_id, Guardian.all, :id, :name, {}, class: "form-select shadow-sm" %>
+      </div>
 
-<div>
-  <%= link_to "Show this student guardian", @student_guardian %> |
-  <%= link_to "Back to student guardians", student_guardians_path %>
+      <div class="form-group mb-3">
+        <%= form.label :relationship, "Relationship", class: "form-label fw-bold" %>
+        <%= form.text_field :relationship, class: "form-control shadow-sm", placeholder: "e.g., Father, Mother, Aunt" %>
+      </div>
+
+      <div class="mt-4 text-end">
+        <%= form.submit "Update Relationship", class: "btn btn-success px-4 py-2 fw-bold rounded-1" %>
+      </div>
+
+    <% end %>
+  </div>
+
+  <div class="guardian-actions-container mt-3" style="text-align: left;">
+    <div class="guardian-actions d-flex gap-2 ms-3 mb-3" style="justify-content: flex-start; width: 100%;">
+      <%= link_to "Back to Relationships", student_guardians_path, class: "action-btn back-btn" %>
+      <%= link_to "Show this Relationship", @student_guardian, class: "action-btn btn-sm", style: "background-color: #343a40; color: white;" %>
+    </div>
+  </div>
 </div>

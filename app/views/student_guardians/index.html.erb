@@ -1,27 +1,45 @@
+<% content_for :title, "Relationships" %>
 
+<div class="d-flex justify-content-end">
+  <%= link_to "New Relationship", new_student_guardian_path, class: "btn btn-success mt-3" %>
+</div>
 
-<h1>List of Student-Guardians</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Guardian Name</th>
-      <th>Student Name</th>
-      <th>Relationship</th>
-      <th>Show</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @student_guardians.each do |student_guardian| %>
+<div class="students-container">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <!-- Title Row -->
       <tr>
-        <td><%= student_guardian.guardian.name %></td>
-        <td><%= student_guardian.student.name %></td>
-        <td><%= student_guardian.relationship %></td>
-        <td><%= link_to "Show this Student Guardian", student_guardian %></td>
+        <th colspan="4" class="table-title">Student - Guardian Relationships</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
 
+      <!-- Header Row -->
+      <tr>
+        <th>Student</th>
+        <th>Guardian</th>
+        <th>Relationship</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-<%= link_to "New student guardian", new_student_guardian_path %>
+    <tbody>
+      <% @student_guardians.each do |relationship| %>
+        <tr>
+          <td><%= relationship.student.name %></td>
+          <td><%= relationship.guardian.name %></td>
+          <td><%= relationship.relationship %></td>
+          <td>
+            <%= link_to "Show", student_guardian_path(relationship), class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
+            <%= link_to "Edit", edit_student_guardian_path(relationship), class: "btn btn-sm btn-warning" %>
+
+            <%= link_to "Delete",
+                student_guardian_path(relationship),
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete this relationship?" },
+                class: "btn btn-danger btn-sm"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

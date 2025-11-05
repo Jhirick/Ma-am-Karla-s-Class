@@ -1,10 +1,40 @@
+<% content_for :title, "Student-Guardian Relationship" %>
 
+<div class="w-100 px-0 mx-0 mt-3">
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div class="card-header text-white" style="background-color:#4b3b2a;">
+      <h3 class="m-0">Student-Guardian Details</h3>
+    </div>
 
-<%= render @student_guardian %>
+    <div class="card-body">
+      <p><strong>Student:</strong> <%= @student_guardian.student.name %></p>
+      <p><strong>Guardian:</strong> <%= @student_guardian.guardian.name %></p>
+      <p><strong>Relationship:</strong> <%= @student_guardian.relationship %></p>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Edit this student guardian", edit_student_guardian_path(@student_guardian) %> |
-  <%= link_to "Back to student guardians", student_guardians_path %>
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <!-- Back button -->
+    <div>
+      <%= link_to "Back to Relationships",
+          student_guardians_path,
+          class: "btn fw-semibold px-4 py-2",
+          style: "background-color: #6c757d; color:white; border-radius: 8px;" %>
+    </div>
 
-  <%= button_to "Destroy this student guardian", @student_guardian, method: :delete %>
+    <!-- Edit + Delete -->
+    <div class="d-flex gap-2">
+      <%= link_to "Edit Relationship",
+          edit_student_guardian_path(@student_guardian),
+          class: "btn fw-semibold px-4 py-2",
+          style: "background-color: #198754; color:white; border-radius: 8px;" %>
+
+      <%= button_to "Delete",
+          @student_guardian,
+          method: :delete,
+          data: { confirm: "Are you sure?" },
+          class: "btn fw-semibold px-4 py-2",
+          style: "background-color: #dc3545; color:white; border-radius: 8px;" %>
+    </div>
+  </div>
 </div>
