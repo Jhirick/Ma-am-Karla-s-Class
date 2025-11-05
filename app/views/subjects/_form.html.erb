@@ -1,8 +1,7 @@
 <%= form_with(model: subject) do |form| %>
   <% if subject.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
-
+    <div class="alert alert-danger rounded-3">
+      <h5><%= pluralize(subject.errors.count, "error") %> prevented this subject from being saved:</h5>
       <ul>
         <% subject.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,22 +10,26 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, "Subject Name", class: "form-label fw-semibold" %>
+    <%= form.text_field :name, class: "form-control rounded-3" %>
   </div>
 
-  <div>
-    <%= form.label :teacher_id, "Teacher", style: "display: block" %>
-    <%= form.collection_select :teacher_id, Teacher.all, :id, :name, prompt: "Select a teacher" %>
+  <div class="mb-3">
+    <%= form.label :teacher_id, "Teacher", class: "form-label fw-semibold" %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :name,
+      { prompt: "Select a teacher" },
+      class: "form-select rounded-3" %>
   </div>
 
-  <div>
-    <%= form.label :number_of_units, style: "display: block" %>
-    <%= form.text_field :number_of_units %>
+  <div class="mb-3">
+    <%= form.label :number_of_units, "Number of Units", class: "form-label fw-semibold" %>
+    <%= form.text_field :number_of_units, class: "form-control rounded-3" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="text-end">
+    <%= form.submit subject.new_record? ? "Create Subject" : "Update Subject",
+      class: "btn text-white fw-semibold px-4 py-2 submit-btn",
+      style: "background-color: #146c43; border-radius: 8px;" %>
   </div>
 <% end %>

@@ -1,31 +1,107 @@
+<% content_for :title, @subject.name %>
 
-<%= render @subject %>
+<div class="subject-show-container mt-4">
+  <!-- Subject Card -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0"><%= @subject.name %></h3>
+    </div>
+    <div class="card-body">
+      <p class="mb-2"><strong>Teacher:</strong> <%= @subject.teacher.name %></p>
+      <p class="mb-2"><strong>Number of Units:</strong> <%= @subject.number_of_units %></p>
+    </div>
+  </div>
 
-<% @subject.sections.each do | section | %>
-  <h3>Section: <%= section.name %> Room <%= section.room %> Time Slot: <%= section.time_slot %> Number of Students: <%= section.number_of_students %></h3>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Program</th>
-      <th>Year Level</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% section.classlists.each do |classlist| %>
-      <tr>
-        <td><%= classlist.student.name %></td>
-        <td><%= classlist.student.program %></td>
-        <td><%= classlist.student.year_level %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
+  <!-- Sections -->
+  <% @subject.sections.each do |section| %>
+    <div class="card shadow-sm rounded-4 mb-4">
+      <div
+        class="card-header bg-light d-flex justify-content-between align-items-center toggle-header"
+        data-target="#section-<%= section.id %>"
+        style="cursor: pointer;"
+      >
+        <h4 class="m-0"><%= section.name %> - <%= section.room %> (<%= section.time_slot %>)</h4>
+        <i class="bi bi-caret-down-fill toggle-icon"></i>
+      </div>
+      <div class="collapse" id="section-<%= section.id %>">
+        <div class="card-body">
+          <% if section.classlists.any? %>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Student Name</th>
+                    <th>Program</th>
+                    <th>Year Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% section.classlists.each do |classlist| %>
+                    <tr>
+                      <td><%= classlist.student.name %></td>
+                      <td><%= classlist.student.program %></td>
+                      <td><%= classlist.student.year_level %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <p class="text-muted">No students enrolled in this section.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<div>
-  <%= link_to "Edit this subject", edit_subject_path(@subject) %> |
-  <%= link_to "Back to subjects", subjects_path %>
+  <!-- Actions -->
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <%= link_to "Back to Subjects", subjects_path,
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #6c757d; border-radius: 8px padding: 12px 24px;;" %>
 
-  <%= button_to "Destroy this subject", @subject, method: :delete %>
+    <div class="d-flex gap-2">
+      <%= link_to "Edit Subject", edit_subject_path(@subject),
+        class: "btn text-white fw-semibold px-4 py-2",
+        style: "background-color: #198754; border-radius: 8px; padding: 12px 24px;" %>
+
+      <%= button_to "Delete Subject", @subject,
+        method: :delete, data: { confirm: 'Are you sure?' },
+        class: "btn text-white fw-semibold px-4 py-2",
+        style: "background-color: #dc3545; border-radius: 8px; padding: 12px 24px;" %>
+    </div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener("turbo:load", () => {
+    document.querySelectorAll(".toggle-header").forEach(header => {
+      if (header.dataset.toggleInitialized) return;
+      header.dataset.toggleInitialized = "true";
+
+      const targetSelector = header.getAttribute("data-target");
+      const target = document.querySelector(targetSelector);
+      const icon = header.querySelector(".toggle-icon");
+
+      if (!target) return;
+
+      const collapse = new bootstrap.Collapse(target, { toggle: false });
+
+      header.addEventListener("click", () => collapse.toggle());
+      target.addEventListener("show.bs.collapse", () => icon.classList.add("rotate-up"));
+      target.addEventListener("hide.bs.collapse", () => icon.classList.remove("rotate-up"));
+    });
+  });
+</script>
+
+<style>
+  .toggle-icon {
+    transition: transform 0.3s ease;
+  }
+  .rotate-up {
+    transform: rotate(180deg);
+  }
+  .toggle-header:hover {
+    background-color: #f8f9fa;
+  }
+</style>
