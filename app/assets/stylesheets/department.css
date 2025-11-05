@@ -49,9 +49,7 @@
 }
 
 .department-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-  background-color: #fff8e7;
+  background-color: #fff8e7; 
 }
 
 .department-card .card-title {
@@ -165,7 +163,6 @@
   padding: 20px;
 }
 
-/* Match header style and size with EDIT PAGE */
 .department-new-header {
   background-color: #4b3b2b;
   color: white;

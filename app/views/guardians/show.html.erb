@@ -1,6 +1,6 @@
 <% content_for :title, "Guardian Details" %>
 
-<div class="guardian-show-container">
+<div class="guardian-show-container w-100 px-0 mx-0">
   <!-- Unified Guardian Info Card -->
   <div class="card guardian-card shadow-sm">
     <div class="card-header d-flex align-items-center" style="background-color: #4b3b2a; color: white;">
@@ -18,34 +18,35 @@
     </div>
   </div>
 
-<!-- Students Table -->
-<h4 class="student-list-title mt-4">👩‍🎓 List of Students</h4>
+  <!-- Students Table -->
+  <h4 class="student-list-title mt-4">👩‍🎓 List of Students</h4>
 
-<div class="student-table-wrapper">
-  <table class="table table-bordered student-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Relationship</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @guardian.student_guardians.each do |student_guardian| %>
+  <div class="student-table-wrapper">
+    <table class="table table-bordered student-table">
+      <thead>
         <tr>
-          <td><%= student_guardian.student.name %></td>
-          <td><%= student_guardian.relationship %></td>
+          <th>Name</th>
+          <th>Relationship</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
+      </thead>
+      <tbody>
+        <% @guardian.student_guardians.each do |student_guardian| %>
+          <tr>
+            <td><%= student_guardian.student.name %></td>
+            <td><%= student_guardian.relationship %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Action Buttons -->
   <div class="d-flex justify-content-between align-items-center w-100 px-3 mt-4">
     <!-- Left side -->
     <div class="flex-start">
-      <%= link_to "Back to Guardians", guardians_path, class: "action-btn back-btn" %>
+      <%= link_to guardians_path, class: "action-btn back-btn d-inline-flex align-items-center gap-2" do %>
+        Back to Guardians
+      <% end %>
     </div>
 
     <!-- Right side -->
