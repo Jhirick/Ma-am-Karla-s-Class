@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "home/index"
+  root "home#index"
   resources :student_guardians
   get "guardians/index"
   get "guardians/show"
