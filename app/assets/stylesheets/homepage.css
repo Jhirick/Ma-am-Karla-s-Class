@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Homepage Hero Section === */
+.home-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;       /* centers vertically */
+  text-align: center;
+
+  background: url("background.png") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.5s ease;
+}
+
+/* Text styling */
+.home-container h1 {
+  font-size: 3.5rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.home-container .highlight {
+  color: #ffddff;
+}
+
+.home-container p {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  opacity: 0.9;
+}
+
+/* Button style */
+.home-container .btn {
+  background-color: #ffffff;
+  color: #5e17eb;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.home-container .btn:hover {
+  transform: translateY(-4px);
+  background-color: #f3e5ff;
+  color: #3d0a91;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
