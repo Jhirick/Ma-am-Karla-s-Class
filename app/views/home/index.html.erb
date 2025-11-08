@@ -1,11 +1,22 @@
 <div class="home-container">
+  <!-- Header with logo and buttons -->
+  <header class="home-header">
+    <div class="logo-container">
+      <%= image_tag "logo.png", alt: "Logo", class: "site-logo" %>
+    </div>
+    <div class="header-buttons">
+      <%= link_to "Log In", students_path, class: "btn btn-outline-light me-2" %>
+      <%= link_to "Sign Up", students_path, class: "btn btn-light" %>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
   <div class="hero-content text-center">
     <h1 class="display-3 fw-bold mb-4">
-      Welcome to <span class="highlight">School Manager</span>
+      Welcome to <span class="highlight">Hell University</span>
     </h1>
     <p class="lead mb-4">
       Manage your students, departments, and classes effortlessly — all in one place.
     </p>
-    <%= link_to "Get Started", students_path, class: "btn btn-light btn-lg fw-semibold px-4 py-2 rounded-3 shadow-sm" %>
   </div>
 </div>
