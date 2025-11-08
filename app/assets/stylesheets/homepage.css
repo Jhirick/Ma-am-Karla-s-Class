@@ -28,26 +28,32 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
+  height: auto; /* let it expand if needed */
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* top-align everything */
   z-index: 10;
 }
 
+
 .logo-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start; 
 }
 
 .site-logo {
-  width: 1in;
-  height: 1in;
-  object-fit: contain;
-  z-index: 11;
+  width: 200px; 
+  height: auto;
 }
 
 /* Buttons */
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 0; 
+}
+
 .header-buttons .btn {
   font-weight: 600;
   padding: 8px 18px;
