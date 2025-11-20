@@ -1,0 +1,27 @@
+<% content_for :title, "Sections" %>
+
+  <div class="d-flex justify-content-end mb-2">
+    <%= link_to "New Section", new_section_path, class: "btn btn-success" %>
+  </div>
+
+  <div class="section-edit-header d-flex justify-content-between align-items-center">
+    <h1>Sections</h1>
+  </div>
+
+  <div class="row">
+    <% @sections.each do |section| %>
+      <div class="col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-0" style="background-color: #fff8e7;">
+          <div class="card-body">
+            <h5 class="card-title fw-bold" style="color: #4b3b2a;"><%= section.name %></h5>
+            <p class="mb-1"><strong>Subject:</strong> <%= section.subject.name %></p>
+            <p class="mb-1"><strong>Teacher:</strong> <%= section.subject.teacher.name %></p>
+            <p class="mb-1"><strong>Room:</strong> <%= section.room %></p>
+            <p class="mb-3"><strong>Time Slot:</strong> <%= section.time_slot %></p>
+            <%= link_to "View Section", section, class: "btn btn-dark btn-sm w-100" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

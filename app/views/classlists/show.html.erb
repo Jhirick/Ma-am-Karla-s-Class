@@ -1,0 +1,32 @@
+<% content_for :title, "Classlist Details" %>
+
+<div class="classlist-show-container mt-4">
+  <!-- Classlist Card -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0">Classlist Details</h3>
+    </div>
+    <div class="card-body">
+      <p class="mb-2"><strong>Student:</strong> <%= @classlist.student.name %></p>
+      <p class="mb-2"><strong>Section:</strong> <%= @classlist.section.name %></p>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <%= link_to "Back to Classlists", classlists_path,
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #6c757d; border-radius: 8px;" %>
+
+    <div class="d-flex gap-2">
+      <%= link_to "Edit Classlist", edit_classlist_path(@classlist),
+        class: "btn text-white fw-semibold px-4 py-2",
+        style: "background-color: #198754; border-radius: 8px;" %>
+
+      <%= button_to "Delete Classlist", @classlist,
+        method: :delete, data: { confirm: 'Are you sure?' },
+        class: "btn text-white fw-semibold px-4 py-2",
+        style: "background-color: #dc3545; border-radius: 8px;" %>
+    </div>
+  </div>
+</div>

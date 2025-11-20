@@ -1,0 +1,18 @@
+<% content_for :title, "Update Subject" %>
+
+<div class="subject-form-container mt-4">
+  <div class="card shadow-sm rounded-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0">Update Subject</h3>
+    </div>
+    <div class="card-body">
+      <%= render "form", subject: @subject %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "Back to Subjects", subjects_path,
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #6c757d; border-radius: 8px;" %>
+  </div>
+</div>

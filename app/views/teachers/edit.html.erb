@@ -1,0 +1,19 @@
+<% content_for :title, "Editing Teacher" %>
+
+<div class="teacher-edit-container">
+  <div class="teacher-edit-header d-flex align-items-center">
+    <i class="bi bi-person-fill-gear ms-3 me-2 fs-3"></i>
+    <h1>Update Teacher Information</h1>
+  </div>
+
+  <div class="teacher-edit-form">
+    <%= render "form", teacher: @teacher %>
+  </div>
+
+  <div class="teacher-actions-container mt-3">
+    <div class="teacher-actions d-flex gap-2 ms-3 mb-3">
+      <%= link_to "Back to teachers", teachers_path, class: "action-btn back-btn" %>
+      <%= link_to "Show this Teacher", @teacher, class: "action-btn btn-sm", style: "background-color: #343a40; color: white;" %>
+    </div>
+  </div>
+</div>

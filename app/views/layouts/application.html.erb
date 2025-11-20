@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>School Manager</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_importmap_tags %>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" 
+      rel="stylesheet">
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" 
+      rel="stylesheet">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "classlist", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "department", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "guardian", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "student_guardian", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "section", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "staff", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "student", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "subject", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "teacher", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "homepage", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+
+    <% if controller_name == "home" && action_name == "index" %>
+      <!-- ✅ Home page layout (no navbar or sidebar) -->
+      <%= yield %>
+    <% else %>
+      <!-- ✅ All other pages layout with sidebar and topbar -->
+
+      <!-- Topbar -->
+      <div class="topbar">
+        School Manager
+      </div>
+    
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <%= image_tag "logo.png", alt: "Logo", class: "sidebar-logo" %>
+        </div>
+
+        <nav class="nav flex-column mt-3">
+          <%= link_to students_path, class: "nav-link text-white #{'active' if controller_name == 'students'}" do %>
+            <i class="bi bi-person-lines-fill me-2"></i><span>Students</span>
+          <% end %>
+          <%= link_to teachers_path, class: "nav-link text-white #{'active' if controller_name == 'teachers'}" do %>
+            <i class="bi bi-person-workspace me-2"></i><span>Teachers</span>
+          <% end %>
+          <%= link_to sections_path, class: "nav-link text-white #{'active' if controller_name == 'sections'}" do %>
+            <i class="bi bi-diagram-3 me-2"></i><span>Sections</span>
+          <% end %>
+          <%= link_to subjects_path, class: "nav-link text-white #{'active' if controller_name == 'subjects'}" do %>
+            <i class="bi bi-book me-2"></i><span>Subjects</span>
+          <% end %>
+          <%= link_to classlists_path, class: "nav-link text-white #{'active' if controller_name == 'classlists'}" do %>
+            <i class="bi bi-list-task me-2"></i><span>Classlists</span>
+          <% end %>
+          <%= link_to staffs_path, class: "nav-link text-white #{'active' if controller_name == 'staffs'}" do %>
+            <i class="bi bi-person-video2 me-2"></i><span>Staffs</span>
+          <% end %>
+          <%= link_to departments_path, class: "nav-link text-white #{'active' if controller_name == 'departments'}" do %>
+            <i class="bi bi-bank2 me-2"></i><span>Departments</span>
+          <% end %>
+          <%= link_to guardians_path, class: "nav-link text-white #{'active' if controller_name == 'guardians'}" do %>
+            <i class="bi bi-people-fill me-2"></i><span>Guardians</span>
+          <% end %>
+          <%= link_to student_guardians_path, class: "nav-link text-white #{'active' if controller_name == 'student_guardians'}" do %>
+            <i class="bi bi-person-hearts me-2"></i><span>Relationships</span>
+          <% end %>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <% flash.each do |key, message| %>
+          <div class="auto-dismiss-alert alert alert-<%= key == "notice" ? "success" : "danger" %>" role="alert"
+            style="
+              position: fixed;
+              top: 80px;            
+              right: 30px;        
+              z-index: 1050;
+              width: auto;
+              opacity: 1;
+              transition: opacity 0.5s ease;
+            ">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    <% end %>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Fade out alerts automatically
+      function autoDismissAlerts() {
+        const alerts = document.querySelectorAll(".auto-dismiss-alert");
+        alerts.forEach(alert => {
+          setTimeout(() => {
+            alert.style.opacity = "0";
+            setTimeout(() => alert.remove(), 500);
+          }, 1000);
+        });
+      }
+      document.addEventListener("DOMContentLoaded", autoDismissAlerts);
+      document.addEventListener("turbo:load", autoDismissAlerts);
+    </script>
+  </body>
+</html>

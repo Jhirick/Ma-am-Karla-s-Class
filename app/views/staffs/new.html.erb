@@ -1,0 +1,16 @@
+<% content_for :title, "New Staff" %>
+
+<div class="staff-form-container mt-4">
+  <div class="card shadow-sm rounded-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0">Create Staff</h3>
+    </div>
+    <div class="card-body">
+      <%= render "form", staff: @staff %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "Back to Staff", staffs_path, class: "action-btn back-btn" %>
+  </div>
+</div>

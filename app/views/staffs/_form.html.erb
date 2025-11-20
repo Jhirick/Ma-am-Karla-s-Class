@@ -1,0 +1,41 @@
+<%= form_with(model: staff) do |form| %>
+  <% if staff.errors.any? %>
+    <div class="alert alert-danger rounded-3">
+      <h5><%= pluralize(staff.errors.count, "error") %> prohibited this staff from being saved:</h5>
+      <ul>
+        <% staff.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label fw-semibold" %>
+    <%= form.text_field :name, class: "form-control rounded-3" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label fw-semibold" %>
+    <%= form.text_field :email, class: "form-control rounded-3" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :monthly_salary, class: "form-label fw-semibold" %>
+    <%= form.number_field :monthly_salary, step: "0.01", class: "form-control rounded-3" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label fw-semibold" %>
+    <%= form.text_field :status, class: "form-control rounded-3" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :department_id, "Department", class: "form-label fw-semibold" %>
+    <%= form.collection_select :department_id, Department.all, :id, :name, { prompt: "Select a department" }, class: "form-select rounded-3" %>
+  </div>
+
+  <div class="text-end">
+    <%= form.submit staff.new_record? ? "Create Staff" : "Update Staff", class: "action-btn submit-btn" %>
+  </div>
+<% end %>

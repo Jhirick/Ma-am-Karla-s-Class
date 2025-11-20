@@ -1,0 +1,43 @@
+<div class="card shadow-sm">
+
+  <div class="card-body">
+    <%= form_with(model: section) do |f| %>
+      <% if section.errors.any? %>
+        <div class="alert alert-danger">
+          <strong><%= pluralize(section.errors.count, "error") %> prevented this section from being saved:</strong>
+          <ul class="mb-0">
+            <% section.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label fw-bold" %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Enter section name" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :room, class: "form-label fw-bold" %>
+        <%= f.text_field :room, class: "form-control", placeholder: "Enter room number or name" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :time_slot, class: "form-label fw-bold" %>
+        <%= f.text_field :time_slot, class: "form-control", placeholder: "Enter time slot" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :subject_id, "Subject", class: "form-label fw-bold" %>
+        <%= f.collection_select :subject_id, Subject.all, :id, :name,
+            { prompt: "Select a subject" },
+            { class: "form-select" } %>
+      </div>
+
+      <div class="text-end">
+        <%= f.submit(section.new_record? ? "Create Section" : "Update Section", class: "btn btn-primary") %>
+      </div>
+    <% end %>
+  </div>
+</div>

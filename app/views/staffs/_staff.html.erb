@@ -1,0 +1,15 @@
+<div id="<%= dom_id staff %>" class="card staff-card shadow-sm rounded-4 overflow-hidden">
+  <div class="card-body p-2 d-flex flex-column">
+    <h5 class="card-title mb-1"><%= staff.name %></h5>
+
+    <p class="card-text mb-1"><strong>Email:</strong><br>
+      <span style="font-weight:500; font-size:0.92rem;"><%= staff.email %></span></p>
+
+    <p class="card-text mb-2"><strong>Department:</strong>
+      <span style="font-weight:600;"><%= staff.department.name if staff.department %></span></p>
+
+    <div class="mt-auto">
+      <%= link_to "Show Staff", staff_path(staff), class: "btn btn-sm w-100 show-btn" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<% content_for :title, "Teachers" %>
+
+<div class="d-flex justify-content-end mb-2">
+    <%= link_to "New Teacher", new_teacher_path, class: "btn btn-success" %>
+</div>
+  
+<div class="teacher-edit-header d-flex justify-content-between align-items-center">
+  <h1>Teachers</h1>
+</div>
+
+<div class="row">
+  <% @teachers.each do |teacher| %>
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm h-100 text-center p-3 style="max-width: 230px; margin: 0 auto;">
+        <!-- Profile Icon or Photo -->
+        <div class="mb-3">
+          <%# <%= image_tag teacher.photo.url, class: "rounded-circle", width: "80", height: "80" if teacher.photo.present? %>
+          <i class="bi bi-person-circle" style="font-size: 3rem; color: #6c757d;"></i>
+        </div>
+
+        <div class="card-body p-2">
+          <h5 class="card-title mb-2 fw-semibold"><%= teacher.name %></h5>
+
+          <!-- Left-aligned text -->
+          <div class="text-start" style="font-size: 0.9rem;">
+            <p class="card-text mb-1"><strong>Email:</strong> <%= teacher.email %></p>
+            <p class="card-text mb-1"><strong>Specialization:</strong> <%= teacher.specialization %></p>
+            <p class="card-text mb-2"><strong>Status:</strong> <%= teacher.status %></p>
+          </div>
+
+          <%= link_to "Show teacher", teacher, class: "btn btn-dark btn-sm w-100" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

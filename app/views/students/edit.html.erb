@@ -1,0 +1,19 @@
+<% content_for :title, "Editing student" %>
+
+<div class="student-edit-container">
+  <div class="student-edit-header d-flex align-items-center">
+    <i class="bi bi-person-fill-gear ms-3 me-2 fs-3"></i>
+    <h1>Update Student Information</h1>
+  </div>
+
+  <div class="student-edit-form mt-3">
+    <%= render "form", student: @student %>
+  </div>
+
+  <div class="student-actions-container mt-3" style="text-align: left;">
+    <div class="student-actions d-flex gap-2 ms-3 mb-3" style="justify-content: flex-start; width: 100%;">
+      <%= link_to "Back to Students", students_path, class: "action-btn back-btn" %>
+      <%= link_to "Show this Student", @student, class: "action-btn btn-sm", style: "background-color: #343a40; color: white;" %>
+    </div>
+  </div>
+</div>

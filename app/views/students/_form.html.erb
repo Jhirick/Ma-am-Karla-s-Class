@@ -1,0 +1,40 @@
+<div class="card shadow-sm">
+
+  <div class="card-body">
+    <%= form_with(model: student) do |f| %>
+
+      <% if student.errors.any? %>
+        <div class="alert alert-danger">
+          <strong><%= pluralize(student.errors.count, "error") %> prevented this student from being saved:</strong>
+          <ul class="mb-0">
+            <% student.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label fw-bold" %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Enter student name" %>
+      </div>
+      <div class="mb-3">
+
+        <%= f.label :year_level, class: "form-label fw-bold" %>
+        <%= f.number_field :year_level, class: "form-control", placeholder: "Enter current year level" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :program, class: "form-label fw-bold" %>
+        <%= f.text_field :program, class: "form-control", placeholder: "Enter program/course" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :department_id, "Department", class: "form-label fw-bold" %>
+        <%= f.collection_select :department_id, Department.all, :id, :name,
+            { prompt: "Select a department" },
+            { class: "form-select" } %>
+      </div>
+      <div class="text-end">
+        <%= f.submit(student.new_record? ? "Create Student" : "Update Student", class: "btn btn-primary") %>
+      </div>
+    <% end %>
+  </div>
+</div>

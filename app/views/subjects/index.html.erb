@@ -1,0 +1,27 @@
+<% content_for :title, "Subjects" %>
+
+<div class="subjects-container mt-1">
+  <div class="d-flex justify-content-end mb-2">
+    <%= link_to "New Subject", new_subject_path, class: "btn btn-success mt-3" %>
+  </div>
+
+  <div class="subjects-header px-3 py-2 mb-3">
+    <h1 class="m-0 text-white">Subjects</h1>
+  </div>
+
+  <div class="row">
+    <% @subjects.each do |subject| %>
+      <div class="col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-0" style="background-color: #fff8e7;">
+          <div class="card-body">
+            <h5 class="card-title fw-bold" style="color: #4b3b2b;"><%= subject.name %></h5>
+            <p class="mb-1"><strong>Teacher:</strong> <%= subject.teacher.name %></p>
+            <p class="mb-1"><strong>Units:</strong> <%= subject.number_of_units %></p>
+            <%= link_to "View Subject", subject_path(subject),
+              class: "btn btn-dark btn-sm w-100 show-btn mt-3" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

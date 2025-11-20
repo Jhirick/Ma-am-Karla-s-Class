@@ -1,0 +1,219 @@
+<% content_for :title, @department.name %>
+
+<div class="department-show-container mt-4 w-100 px-0 mx-0">
+  <!-- Department Card -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
+      <h3 class="m-0"><%= @department.name %></h3>
+    </div>
+    <div class="card-body">
+      <p class="mb-1"><strong>Location:</strong> <%= @department.location %></p>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card text-center shadow-sm rounded-4">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Number of Employees</h5>
+          <h2 class="fw-bold"><%= @department.employee_count %></h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-center shadow-sm rounded-4">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Number of Students</h5>
+          <h2 class="fw-bold"><%= @department.student_count %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Students Section -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div 
+      class="card-header bg-light d-flex justify-content-between align-items-center toggle-header"
+      data-target="#studentsTable"
+      style="cursor: pointer;"
+    >
+      <h4 class="m-0">Students</h4>
+      <i class="bi bi-caret-down-fill toggle-icon"></i>
+    </div>
+    <div class="collapse" id="studentsTable">
+      <div class="card-body">
+        <% if @department.students.any? %>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-secondary">
+                <tr>
+                  <th>Name</th>
+                  <th>Program</th>
+                  <th>Year Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @department.students.each do |student| %>
+                  <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.program %></td>
+                    <td><%= student.year_level %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          <p class="text-muted">No students listed for this department.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teachers Section -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div 
+      class="card-header bg-light d-flex justify-content-between align-items-center toggle-header"
+      data-target="#teachersTable"
+      style="cursor: pointer;"
+    >
+      <h4 class="m-0">Teachers</h4>
+      <i class="bi bi-caret-down-fill toggle-icon"></i>
+    </div>
+    <div class="collapse" id="teachersTable">
+      <div class="card-body">
+        <% if @department.teachers.any? %>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-secondary">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Specialization</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @department.teachers.each do |teacher| %>
+                  <tr>
+                    <td><%= teacher.name %></td>
+                    <td><%= teacher.email %></td>
+                    <td><%= teacher.specialization %></td>
+                    <td><%= teacher.status %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          <p class="text-muted">No teachers listed for this department.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Staff Section -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div 
+      class="card-header bg-light d-flex justify-content-between align-items-center toggle-header"
+      data-target="#staffTable"
+      style="cursor: pointer;"
+    >
+      <h4 class="m-0">Staff</h4>
+      <i class="bi bi-caret-down-fill toggle-icon"></i>
+    </div>
+    <div class="collapse" id="staffTable">
+      <div class="card-body">
+        <% if @department.staffs.any? %>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-secondary">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Monthly Salary</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @department.staffs.each do |staff| %>
+                  <tr>
+                    <td><%= staff.name %></td>
+                    <td><%= staff.email %></td>
+                    <td><%= staff.monthly_salary %></td>
+                    <td><%= staff.status %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          <p class="text-muted">No staff listed for this department.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Actions -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+  <!-- Left side: Back button -->
+  <div>
+    <%= link_to "Back to Departments", departments_path,
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #6c757d; border-radius: 8px;" %>
+  </div>
+
+  <!-- Right side: Edit + Delete buttons -->
+  <div class="d-flex gap-2">
+    <%= link_to "Edit Department", edit_department_path(@department),
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #198754; border-radius: 8px;" %>
+
+    <%= button_to "Delete Department", @department,
+      method: :delete, data: { confirm: 'Are you sure?' },
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #dc3545; border-radius: 8px;" %>
+  </div>
+</div>
+
+<!-- 🔽 Toggle caret icon + smooth animation -->
+<script>
+  document.addEventListener("turbo:load", () => {
+    document.querySelectorAll(".toggle-header").forEach(header => {
+      if (header.dataset.toggleInitialized) return;
+      header.dataset.toggleInitialized = "true";
+
+      const targetSelector = header.getAttribute("data-target");
+      const target = document.querySelector(targetSelector);
+      const icon = header.querySelector(".toggle-icon");
+
+      if (!target) return;
+
+      const collapse = new bootstrap.Collapse(target, { toggle: false });
+
+      header.addEventListener("click", () => {
+        collapse.toggle();
+      });
+
+      target.addEventListener("show.bs.collapse", () => icon.classList.add("rotate-up"));
+      target.addEventListener("hide.bs.collapse", () => icon.classList.remove("rotate-up"));
+    });
+  });
+</script>
+
+<style>
+  .toggle-icon {
+    transition: transform 0.3s ease;
+  }
+  .rotate-up {
+    transform: rotate(180deg);
+  }
+  .toggle-header {
+    cursor: pointer;
+    user-select: none;
+  }
+  .toggle-header:hover {
+    background-color: #f8f9fa;
+  }
+</style>

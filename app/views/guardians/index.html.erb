@@ -1,0 +1,74 @@
+<% content_for :title, "Guardians" %>
+
+<div class="d-flex justify-content-end">
+  <%= link_to "New Guardian", new_guardian_path, class: "btn btn-success mt-3" %>
+</div>
+
+<div class="students-container">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <!-- Title Row -->
+      <tr>
+        <th colspan="4" class="table-title">Guardians</th>
+      </tr>
+
+      <!-- Header Row -->
+      <tr>
+        <th>Name</th>
+        <th>Email Address</th>
+        <th>Contact Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @guardians.each do |guardian| %>
+        <tr>
+          <td><%= guardian.name %></td>
+          <td><%= guardian.email_address %></td>
+          <td><%= guardian.contact_number %></td>
+          <td>
+            <%= link_to "Show", guardian, class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
+            <%= link_to "Edit", edit_guardian_path(guardian), class: "btn btn-sm btn-warning", style: "background-color: #ffc107; color: black;" %>
+            <%= link_to "Delete", "#", 
+                class: "btn btn-danger btn-sm", 
+                data: { bs_toggle: "modal", bs_target: "#confirmDeleteModal", guardian_url: guardian_path(guardian) },
+                style: "background-color: #b02a37; color: white;" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<!-- Bootstrap Confirmation Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="confirmDeleteLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this guardian?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    const confirmDeleteModal = document.getElementById('confirmDeleteModal');
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+    confirmDeleteModal.addEventListener('show.bs.modal', function(event) {
+      const button = event.relatedTarget;
+      const guardianUrl = button.getAttribute('data-guardian-url');
+      confirmDeleteBtn.setAttribute('href', guardianUrl);
+    });
+  });
+</script>

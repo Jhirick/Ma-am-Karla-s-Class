@@ -1,0 +1,13 @@
+<div class="student-edit-container">
+  <div class="student-edit-header d-flex align-items-center">
+    <i class="bi bi-person-plus-fill ms-3 me-2 fs-3"></i>
+    <h1>Enrolling Students</h1>
+  </div>
+
+<%= render "form", student: @student %>
+
+<br>
+
+<div>
+  <%= link_to "Back to Students", students_path, class: "btn-custom back-btn" %>
+</div>

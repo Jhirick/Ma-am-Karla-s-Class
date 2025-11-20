@@ -1,0 +1,224 @@
+
+      
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #212529; 
+  color: #f8f9fa; 
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px; 
+  left: 0;
+  bottom: 0;
+  width: 90px;
+  background-color: #fdfdfd;
+  border-right: 1px solid #e6e6e6;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* enables scrolling when content overflows */
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar:hover {
+  width: 250px;
+}
+
+.sidebar-header {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar:hover,
+.sidebar.keep-open {
+  width: 250px;
+}
+
+.sidebar-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.sidebar:hover .sidebar-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.sidebar:hover ~ .content,
+.sidebar.keep-open ~ .content {
+  margin-left: 250px;
+}
+
+.nav-link {
+  color: #000000 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+}
+
+.nav-link i {
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  background-color: #4b3b2b !important; 
+  color: white !important;
+}
+
+.sidebar:not(:hover) .nav-link.active {
+  background-color: transparent !important;
+  color: #4b3b2b !important;  
+}
+
+.sidebar:not(:hover) .nav-link.active i {
+  background-color: #4b3b2b !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #f1f1f1;
+}
+
+.sidebar:hover .nav-link {
+  flex-direction: row; 
+  justify-content: flex-start;
+  padding: 22px;
+}
+
+.sidebar:hover .nav-link i {
+  margin-right: 10px;
+}
+
+.sidebar:hover .nav-link span {
+  opacity: 1;
+  margin-left: 10px;
+}
+
+.nav-link span {
+  opacity: 0;
+  transition: opacity 0.3s ease, margin-left 0.3s ease;
+}
+
+.content {
+  margin-top: 60px;
+  margin-left: 90px;
+  flex-grow: 1;
+  padding: 30px;
+  transition: margin-left 0.5s ease;
+  position: relative;
+  z-index: 200;
+}
+
+.sidebar:hover ~ .content {
+  margin-left: 250px;
+}
+
+
+.students-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-title {
+  text-align: center;
+  background-color: #212529 !important;
+  color: #ffffff !important;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 15px 20px;
+  letter-spacing: 0.5px; 
+}
+
+thead tr:nth-child(2) th {
+  background-color: #3A2E27 !important;
+  color: #ffffff !important; 
+}
+
+.btn-success {
+  margin-top: 15px;
+}    
+
+.student-card .card-header {
+  background-color: #4b3b2a;
+  color: white;
+}
+
+.student-card .student-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.modal-backdrop.show {
+  opacity: 0.3 !important; /* default is 0.5 */
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.active {
+  background-color: #e0a800 !important;
+  color: black !important;
+}
+
+/* TEACHERS TABLE HEADER STYLING */
+.table thead tr th {
+  background-color: #4b3b2a !important;
+  color: white !important;
+  text-align: left; /* keep header text aligned to the left */
+}
+
+.subject-table thead tr th {
+  background-color: #4b3b2a !important;
+  color: white !important;
+  text-align: left;
+}
+
+.teacher-edit-header {
+  background-color: #4b3b2b; /* dark brown */
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.teacher-edit-header h1 {
+  font-size: 2.9rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.teacher-edit-container .card {
+  background-color: #fff8e7; /* soft beige like students */
+  border: none;
+  border-radius: 10px;
+}
+

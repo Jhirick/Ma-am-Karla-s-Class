@@ -1,0 +1,25 @@
+<% content_for :title, "Classlists" %>
+
+<div class="classlists-container mt-1">
+  <div class="d-flex justify-content-end mb-2">
+    <%= link_to "New Classlist", new_classlist_path, class: "btn btn-success mt-3" %>
+  </div>
+
+  <div class="classlists-header px-3">
+    <h1 class="m-0">Classlists</h1>
+  </div>
+
+  <div class="classlist-grid mt-3">
+  <% @classlists.each do |classlist| %>
+    <div class="classlist-item">
+        <div class="card classlist-card shadow-sm rounded-4 overflow-hidden">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-2"><%= classlist.student.name %></h5>
+            <p class="card-text mb-3"><strong>Section:</strong> <%= classlist.section.name %></p>
+            <%= link_to "Show Classlist", classlist_path(classlist), class: "btn btn-sm w-100 mt-auto show-btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
