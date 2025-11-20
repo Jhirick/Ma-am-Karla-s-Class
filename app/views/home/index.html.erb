@@ -1,9 +1,23 @@
 <div class="home-container">
-  <!-- Header with logo and buttons -->
+
+  <!-- Animated Background: Clouds + Birds -->
+  <div class="animated-background">
+    <!-- Clouds -->
+    <img src="<%= asset_path 'cloud1.png' %>" class="cloud cloud-1">
+    <img src="<%= asset_path 'cloud2.png' %>" class="cloud cloud-2">
+    <img src="<%= asset_path 'cloud3.png' %>" class="cloud cloud-3">
+
+    <!-- Birds -->
+    <img src="<%= asset_path 'birds1.png' %>" class="birds birds-1">
+    <img src="<%= asset_path 'birds2.png' %>" class="birds birds-2">
+  </div>
+
+  <!-- Header with logo + buttons -->
   <header class="home-header">
     <div class="logo-container">
       <%= image_tag "logo.png", alt: "Logo", class: "site-logo" %>
     </div>
+
     <div class="header-buttons">
       <%= link_to "Log In", students_path, class: "btn btn-outline-light me-2" %>
       <%= link_to "Sign Up", students_path, class: "btn btn-light" %>
@@ -15,8 +29,27 @@
     <h1 class="display-3 fw-bold mb-4">
       Welcome to <span class="highlight">Hell University</span>
     </h1>
+
     <p class="lead mb-4">
       Manage your students, departments, and classes effortlessly — all in one place.
     </p>
   </div>
+
 </div>
+
+<!-- New blank canvas section for additional info -->
+<section class="info-canvas">
+  <div class="contact-info-container">
+    <div class="container">
+      <h2>About Hell University</h2>
+      <p>This is your blank canvas! Add details about the website, features, team, or anything else. For example:</p>
+      <ul>
+        <li>Effortless student management</li>
+        <li>Integrated department and class tools</li>
+        <li>Secure and user-friendly interface</li>
+      </ul>
+      <!-- Add more content here, like images, links, or Rails partials -->
+    </div>
+  </div>
+</section>
+
