@@ -1,246 +1,266 @@
- /* STUDENTS PAGE STYLING */
-:root {
-  --dark-brown: #4b3b2b;
-  --medium-brown: #7b5e43;
-  --light-brown: #f5deb3;
-  --cream: #fff8e7;
-  --black: #000000;
-}
+/* ========= Hell University - Students / Relationships (Option A) =========
+   Full purple gradient background, misty/translucent card, glowing headers
+   ------------------------------------------------------------------------ */
 
-.table-title {
-  background-color: var(--dark-brown);
-  color: white;
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: bold;
-  padding: 15px 0;
-}
-
-.table thead tr:nth-child(2) {
-  background-color: var(--medium-brown);
-  color: white;
-}
-
-.table tbody tr:hover {
-  background-color: var(--light-brown);
-  transition: 0.3s ease;
-}
-
-.btn-success {
-  background-color: #198754 !important;
-  border: none;
-}
-
-.btn-success:hover {
-  background-color: #157347 !important;
-}
-
-.card-header {
-  background-color: var(--dark-brown) !important;
-  color: white !important;
-}
-
-.card-body {
-  background-color: var(--cream);
-}
-
-.students-container {
-  margin-top: 20px;
-}
-
-/* STUDENT SHOW PAGE STYLING */
-
-.student-card {
-  border: none;
-  background-color: #ffffff;
-  margin-bottom: 30px;
-}
-
-.student-card .card-header {
-  background-color: #4b3b2b; 
-  color: white;
-  padding: 15px 20px;
-  border-radius: 10px 10px 0 0;
-}
-
-.student-card .student-name {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.student-card .card-body p {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #3a2e27;
-}
-
-/* Subject table */
-.subject-list-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #4b3b2b;
-}
-
-.subject-table > thead > tr > th {
-  background-color: #4b3b2a !important; 
-  color: white !important;
-}
-
-.subject-table th {
-  font-weight: 600;
-  font-size: 1.05rem;
-  padding: 12px;
-}
-
-.subject-table tbody tr:hover {
-  background-color: #f5deb3;
-  transition: 0.3s ease;
-}
-
-.student-actions-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-/* Button row */
-.student-actions {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Unified button style */
-.action-btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.action-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* Button colors */
-.edit-btn {
-  background-color: #ffc107; 
-  color: white;
-}
-
-.edit-btn:hover {
-  background-color: #e0a800;
-  color: white;
-}
-
-.delete-btn {
-  background-color: #b02a37; 
-  color: white;
-}
-
-.delete-btn:hover {
-  background-color: #8b1f2b;
-}
-
-.show-btn {
-  background-color: #146c43;
-}
-
-.show-btn:hover {
-  background-color: #0f5132;
-}
-
-/* STUDENT EDIT PAGE STYLING */
-.student-edit-header {
-  background-color: #4b3b2b; 
-  color: white;
-  text-align: center;
-  padding: 25px 0;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  margin-top: 0;
-}
-
-.student-edit-header h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.student-actions-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.student-actions {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.edit-btn {
-  background-color: #146c43;
-}
-
-.edit-btn:hover {
-  background-color: #0f5132;
-}
-
-form input[type="submit"] {
-  background-color: #146c43; 
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-form input[type="submit"]:hover {
-  background-color: #0f5132;
-}
-
-.subject-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 10px; 
-  overflow: hidden; 
-}
-
-.subject-table thead tr:first-child th:first-child {
-  border-top-left-radius: 10px;
-}
-
-.subject-table thead tr:first-child th:last-child {
-  border-top-right-radius: 10px;
-}
-
-.subject-table th,
-.subject-table td {
-  border: 1px solid #ddd; 
-}
-
-.subject-table thead {
-  background-color: #4b3b2a;
-  color: white;
-}
-
-body {
-  display: flex;
-  flex-direction: row;
+/* Use the uploaded image as a decorative background. If you move the file,
+   update the URL to match your asset location. */
+.relationships-page {
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  background-color: #f5f6f8;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(87,10,137,0.82) 0%, rgba(41,4,76,0.86) 55%, rgba(14,5,38,0.95) 100%),
+    url("/mnt/data/d1a9835b-5da2-4cd6-8406-3f039e134a50.png") center center / cover no-repeat;
+  background-attachment: scroll; /* scrolls with page (not fixed) */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero / Banner ------------------------------------------------------------------ */
+.relationships-hero {
+  position: relative;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24,6,57,0.35), rgba(10,6,26,0.6));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Layout container inside the hero (centered) */
+.hero-inner {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-left { flex: 0 0 140px; display:flex; align-items:flex-start; }
+.hero-center { flex: 1 1 auto; }
+.hero-right { flex: 0 0 auto; display:flex; justify-content:flex-end; }
+
+/* Logo in hero */
+.hero-logo {
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
+}
+
+/* Titles */
+.hero-title {
+  font-size: 2.6rem;
+  margin: 0;
+  line-height: 1.02;
+  color: #fff;
+  text-shadow: 0 6px 30px rgba(77, 0, 140, 0.45);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.hero-sub {
+  margin-top: 8px;
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+}
+
+/* Hero button (New Relationship) */
+.btn-ghost {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 180ms ease;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(120, 30, 180, 0.18);
+}
+
+/* Main content area ---------------------------------------------------------------- */
+.relationships-main {
+  width: 100%;
+  max-width: 1180px;
+  margin: -70px auto 80px; /* pulls the card up to visually overlap hero */
+  padding: 0 20px;
+  z-index: 10;
+}
+
+/* Card that holds the table */
+.table-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(5, 3, 20, 0.6);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Card header */
+.table-card-header {
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(90deg, rgba(138, 43, 226, 0.06), rgba(87,10,137,0.04));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-card-title {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-shadow: 0 6px 18px rgba(85, 16, 160, 0.2);
+}
+
+/* Card body (table wrapper) */
+.table-card-body {
+  padding: 18px;
+}
+
+/* Table styling ------------------------------------------------------------------ */
+.relationship-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #fff;
+  table-layout: auto;
+}
+
+.relationship-table thead th {
+  text-align: left;
+  padding: 14px 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.18), rgba(87,10,137,0.14));
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.relationship-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.95);
+  font-size: 0.98rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(6, 6, 12, 0.01));
+}
+
+/* Row hover effect (soft glow) */
+.relationship-table tbody tr:hover td {
+  background: linear-gradient(90deg, rgba(148, 57, 255, 0.06), rgba(72, 12, 128, 0.06));
+  transform: translateY(-2px);
+  transition: all 200ms ease;
+  box-shadow: 0 8px 24px rgba(80, 10, 160, 0.10);
+}
+
+/* Column widths */
+.col-student { width: 28%; }
+.col-guardian { width: 28%; }
+.col-relation { width: 24%; }
+.col-actions { width: 20%; text-align: right; }
+
+/* Actions / buttons inside table */
+.action-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+/* Show (dark teal) */
+.show-btn {
+  background: linear-gradient(180deg, #1f6b4f, #146c43);
+  color: #fff;
+}
+.show-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(6, 71, 55, 0.18); }
+
+/* Edit (amber) */
+.edit-btn {
+  background: linear-gradient(180deg, #ffcd39, #ffc107);
+  color: #2b1a00;
+}
+.edit-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(180,120,10,0.18); }
+
+/* Delete (deep red) */
+.delete-btn {
+  background: linear-gradient(180deg, #c02a37, #9b2030);
+  color: #fff;
+}
+.delete-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(180,20,40,0.16); }
+
+/* Responsiveness ------------------------------------------------------------------ */
+@media (max-width: 980px) {
+  .hero-inner { flex-direction: column; gap: 12px; text-align: center; }
+  .hero-left, .hero-right { display: none; }
+  .hero-title { font-size: 1.8rem; }
+  .relationships-main { margin: -50px 16px 60px; }
+  .col-actions { text-align: left; }
+  .relationship-table thead th { font-size: 0.9rem; }
+  .relationship-table tbody td { font-size: 0.92rem; padding: 12px; }
+  .action-btn { margin: 6px 6px 0 0; }
+}
+
+/* Small devices: stack rows into cards for readability */
+@media (max-width: 620px) {
+  .relationship-table,
+  .relationship-table thead,
+  .relationship-table tbody,
+  .relationship-table th,
+  .relationship-table td,
+  .relationship-table tr {
+    display: block;
+  }
+
+  .relationship-table thead { display: none; }
+
+  .relationship-table tbody tr {
+    margin-bottom: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 12px;
+  }
+
+  .relationship-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: none;
+  }
+
+  .relationship-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    margin-right: 6px;
+  }
+
+  .actions-cell { display: flex; gap: 8px; justify-content: flex-end; }
 }
