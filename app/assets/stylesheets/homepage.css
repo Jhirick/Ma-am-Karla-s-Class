@@ -22,7 +22,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Header (logo + buttons) */
+/* Header */
 .home-header {
   position: absolute;
   top: 0;
