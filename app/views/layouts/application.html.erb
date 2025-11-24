@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,10 +49,7 @@
     
       <!-- Sidebar -->
       <div class="sidebar">
-        <div class="sidebar-header">
-          <%= image_tag "logo.png", alt: "Logo", class: "sidebar-logo" %>
-        </div>
-
+      
         <nav class="nav flex-column mt-3">
           <%= link_to students_path, class: "nav-link text-white #{'active' if controller_name == 'students'}" do %>
             <i class="bi bi-person-lines-fill me-2"></i><span>Students</span>
