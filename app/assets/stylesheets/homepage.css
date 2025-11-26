@@ -1,7 +1,5 @@
 /*
-========================================
 WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS (FINAL VERSION - CONCAVE ARCH + VIDEO PLACEMENT FIX)
-========================================
 */
 
 /* --- Color Variables --- */
@@ -24,7 +22,6 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS (FINAL VERSION - CONCAVE ARCH + VIDEO P
 
 /* ========================================
 I. HERO SECTION LAYOUT (ARCHED OVERLAP)
-========================================
 */
 .hero-section {
     position: relative;
@@ -155,7 +152,6 @@ I. HERO SECTION LAYOUT (ARCHED OVERLAP)
 
 /* ========================================
 II. HEADER & NAVIGATION STYLES (PRESERVED SIZES)
-========================================
 */
 .header {
     position: fixed;
@@ -214,6 +210,44 @@ II. HEADER & NAVIGATION STYLES (PRESERVED SIZES)
 }
 
 /* --- Logo Container and Absolute Positioning --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Homepage Hero Section === */
+.home-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: url("background.png") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Header (logo + buttons) */
+.home-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto; /* let it expand if needed */
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* top-align everything */
+  z-index: 10;
+}
+
 .logo-container {
     position: absolute; 
     left: 5%; 
