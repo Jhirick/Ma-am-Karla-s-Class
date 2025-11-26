@@ -1,5 +1,3 @@
-<%# Define your primary variables using ERB for easy maintenance. %>
-<% university_name = "WISTERIA GROVE UNIVERSITY" %>
 <div class="home-container">
 
   <!-- Animated Background: Clouds + Birds -->
@@ -20,103 +18,38 @@
       <%= image_tag "Logo.png", alt: "Logo", class: "site-logo" %>
     </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= university_name %> - Home</title>
-    
-    <%# IMPORTANT: Link your external stylesheet here %>
-    <link rel="stylesheet" href="homepage.css">
-</head>
-<body>
-
-    <header class="header">
-        <div class="top-bar">
-            
-            <%# START: LEFT-ALIGNED DROPDOWN GROUP %>
-            <div class="top-bar-left">
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle">Resources For You</a>
-                    <div class="dropdown-menu">
-                        <a href="#">Students</a>
-                        <a href="#">Faculty & Staff</a>
-                        <a href="#">Alumni</a>
-                        <a href="#">Parents</a>
-                    </div>
-                </div>
-            </div>
-            <%# END: NEW LEFT-ALIGNED DROPDOWN GROUP %>
-
-            <%# START: RIGHT-ALIGNED UTILITY LINKS %>
-            <div class="top-bar-right">
-                <a href="#">Request Info</a>
-                <a href="#">Visit</a>
-                <a href="#">Apply</a>
-                <a href="#">Give</a>
-            </div>
-            <%# END: RIGHT-ALIGNED UTILITY LINKS %>
-        </div>
-
-        <nav class="main-nav-bar">
-            
-            <%# START: Logo Container (ABSOLUTE POSITIONING TARGET) %>
-            <div class="logo-container"> 
-                <a href="#" class="logo">
-                    <%# The Logo Shield Image (Syntax corrected for Rails helper) %>
-                    <%= image_tag "wisteria-logo-shield.png", alt: "Wisteria Grove University Logo", class: "logo-image" %>
-                    
-                    <%# FIX: Wrapped "UNIVERSITY" in a <span> tag to enable specific CSS styling %>
-                    <span class="logo-text">WISTERIA GROVE<br><span>UNIVERSITY</span></span>
-                </a>
-            </div>
-            <%# END: Logo Container %>
-
-            <div class="main-nav">
-                <ul>
-                    <li><a href="#">Academics <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Admission and Aid <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Life at WGU <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Research <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Athletics <span class="dropdown-indicator"></span></a></li>
-                    
-                    <%# Dropdown indicator added to "About WGU" %>
-                    <li><a href="#">About WGU <span class="dropdown-indicator"></span></a></li>
-                    
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <%# START: NEW CURVED SPLIT-SCREEN HERO SECTION %>
-    <div class="hero-section">
-        
-        <%# LEFT SIDE: Image Background (left.png) with Curved Overlay and Content %>
-        <div class="hero-left-split">
-             <%# The main marketing text content %>
-            <div class="hero-content">
-                <h1>
-                    Ready to<br>
-                    Change Lives?
-                </h1>
-                <div class="line-break"></div>
-                <h1>
-                    Start with<br>
-                    Yours.
-                </h1>
-                <a href="#" class="learn-more-btn">
-                    Learn more
-                </a>
-            </div>
-        </div>
-
-        <%# RIGHT SIDE: Video Block (Promotional.mp4) %>
-        <div class="hero-right-split">
-            <%= video_tag "Promotional.mp4", class: "promo-video", autoplay: true, muted: true, loop: true, playsinline: true %>
-        </div>
+    <div class="header-buttons">
+      <%= link_to "Log In", students_path, class: "btn btn-outline-light me-2" %>
+      <%= link_to "Sign Up", students_path, class: "btn btn-light" %>
     </div>
-    <%# END: NEW CURVED SPLIT-SCREEN HERO SECTION %>
+  </header>
 
-</body>
-</html>
+  <!-- Hero Section -->
+  <div class="hero-content text-center">
+    <h1 class="display-3 fw-bold mb-4">
+      Welcome to <span class="highlight">Hell University</span>
+    </h1>
+
+    <p class="lead mb-4">
+      Manage your students, departments, and classes effortlessly — all in one place.
+    </p>
+  </div>
+
+</div>
+
+<!-- New blank canvas section for additional info -->
+<section class="info-canvas">
+  <div class="contact-info-container">
+    <div class="container">
+      <h2>About Hell University</h2>
+      <p>This is your blank canvas! Add details about the website, features, team, or anything else. For example:</p>
+      <ul>
+        <li>Effortless student management</li>
+        <li>Integrated department and class tools</li>
+        <li>Secure and user-friendly interface</li>
+      </ul>
+      <!-- Add more content here, like images, links, or Rails partials -->
+    </div>
+  </div>
+</section>
+
