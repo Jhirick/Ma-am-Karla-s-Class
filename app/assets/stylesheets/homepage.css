@@ -1,287 +1,437 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/*
+========================================
+WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS (FINAL VERSION - CONCAVE ARCH + VIDEO PLACEMENT FIX)
+========================================
+*/
+
+/* --- Color Variables --- */
+:root {
+    /* Wisteria Grove Purple Colors */
+    --primary-purple: #4A148C;    
+    --accent-purple: #9C27B0;     
+    --text-light: #ffffff;
+    --text-dark: #222222;
+    --line-height: 2px;
 }
 
-/* === Homepage Hero Section === */
-.home-container {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  background: url("background.png") no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Header */
-.home-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto; /* let it expand if needed */
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* top-align everything */
-  z-index: 10;
+/* ========================================
+I. HERO SECTION LAYOUT (ARCHED OVERLAP)
+========================================
+*/
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: block; 
+    padding-top: 100px; 
 }
 
-.logo-container {
-  display: flex;
-  align-items: flex-start; 
+/* --- FULL-SCREEN VIDEO BACKGROUND (STAYS IN THE BACK) --- */
+.hero-right-split {
+    /* FIX: Positional fix to fill the right side (40% width) */
+    position: absolute; 
+    top: 0;
+    /* Starts exactly where the left split (60%) ends */
+    left: 60%; 
+    width: 40%; /* Only 40% of the screen width */
+    height: 100%;
+
+    position: relative;
+
+    overflow: hidden; 
+    z-index: 4; 
+    background-color: white; /* Fallback color */
 }
 
-.site-logo {
-  width: 200px; 
-  height: auto;
+.promo-video {
+    display: block;
+    width: 100% !important; /* Pilitin ang 100% width */
+    height: 100% !important; /* Pilitin ang 100% height */
+    /* Object-fit: cover ensures the video fills the 40% container */
+    object-fit: cover; 
+    z-index: 0; 
 }
 
-/* Buttons */
-.header-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 0; 
+/* --- LEFT SPLIT: The Curved, Overlapping Content Area (Image + Overlay + Text) --- */
+.hero-left-split {
+    /* Position the content area to overlap the video */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* This width covers the left 60% */
+    width: 60%; 
+    height: 100%;
+    
+    /* 1. Add the Image as a Background */
+    background-image: url('left.png'); 
+    background-size: cover;
+    background-position: center 100px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5; /* Ensure this is on top of the video */
+    
+    /* 2. KEEPING THE CONCAVE CLIP-PATH: The curve you want (no change) */
+    clip-path: ellipse(130% 90% at -50% 47%); 
+    
+    overflow: hidden; /* Important for clipping */
 }
 
-.header-buttons .btn {
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+/* 3. Create the Purple Overlay (Pseudo-element) */
+.hero-left-split::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Make the ::before element cover 100% of the clipped parent */
+    width: 100%; 
+    height: 100%;
+    
+    background-color: var(--primary-purple);
+    opacity: 0.85; 
+    z-index: 1;
+    
+    /* The ::before element will automatically inherit the clipped shape of its parent. */
 }
 
-.header-buttons .btn-outline-light {
-  border: 2px solid #fff;
-  color: #fff;
-  background: transparent;
-}
-
-.header-buttons .btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.header-buttons .btn-light {
-  background: #fff;
-  color: #5e17eb;
-}
-
-.header-buttons .btn-light:hover {
-  background: #f3e5ff;
-  color: #3d0a91;
-}
-
-/* Hero content */
+/* Content inside the Left Split */
 .hero-content {
-  position: relative;
-  z-index: 1;
-  animation: fadeInUp 1.5s ease;
+    position: relative;
+    z-index: 6; /* Higher than the ::before overlay */
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%; 
+    padding-top: 100px; /* Account for the fixed header */
+    color: var(--text-light);
+    pointer-events: auto; 
+    max-width: 85%;
 }
 
-.home-container h1 {
-  font-size: 3.5rem;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-.home-container .highlight {
-  color: #d8b4ff; /* soft purple highlight */
+.hero-content .line-break {
+    width: 60px;
+    height: var(--line-height);
+    background-color: var(--accent-purple);
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
-.home-container p {
-  max-width: 600px;
-  margin: 0 auto 1rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  opacity: 0.9;
+/* CTA Button Styling */
+.learn-more-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
+    background-color: transparent;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    pointer-events: auto;
+    width: fit-content;
 }
 
-/* Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
+.learn-more-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+II. HEADER & NAVIGATION STYLES (PRESERVED SIZES)
+========================================
+*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Dark Purple Top Bar (Utility Links) --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between; 
+    font-size: 0.9rem;    
+    background-color: var(--primary-purple); 
+    padding: 20px 5%; 
+    width: 100%;
+}
+
+.top-bar-left {
+    margin-left: 50px;   
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    margin-right: 75px;  
+}
+
+.top-bar-right a,
+.top-bar-left a,
+.top-bar-right span {
+    color: var(--text-light); 
+    font-weight: 700; 
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.top-bar-right a:first-child {
+    margin-left: 0;
+}
+
+/* --- Main Nav Bar (The White Bar) --- */
+.main-nav-bar {
+    background-color: var(--text-light);
+    padding: 16px 5%;    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+}
+
+/* --- Logo Container and Absolute Positioning --- */
+.logo-container {
+    position: absolute; 
+    left: 5%; 
+    top: 55%;           
+    transform: translateY(-50%); 
+    z-index: 15;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-purple); 
+    text-decoration: none;
+    padding: 0; 
+    display: flex; 
+    align-items: center;
+}
+
+/* STYLING FOR THE INTEGRATED LOGO IMAGE (Shield) */
+.logo-image {
+    height: 160px;      
+    width: auto;
+    filter: none; 
+    margin: -20px;       
+    margin-left: 30px;   
+}
+
+/* Style for the two-line text block */
+.logo-text {
+    align-self: center;
+    font-size: 1.4rem; 
+    line-height: 1.1; 
+}
+
+/* Style for the second line (UNIVERSITY) to be smaller and lighter */
+.logo-text span {
+    font-size: 1rem;     
+    font-weight: 500; 
+    display: block; 
+}
+
+/* --- Main Navigation Adjustments --- */
+.main-nav {
+    margin-left: 500px;  
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; 
+}
+
+.main-nav ul li a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    padding: 15px 18px; 
+    margin-left: 0; 
+    font-size: 1.3rem;  
     opacity: 1;
-    transform: translateY(0);
-  }
+    font-weight: 700;
+    transition: color 0.3s;
+    display: flex; 
+    align-items: center;
 }
 
-/* ========================================================================= */
-/* === Animated Background Layers (Clouds + Birds) ========================= */
-/* ========================================================================= */
-
-.animated-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* === CLOUDS ============================================================ */
-
-@keyframes cloudFloat {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(25px); }
-  100% { transform: translateX(0); }
-}
-
-.cloud {
-  position: absolute;
-  width: 1400px;
-  opacity: 0.8;
-  animation: cloudFloat 8s ease-in-out infinite;
-}
-
-/* You can place them anywhere */
-.cloud-1 { top: -10%; left: 5%; }
-.cloud-2 { top: 10%; left: 10%; animation-duration: 10s; }
-.cloud-3 { top: 5%; left: 25%; animation-duration: 12s; }
-
-/* === BIRDS (FLY UPWARD FROM THE MOON) ==================================== */
-
-.birds {
-  position: absolute;
-  width: 1000px;
-  opacity: 0.9;
-  animation-timing-function: ease-in-out;
-}
-
-/* NOTE: Adjust top/left so they appear exactly on your moon */
-.birds-1 {
-  top: 5%;   /* <--- change if needed */
-  left: 28%;  /* <--- change if needed */
-  animation: birdsUp1 12s ease-in-out infinite;
-}
-
-.birds-2 {
-  top: 10%;   /* <--- change if needed */
-  left: 30%;
-  animation: birdsUp2 16s ease-in-out infinite;
-  opacity: 0.8;
-}
-
-/* Birds 1 upward motion */
-@keyframes birdsUp1 {
-  0% {
-    transform: translateY(0) translateX(0) scale(0.7);
+.main-nav ul li a:hover {
     opacity: 1;
-  }
-  40% {
-    transform: translateY(-120px) translateX(-10px) scale(0.9);
-  }
-  80% {
-    transform: translateY(-240px) translateX(10px) scale(1.1);
-  }
-  100% {
-    transform: translateY(-300px) translateX(0) scale(1.2);
-    opacity: 0;
-  }
+    color: var(--accent-purple);
 }
 
-/* Birds 2 upward motion */
-@keyframes birdsUp2 {
-  0% {
-    transform: translateY(0) translateX(0) scale(0.6);
-    opacity: 0.9;
-  }
-  40% {
-    transform: translateY(-100px) translateX(15px) scale(0.85);
-  }
-  80% {
-    transform: translateY(-220px) translateX(-10px) scale(1.05);
-  }
-  100% {
-    transform: translateY(-280px) translateX(5px) scale(1.15);
-    opacity: 0;
-  }
+/* Styling for the Dropdown Indicator (The small triangle) */
+.dropdown-indicator {
+    content: ''; 
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--primary-purple); 
+    margin-left: 5px; 
+    margin-top: 2px; 
 }
 
-/* ... (all your existing CSS up to here) ... */
-
-/* === Separate Blank Canvas Section Below Hero === */
-.info-canvas {
-  background: #ffffff;  /* Plain white background for the "blank canvas" */
-  padding: 50px 0;  /* Vertical padding for spacing */
-  min-height: 100vh;  /* Full viewport height to encourage scrolling */
-  width: 100vw;  /* Forces full viewport width for full-width display */
-  position: relative;  /* Ensures proper positioning */
-  color: #333;  /* Dark text for readability */
-  font-family: 'Poppins', sans-serif;  /* Matches your font */
+.main-nav ul li a:hover .dropdown-indicator {
+    border-top: 5px solid var(--accent-purple); 
 }
 
-/* Adjust the inner container to avoid Bootstrap width constraints */
-.info-canvas .container {
-  max-width: none;  /* Removes Bootstrap's width limit */
-  margin: 0 auto;  /* Centers horizontally */
-  padding: 0 20px;  /* Adds horizontal padding for readability */
-  text-align: center;  /* Centers text/content */
+/* --- DROPDOWN SPECIFIC STYLES --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-/* Pure CSS fade-in/slide-up animation (triggers on load with delay) */
-.contact-info-container {
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInSlideUp 1s ease-out 1s forwards;  /* 1s delay, then 1s animation */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    min-width: 180px; 
+    background-color: var(--text-light); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    flex-direction: column;
+    margin-top: 1px; 
 }
 
-@keyframes fadeInSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.dropdown-menu a {
+    color: var(--primary-purple); 
+    padding: 8px 15px;
+    text-decoration: none;
+    display: block;
+    font-weight: 500; 
+    margin-left: 0;
 }
 
-/* Optional: Add styles for content inside the canvas */
-.info-canvas h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
+.dropdown-menu a:hover {
+    background-color: #eee;
 }
 
-.info-canvas p, .info-canvas ul {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #666;
+.dropdown:hover .dropdown-menu {
+    display: flex;
 }
 
-.info-canvas ul {
-  list-style: none;
-  padding: 0;
-}
+/* ========================================
+III. RESPONSIVE MEDIA QUERIES (MOBILE)
+========================================
+*/
 
-.info-canvas li {
-  margin-bottom: 0.5rem;
-}
+@media (max-width: 600px) {
+    
+    /* 1. Header Adjustments */
+    .header {
+        padding: 0; 
+    }
+    
+    .top-bar {
+        display: none; 
+    }
 
-/* Ensure body or main wrapper stacks children vertically */
-body, main, #main-wrapper {
-  display: block !important;
-  flex-direction: column !important;
-}
+    .main-nav-bar {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 10px 5%; 
+    }
+    
+    .logo-container {
+        position: static;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px; 
+    }
+    
+    .logo-image {
+        height: 50px; 
+    }
 
-/* Force info-canvas to be full width below the homepage */
-.info-canvas {
-  width: 100% !important;
-  display: block !important;
-  clear: both; /* Clear floats if any */
-  margin-top: 0; /* Remove any top margin that pushes it */
-  padding: 50px 20px;
-  background: #ffffff;
-  color: #333;
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-}
+    .logo {
+        justify-content: center;
+    }
+    
+    .main-nav {
+        width: 100%;
+        margin-top: 0;
+        margin-left: 0; 
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap; 
+        justify-content: space-around;
+    }
 
+    .main-nav ul li a {
+        padding: 5px 8px; 
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--primary-purple); 
+    }
+
+    .main-nav ul li a .dropdown-indicator {
+        display: none;
+    }
+
+    /* 2. Hero Section Adjustments */
+    .hero-section {
+        height: 75vh; 
+        padding-top: 0; 
+        display: block; 
+    }
+    
+    .hero-left-split, .hero-right-split {
+        width: 100%;
+        height: 50%; 
+        position: static; 
+    }
+    
+    .hero-left-split::before {
+        clip-path: none; 
+    }
+
+    .hero-content {
+        padding-top: 0; 
+        max-width: 100%;
+        padding: 0 10%; 
+        text-align: center; 
+        align-items: center; 
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem; 
+        margin-bottom: 10px;
+    }
+
+    .hero-content .line-break {
+        width: 50px;
+        margin: 5px auto 15px auto; 
+    }
+    
+    .learn-more-btn {
+        margin-top: 15px;
+    }
+}
