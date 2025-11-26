@@ -1,4 +1,3 @@
-<%# Define your primary variables using ERB for easy maintenance. %>
 <% university_name = "WISTERIA GROVE UNIVERSITY" %>
 <div class="home-container">
 
@@ -26,52 +25,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= university_name %> - Home</title>
+
+    <%# CORRECT RAILS WAY TO LOAD homepage.css %>
+    <%= stylesheet_link_tag "homepage", media: "all" %>
     
-    <%# IMPORTANT: Link your external stylesheet here %>
-    <link rel="stylesheet" href="homepage.css">
+    <%# ADDED: Google Font Link for Playfair Display (Serif Font) %>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="header">
         <div class="top-bar">
             
-            <%# START: LEFT-ALIGNED DROPDOWN GROUP %>
+            <%# START: LEFT-ALIGNED SCHOOL MANAGER DROPDOWN %>
             <div class="top-bar-left">
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle">Resources For You</a>
-                    <div class="dropdown-menu">
-                        <a href="#">Students</a>
-                        <a href="#">Faculty & Staff</a>
-                        <a href="#">Alumni</a>
-                        <a href="#">Parents</a>
+                <div class="dropdown" id="schoolManagerDropdown"> 
+                <%# Ang "School Manager" text ay ang link mismo na may ID para sa JS click handler %>
+                    <a href="#" class="dropdown-toggle" id="dropdownBtn">School Manager</a>
+                
+                    <%# Dropdown Menu List (3x3 Grid) %>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="http://0.0.0.0:3001/departments">Departments</a>
+                        <a href="http://0.0.0.0:3001/teachers">Teachers</a>
+                        <a href="http://0.0.0.0:3001/students">Students</a>
+
+                        <a href="http://0.0.0.0:3001/subjects">Subjects</a>
+                        <a href="http://0.0.0.0:3001/sections">Sections</a>
+                        <a href="http://0.0.0.0:3001/staffs">Staffs</a>
+
+                        <a href="http://0.0.0.0:3001/classlists">Classlists</a>
+                        <a href="http://0.0.0.0:3001/guardians">Guardians</a>
+                        <a href="http://0.0.0.0:3001/student_guardians">Relationships</a>
                     </div>
                 </div>
             </div>
-            <%# END: NEW LEFT-ALIGNED DROPDOWN GROUP %>
+            <%# END: LEFT-ALIGNED SCHOOL MANAGER DROPDOWN %>
 
-            <%# START: RIGHT-ALIGNED UTILITY LINKS %>
             <div class="top-bar-right">
                 <a href="#">Request Info</a>
                 <a href="#">Visit</a>
                 <a href="#">Apply</a>
                 <a href="#">Give</a>
             </div>
-            <%# END: RIGHT-ALIGNED UTILITY LINKS %>
         </div>
 
         <nav class="main-nav-bar">
-            
-            <%# START: Logo Container (ABSOLUTE POSITIONING TARGET) %>
+
             <div class="logo-container"> 
                 <a href="#" class="logo">
-                    <%# The Logo Shield Image (Syntax corrected for Rails helper) %>
-                    <%= image_tag "wisteria-logo-shield.png", alt: "Wisteria Grove University Logo", class: "logo-image" %>
-                    
-                    <%# FIX: Wrapped "UNIVERSITY" in a <span> tag to enable specific CSS styling %>
+                    <%= image_tag "wisteria-logo-shield.png",
+                        alt: "Wisteria Grove University Logo",
+                        class: "logo-image" %>
+
                     <span class="logo-text">WISTERIA GROVE<br><span>UNIVERSITY</span></span>
                 </a>
             </div>
-            <%# END: Logo Container %>
 
             <div class="main-nav">
                 <ul>
@@ -80,43 +88,80 @@
                     <li><a href="#">Life at WGU <span class="dropdown-indicator"></span></a></li>
                     <li><a href="#">Research <span class="dropdown-indicator"></span></a></li>
                     <li><a href="#">Athletics <span class="dropdown-indicator"></span></a></li>
-                    
-                    <%# Dropdown indicator added to "About WGU" %>
                     <li><a href="#">About WGU <span class="dropdown-indicator"></span></a></li>
-                    
                 </ul>
             </div>
         </nav>
     </header>
 
-    <%# START: NEW CURVED SPLIT-SCREEN HERO SECTION %>
+    <%# START: HERO SECTION %>
     <div class="hero-section">
-        
-        <%# LEFT SIDE: Image Background (left.png) with Curved Overlay and Content %>
+
+        <%# LEFT SIDE PANEL (Image/Content) %>
         <div class="hero-left-split">
-             <%# The main marketing text content %>
             <div class="hero-content">
+                <%# UPDATED: Unique Tagline %>
                 <h1>
-                    Ready to<br>
-                    Change Lives?
+                    Discover <br>
+                    your Purpose.
                 </h1>
+
                 <div class="line-break"></div>
+
                 <h1>
-                    Start with<br>
-                    Yours.
+                    Ignite your<br>
+                    Future.
                 </h1>
-                <a href="#" class="learn-more-btn">
-                    Learn more
-                </a>
+
+                <a href="#" class="learn-more-btn">Learn more</a>
             </div>
         </div>
 
-        <%# RIGHT SIDE: Video Block (Promotional.mp4) %>
+        <%# RIGHT SIDE VIDEO %>
         <div class="hero-right-split">
-            <%= video_tag "Promotional.mp4", class: "promo-video", autoplay: true, muted: true, loop: true, playsinline: true %>
+            <%= video_tag "Promotional.mp4",
+                autoplay: true,
+                muted: true,
+                loop: true,
+                playsinline: true,
+                class: "promo-video" %>
         </div>
     </div>
-    <%# END: NEW CURVED SPLIT-SCREEN HERO SECTION %>
+    <%# END: HERO SECTION %>
+
+    <%# Dito natin ilalagay ang Footer Section %>
+    
+    <%# START: JAVASCRIPT FOR CLICK-ACTIVATED DROPDOWN MENU %>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtn = document.getElementById('dropdownBtn');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const dropdownContainer = document.getElementById('schoolManagerDropdown');
+
+            if (dropdownBtn && dropdownMenu) {
+                
+                // Toggle function when the button is clicked
+                dropdownBtn.addEventListener('click', function(event) {
+                    // Pinipigilan ang default action (pag-navigate)
+                    event.preventDefault(); 
+                    // Toggle the 'show' class (na nagpapalit ng display: none sa display: flex)
+                    dropdownMenu.classList.toggle('show');
+                });
+
+                // Close the dropdown when clicking outside of the container
+                document.addEventListener('click', function(event) {
+                    // Tinitingnan kung ang click ay nasa labas ng dropdown container
+                    if (!dropdownContainer.contains(event.target)) {
+                        // Tinitiyak na naka-hide ang menu kung ito ay naka-display
+                        if (dropdownMenu.classList.contains('show')) {
+                            dropdownMenu.classList.remove('show');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <%# END: JAVASCRIPT FOR CLICK-ACTIVATED DROPDOWN MENU %>
 
 </body>
 </html>
