@@ -1,53 +1,62 @@
 <% content_for :title, "Students" %>
 
-<div class="d-flex justify-content-end">
-  <%= link_to "New Student", new_student_path, class: "btn btn-success mt-3" %>
+<%# 
+  Header Bar: This will be made sticky in the CSS to remain visible.
+%>
+<div class="page-header-bar d-flex justify-content-between align-items-center mb-0">
+  
+  <h1 class="m-0 text-white me-4">Students</h1>
+
+  <%# Search Bar %>
+  <div class="input-group search-bar me-auto">
+    <input type="text" class="form-control" placeholder="Search Students by Name or ID..." aria-label="Search">
+    <span class="input-group-text"><i class="bi bi-search"></i></span>
+  </div>
+
+  <%# New Student Button %>
+  <%= link_to "New Student", new_student_path, class: "btn btn-light ms-4" %>
 </div>
 
-<div class="students-container mt-2">
+<%# NEW CONTAINER: This div is where the scrolling will happen %>
+<div class="table-scroll-container mt-3">
+  
   <table class="table table-bordered table-striped">
-  <thead>
-      <!-- Title Row -->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Year Level</th>
+        <th>Program</th>
+        <th>Department</th>
+        <th>Number of Units</th>
+        <th>Total Assessment</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    <% @students.each do | student | %>
         <tr>
-          <th colspan="7" class="table-title">Students</th>
+          <td><%= student.name %></td>
+          <td><%= student.year_level %></td>
+          <td><%= student.program %></td>
+          <td><%= student.department.name %></td>
+          <td><%= student.number_of_units %></td>
+          <td><%= student.total_assessment %></td>
+          <td> 
+            <%# Action Buttons %>
+            <%= link_to "Show", student, class: "btn btn-sm btn-show" %> 
+            <%= link_to "Edit", edit_student_path(student), class: "btn btn-sm btn-warning" %>
+            <%= link_to "Delete", "#", 
+              class: "btn btn-danger btn-sm", 
+              data: { bs_toggle: "modal", bs_target: "#confirmDeleteModal", student_url: student_path(student) } %>
         </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-      <!-- Header Row -->
-        <tr>
-          <th>Name</th>
-          <th>Year Level</th>
-          <th>Program</th>
-          <th>Department</th>
-          <th>Number of Units</th>
-          <th>Total Assessment</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-      <% @students.each do | student | %>
-          <tr>
-            <td><%= student.name %></td>
-            <td><%= student.year_level %></td>
-            <td><%= student.program %></td>
-            <td><%= student.department.name %></td>
-            <td><%= student.number_of_units %></td>
-            <td><%= student.total_assessment %></td>
-            <td> 
-              <%= link_to "Show", student, class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
-              <%= link_to "Edit", edit_student_path(student), class: "btn btn-sm btn-warning", style: "background-color: #ffc107; color: black;" %>
-              <%= link_to "Delete", "#", 
-                class: "btn btn-danger btn-sm", 
-                data: { bs_toggle: "modal", bs_target: "#confirmDeleteModal", student_url: student_path(student) },
-                style: "background-color: #b02a37; color: white;" %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+</div> <%# End of table-scroll-container %>
 
-</div>
 
-<!-- Bootstrap Confirmation Modal -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -65,5 +74,3 @@
     </div>
   </div>
 </div>
-
-
