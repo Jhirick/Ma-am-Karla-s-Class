@@ -38,17 +38,21 @@
   <% else %>
     
     <div class="d-flex" id="wrapper">
-      <nav class="sidebar-container border-end bg-white d-flex flex-column">
+      <nav class="sidebar-container d-flex flex-column">
         
-        <div class="sidebar-header logo-wrapper p-4 d-flex align-items-center gap-2">
-          
-          <div class="d-flex align-items-center gap-2 logo-text-wrapper">
-            <%= image_tag "Logo.png", class: "logo-style" %>
-            <h5 class="fw-bold mb-0 logo-secondary-text">WGU</h5>
+        <div class="sidebar-header logo-wrapper p-4 d-flex align-items-center gap-3 logo-bg">
+  
+        <div class="logo-img-wrapper d-flex align-items-center justify-content-center">
+          <%= image_tag "Logo.png", class: "logo-style" %>
+        </div>  
+
+          <div class="d-flex flex-column">
+            <h5 class="fw-bold mb-0 logo-main-text">WISTERIA GROVE</h5>
+           <span class="logo-subtext">UNIVERSITY</span>
           </div>
-          
+
         </div>
-        
+ 
         <hr class="sidebar-divider-top">
         
         <div class="sidebar-search px-4 py-3">
@@ -65,26 +69,26 @@
           <ul class="nav flex-column px-3">
             
             <li class="nav-item mb-2">
-              <%= link_to root_path, class: "nav-link d-flex align-items-center gap-3 text-dark #{'active-link' if current_page?(root_path)}" do %>
+              <%= link_to root_path, class: "nav-link d-flex align-items-center gap-3 text-white #{'active-link' if current_page?(root_path)}" do %>
                 <i class="bi bi-house fs-5"></i>
                 <span>Home</span>
               <% end %>
             </li>
 
             <li class="nav-item mb-2">
-              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-dark #{'active-link' if controller_name == 'news'}" do %>
+              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-white #{'active-link' if controller_name == 'news'}" do %>
                 <i class="bi bi-newspaper fs-5"></i>
                 <span>News</span>
               <% end %>
             </li>
 
             <li class="nav-item mb-2">
-              <% manager_controllers = ['students', 'teachers', 'sections', 'subjects', 'classlists', 'staffs', 'departments', 'guardians'] %>
-              <a class="nav-link d-flex align-items-center gap-3 text-dark collapsed <%= 'active-link' if manager_controllers.include?(controller_name) %>" 
-                 data-bs-toggle="collapse" 
-                 href="#managerSubmenu" 
-                 role="button" 
-                 aria-expanded="<%= manager_controllers.include?(controller_name) %>">
+              <% manager_controllers = ['students', 'teachers', 'sections', 'subjects', 'classlists', 'staffs', 'departments', 'guardians', 'relationships'] %>
+              <a class="nav-link d-flex align-items-center gap-3 text-white collapsed <%= 'active-link' if manager_controllers.include?(controller_name) %>" 
+                data-bs-toggle="collapse" 
+                href="#managerSubmenu" 
+                role="button" 
+                aria-expanded="<%= manager_controllers.include?(controller_name) %>">
                 <i class="bi bi-grid fs-5"></i>
                 <span class="flex-grow-1">Manager</span>
                 <i class="bi bi-chevron-down ms-auto small-icon"></i>
@@ -92,60 +96,83 @@
 
               <div class="collapse <%= 'show' if manager_controllers.include?(controller_name) %>" id="managerSubmenu">
                 <ul class="nav flex-column ms-4 mt-2 border-start ps-2">
+
+                  <!-- Departments -->
                   <li class="nav-item">
-                    <%# Submenu items now use the new reliable class %>
-                    <%= link_to students_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'students'}" do %>
-                      <span>Students</span>
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to teachers_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'teachers'}" do %>
-                      <span>Teachers</span>
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to departments_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'departments'}" do %>
+                    <%= link_to departments_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'departments'}" do %>
                       <span>Departments</span>
                     <% end %>
                   </li>
+
+                  <!-- Teachers -->
                   <li class="nav-item">
-                    <%= link_to sections_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'sections'}" do %>
-                      <span>Sections</span>
+                    <%= link_to teachers_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'teachers'}" do %>
+                      <span>Teachers</span>
                     <% end %>
                   </li>
+
+                  <!-- Students -->
                   <li class="nav-item">
-                    <%= link_to subjects_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'subjects'}" do %>
+                    <%= link_to students_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'students'}" do %>
+                      <span>Students</span>
+                    <% end %>
+                  </li>
+
+                  <!-- Subjects -->
+                  <li class="nav-item">
+                    <%= link_to subjects_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'subjects'}" do %>
                       <span>Subjects</span>
                     <% end %>
                   </li>
+
+                  <!-- Sections -->
                   <li class="nav-item">
-                    <%= link_to classlists_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'classlists'}" do %>
-                      <span>Classlists</span>
+                    <%= link_to sections_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'sections'}" do %>
+                      <span>Sections</span>
                     <% end %>
                   </li>
-                   <li class="nav-item">
-                    <%= link_to staffs_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'staffs'}" do %>
+
+                  <!-- Staffs -->
+                  <li class="nav-item">
+                    <%= link_to staffs_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'staffs'}" do %>
                       <span>Staffs</span>
                     <% end %>
                   </li>
+
+                  <!-- Classlists -->
                   <li class="nav-item">
-                    <%= link_to guardians_path, class: "nav-link py-1 #{'submenu-active-link' if controller_name == 'guardians'}" do %>
+                    <%= link_to classlists_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'classlists'}" do %>
+                      <span>Classlists</span>
+                    <% end %>
+                  </li>
+
+                  <!-- Guardians -->
+                  <li class="nav-item">
+                    <%= link_to guardians_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'guardians'}" do %>
                       <span>Guardians</span>
                     <% end %>
                   </li>
+
+                  <!-- Relationships -->
+                  <li class="nav-item">
+                    <%= link_to student_guardians_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'relationships'}" do %>
+                      <span>Relationships</span>
+                    <% end %>
+                  </li>
+
                 </ul>
               </div>
             </li>
 
             <li class="nav-item mb-2">
-              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-dark" do %>
+              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-white" do %>
                 <i class="bi bi-info-circle fs-5"></i>
                 <span>About Us</span>
               <% end %>
             </li>
 
             <li class="nav-item mb-2">
-              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-dark" do %>
+              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-white" do %>
                 <i class="bi bi-envelope fs-5"></i>
                 <span>Contact Us</span>
               <% end %>
@@ -157,7 +184,7 @@
         <div class="sidebar-footer p-3 border-top mt-auto">
           <ul class="nav flex-column">
              <li class="nav-item mb-2">
-              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-dark" do %>
+              <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-white" do %>
                 <i class="bi bi-gear fs-5"></i>
                 <span>Settings</span>
               <% end %>
@@ -169,18 +196,22 @@
         </div>
       </nav>
 
-      <main class="content-wrapper flex-grow-1 bg-light">
+      <main class="content-wrapper flex-grow-1">
         
-        <div class="flash-container position-relative">
-           <% flash.each do |key, message| %>
-            <div class="auto-dismiss-alert alert alert-<%= key == "notice" ? "success" : "danger" %> shadow-sm m-3" role="alert">
-              <%= message %>
-            </div>
-          <% end %>
-        </div>
+        <div class="content-card-container">
 
-        <div class="p-4">
-          <%= yield %>
+          <div class="flash-container position-relative">
+            <% flash.each do |key, message| %>
+              <div class="auto-dismiss-alert alert alert-<%= key == "notice" ? "success" : "danger" %> shadow-sm m-3" role="alert">
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="p-4">
+            <%= yield %>
+          </div>
+          
         </div>
       </main>
     </div>

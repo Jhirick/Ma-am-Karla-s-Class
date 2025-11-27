@@ -1,23 +1,27 @@
 /* ============================================
-   UNTITLED UI – PURPLE SIDEBAR THEME
+   PURPLE SIDEBAR THEME - FINAL FIX FOR OUTLINE
+   (Seamless Sidebar/Background. Content: White Rounded Card)
    ============================================ */
 
-/* Main Sidebar Container */
-.sidebar-container {
-  width: 325px;
+/* 1. Global & Base Styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  /* Apply the gradient directly to the body for seamless full-screen coverage */
   background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%);
-  color: white !important;
-  border: none !important;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 0 20px 20px 0;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Remove default Bootstrap white background overrides */
-.sidebar-container.bg-white {
-  background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%) !important;
+/* Base Wrapper - Now only serves as a content holder with no padding */
+#wrapper {
+  min-height: 100vh;
+  padding: 0; /* REMOVE PADDING to prevent any gap */
+  background: transparent; /* Must be transparent to show the body's gradient */
+  display: flex; /* Ensure the d-flex remains */
+  align-items: flex-start; /* Keep sidebar and content aligned */
 }
+
+/* 2. Main Sidebar Container (Rounded Card Look) */
 
 /* Sidebar Logo */
 .logo-style {
@@ -140,28 +144,70 @@
   background: rgba(255, 255, 255, 0.30) !important;
 }
 
-/* ============================================
-   MAIN CONTENT
-   ============================================ */
+
+/* 3. MAIN CONTENT CONTAINER STYLING */
 .content-wrapper {
-  background: #f4f5f7;
+  background: transparent !important; 
+  /* Reduce the height calculation, we will use padding on the wrapper for vertical spacing */
   min-height: 100vh;
   flex: 1;
-  /* FIX: Forces a vertical scrollbar to prevent layout shift */
-  overflow-y: scroll; 
+  padding: 20px 20px 20px 20px !important; /* Apply padding only to the content wrapper */
 }
 
-.logo-wrapper {
-  justify-content: center !important;
+/* The White Card containing the content (Student Index, Staff Index, etc.) */
+.content-card-container {
+  background-color: white; 
+  border-radius: 25px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+  height: calc(100vh - 40px); /* Fill the height minus the 20px vertical padding from content-wrapper */
+  width: 100%;
+  padding: 30px; /* Internal padding for content */
 }
 
-.logo-text-wrapper {
-  justify-content: center !important;
+/* Flash Messages */
+.flash-container {
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.active-link,
-.sidebar-menu .nav-link.active-link {
-  background: rgba(255, 255, 255, 0.22) !important;
-  color: white !important;
+.auto-dismiss-alert {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Updated Navbar Logo Styling --- */
+
+.logo-bg {
+  background: white; 
+  border-radius: 0 20px 20px 0;
+  padding: 10px !important;
+  margin-bottom: 20px; /* <-- adds the gap between white box and search bar */
+}
+
+.logo-img-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-style {
+  width: 45px;
+  height: auto;
+}
+
+.logo-main-text {
+  color: #6a0dad;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.logo-subtext {
+  color: #6a0dad;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 1px;
 }
