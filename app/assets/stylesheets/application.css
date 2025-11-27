@@ -21,6 +21,8 @@ body, html {
   align-items: flex-start; /* Keep sidebar and content aligned */
 }
 
+/* 2. Main Sidebar Container (Rounded Card Look) */
+
 /* Sidebar Logo */
 .logo-style {
   width: 38px;
