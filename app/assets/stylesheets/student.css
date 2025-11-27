@@ -1,266 +1,222 @@
-/* ========= Hell University - Students / Relationships (Option A) =========
-   Full purple gradient background, misty/translucent card, glowing headers
-   ------------------------------------------------------------------------ */
-
-/* Use the uploaded image as a decorative background. If you move the file,
-   update the URL to match your asset location. */
-.relationships-page {
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-  background:
-    linear-gradient(180deg, rgba(87,10,137,0.82) 0%, rgba(41,4,76,0.86) 55%, rgba(14,5,38,0.95) 100%),
-    url("/mnt/data/d1a9835b-5da2-4cd6-8406-3f039e134a50.png") center center / cover no-repeat;
-  background-attachment: scroll; /* scrolls with page (not fixed) */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Hero / Banner ------------------------------------------------------------------ */
-.relationships-hero {
-  position: relative;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 20px 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(24,6,57,0.35), rgba(10,6,26,0.6));
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-/* Layout container inside the hero (centered) */
-.hero-inner {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.hero-left { flex: 0 0 140px; display:flex; align-items:flex-start; }
-.hero-center { flex: 1 1 auto; }
-.hero-right { flex: 0 0 auto; display:flex; justify-content:flex-end; }
-
-/* Logo in hero */
-.hero-logo {
-  width: 120px;
-  height: auto;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
-}
-
-/* Titles */
-.hero-title {
-  font-size: 2.6rem;
-  margin: 0;
-  line-height: 1.02;
-  color: #fff;
-  text-shadow: 0 6px 30px rgba(77, 0, 140, 0.45);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-.hero-sub {
-  margin-top: 8px;
-  color: rgba(255,255,255,0.9);
-  font-size: 1rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.95;
-}
-
-/* Hero button (New Relationship) */
-.btn-ghost {
-  background: rgba(255,255,255,0.06);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.16);
-  padding: 10px 14px;
+/* ============================================
+   PAGE HEADER BAR STYLES (Updated for stickiness)
+   ============================================ */
+.page-header-bar {
+  background-color: #8a19cc; 
+  padding: 15px 25px;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0px; 
+  z-index: 10; 
+}
+
+.page-header-bar h1 {
+  font-size: 1.5rem;
   font-weight: 600;
-  transition: all 180ms ease;
-  text-decoration: none;
-}
-.btn-ghost:hover {
-  background: rgba(255,255,255,0.12);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(120, 30, 180, 0.18);
+  color: #fff; /* Ensure header text is white */
 }
 
-/* Main content area ---------------------------------------------------------------- */
-.relationships-main {
-  width: 100%;
-  max-width: 1180px;
-  margin: -70px auto 80px; /* pulls the card up to visually overlap hero */
-  padding: 0 20px;
-  z-index: 10;
+/* Search Input Styling */
+.search-bar {
+  max-width: 400px;
 }
 
-/* Card that holds the table */
-.table-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border-radius: 14px;
-  box-shadow: 0 12px 40px rgba(5, 3, 20, 0.6);
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-/* Card header */
-.table-card-header {
-  padding: 18px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  background: linear-gradient(90deg, rgba(138, 43, 226, 0.06), rgba(87,10,137,0.04));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.table-card-title {
-  margin: 0;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-shadow: 0 6px 18px rgba(85, 16, 160, 0.2);
-}
-
-/* Card body (table wrapper) */
-.table-card-body {
-  padding: 18px;
-}
-
-/* Table styling ------------------------------------------------------------------ */
-.relationship-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: rgba(255,255,255,0.02);
-  border-radius: 10px;
-  overflow: hidden;
-  color: #fff;
-  table-layout: auto;
-}
-
-.relationship-table thead th {
-  text-align: left;
-  padding: 14px 16px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  background: linear-gradient(90deg, rgba(124, 58, 237, 0.18), rgba(87,10,137,0.14));
-  color: #fff;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.relationship-table tbody td {
-  padding: 14px 16px;
-  vertical-align: middle;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.95);
-  font-size: 0.98rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(6, 6, 12, 0.01));
-}
-
-/* Row hover effect (soft glow) */
-.relationship-table tbody tr:hover td {
-  background: linear-gradient(90deg, rgba(148, 57, 255, 0.06), rgba(72, 12, 128, 0.06));
-  transform: translateY(-2px);
-  transition: all 200ms ease;
-  box-shadow: 0 8px 24px rgba(80, 10, 160, 0.10);
-}
-
-/* Column widths */
-.col-student { width: 28%; }
-.col-guardian { width: 28%; }
-.col-relation { width: 24%; }
-.col-actions { width: 20%; text-align: right; }
-
-/* Actions / buttons inside table */
-.action-btn {
-  padding: 8px 12px;
-  border-radius: 8px;
+.search-bar .form-control {
   border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px 0 0 5px;
+  color: #343a40; /* Text color for input */
+}
+
+.search-bar .form-control::placeholder {
+    color: #6c757d; /* Placeholder color */
+}
+
+.search-bar .input-group-text {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #343a40;
+  border: none;
+  border-radius: 0 5px 5px 0;
+}
+
+/* ============================================
+   TABLE SCROLL CONTAINER
+   ============================================ */
+.table-scroll-container {
+  max-height: calc(100vh - 200px); 
+  overflow-y: auto;
+  padding-bottom: 20px; 
+  background-color: #ffffff; /* White background for the card containing the table */
+  border-radius: 10px; /* Match header bar radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Match header bar shadow */
+  margin-top: -15px; /* Pull it up to visually connect with the header bar */
+  padding-top: 20px; /* Padding inside the scroll container, above the table */
+}
+
+/* ============================================
+   STUDENT TABLE STYLES (Inspired by provided image)
+   ============================================ */
+.table {
+  width: 100%;
+  margin-bottom: 0; /* Remove default table bottom margin */
+  color: #333; /* Default text color for table content */
+  border-collapse: separate; /* Required for border-spacing if used, or for rounded corners */
+  border-spacing: 0; /* Remove space between cells */
+}
+
+/* Table Header */
+.table thead th {
+  background-color: #e0e0ff; /* Light purple/lavender for header background */
+  color: #5d3f9e; /* Darker purple text for header */
   font-weight: 600;
+  padding: 12px 15px; /* Adjust padding */
+  border: none; /* Remove default borders */
+  position: sticky; /* Make table header sticky */
+  top: -20px; /* Stick to the top of its scrolling container */
+  z-index: 5; /* Ensure it's above table rows but below the main header bar */
+  text-align: left; /* Align text left */
+  font-size: 0.9rem;
+}
+
+/* Rounded corners for the first/last header cells */
+.table thead th:first-child {
+  border-top-left-radius: 8px; /* Slightly rounded corners for the header */
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 8px; /* Slightly rounded corners for the header */
+}
+
+/* Table Body Rows */
+.table tbody tr {
+  background-color: #fff; /* Default white background */
+  border-bottom: 1px solid #eee; /* Light separator between rows */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f7f7ff; /* Lighter shade of purple for even rows */
+}
+
+.table tbody tr:hover {
+  background-color: #e9e9ff; /* Even lighter purple on hover */
   cursor: pointer;
-  margin-left: 8px;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-/* Show (dark teal) */
-.show-btn {
-  background: linear-gradient(180deg, #1f6b4f, #146c43);
+/* Table Data Cells */
+.table tbody td {
+  padding: 12px 15px; /* Adjust padding */
+  vertical-align: middle;
+  border: none; /* Remove default cell borders */
+  color: #4a4a4a; /* Slightly softer black for cell text */
+  font-size: 0.9rem;
+}
+
+/* Action Buttons within table cells */
+.table tbody td .btn {
+  font-size: 0.75rem; /* Smaller buttons */
+  padding: 5px 8px;
+  border-radius: 4px;
+  margin-right: 5px; /* Space between buttons */
+  white-space: nowrap; /* Prevent buttons from wrapping */
+}
+
+.btn-show { /* Styling for your "Show" button */
+  background-color: #7e57c2; /* A nice purple */
+  color: #fff;
+  border: none;
+}
+.btn-show:hover {
+  background-color: #673ab7;
   color: #fff;
 }
-.show-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(6, 71, 55, 0.18); }
 
-/* Edit (amber) */
-.edit-btn {
-  background: linear-gradient(180deg, #ffcd39, #ffc107);
-  color: #2b1a00;
+.btn-warning {
+  background-color: #ffca28; /* Bootstrap warning default */
+  border: none;
+  color: #333;
 }
-.edit-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(180,120,10,0.18); }
+.btn-warning:hover {
+  background-color: #ffc107;
+  color: #333;
+}
 
-/* Delete (deep red) */
-.delete-btn {
-  background: linear-gradient(180deg, #c02a37, #9b2030);
+.btn-danger {
+  background-color: #ef5350; /* A slightly softer red */
+  border: none;
   color: #fff;
 }
-.delete-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(180,20,40,0.16); }
-
-/* Responsiveness ------------------------------------------------------------------ */
-@media (max-width: 980px) {
-  .hero-inner { flex-direction: column; gap: 12px; text-align: center; }
-  .hero-left, .hero-right { display: none; }
-  .hero-title { font-size: 1.8rem; }
-  .relationships-main { margin: -50px 16px 60px; }
-  .col-actions { text-align: left; }
-  .relationship-table thead th { font-size: 0.9rem; }
-  .relationship-table tbody td { font-size: 0.92rem; padding: 12px; }
-  .action-btn { margin: 6px 6px 0 0; }
+.btn-danger:hover {
+  background-color: #e53935;
+  color: #fff;
 }
 
-/* Small devices: stack rows into cards for readability */
-@media (max-width: 620px) {
-  .relationship-table,
-  .relationship-table thead,
-  .relationship-table tbody,
-  .relationship-table th,
-  .relationship-table td,
-  .relationship-table tr {
-    display: block;
-  }
+/* Override default table styling for specific elements */
+.table-bordered {
+  border: none; /* Remove overall table border */
+}
 
-  .relationship-table thead { display: none; }
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff; /* Ensure odd rows are white */
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #f7f7ff; /* Ensure even rows have the light purple */
+}
 
-  .relationship-table tbody tr {
-    margin-bottom: 14px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 12px;
-  }
 
-  .relationship-table tbody td {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 12px;
-    border-bottom: none;
-  }
+/* Modal Header Styling (for delete confirmation) */
+.delete-modal-header {
+  background-color: #ef5350; /* Red header for delete modal */
+  color: white;
+  border-bottom: none;
+}
 
-  .relationship-table tbody td::before {
-    content: attr(data-label);
-    font-weight: 700;
-    color: rgba(255,255,255,0.75);
-    margin-right: 6px;
-  }
+.btn-close-white {
+  filter: invert(1) grayscale(100%) brightness(200%); /* Makes the close button white */
+}
 
-  .actions-cell { display: flex; gap: 8px; justify-content: flex-end; }
+/* Modal Delete Button */
+#confirmDeleteBtn {
+  background-color: #ef5350; /* Red delete button */
+  color: white;
+}
+#confirmDeleteBtn:hover {
+  background-color: #e53935;
+  color: white;
+}
+
+
+/* General Body and Container adjustments for a cleaner look */
+body {
+    background-color: #f0f2f5; /* Light grey background for the page */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Modern font */
+}
+
+.container-fluid { /* Assuming your main content is in a container-fluid */
+    padding: 20px;
+}
+
+/* Adjust button styles to match the overall aesthetic */
+.btn-light {
+    background-color: #e0e0ff; /* Light purple for 'New Student' button */
+    color: #5d3f9e; /* Darker purple text */
+    border: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+.btn-light:hover {
+    background-color: #cbbfff;
+    color: #5d3f9e;
+}
+
+.page-header-bar {
+  margin-top: -30px !important;   /* Move header upward */
+}
+
+.table.table-bordered.table-striped thead th {
+  background-color: #E3D2FF !important; /* Lavender header */
+  color: #5D3F9E !important;            /* Medium purple text */
+  font-weight: 600;
+  border: none !important;
 }
