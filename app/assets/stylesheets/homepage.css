@@ -15,6 +15,7 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
 }
 
 /* Basic Reset */
+*
 {
     box-sizing: border-box;
     margin: 0;
