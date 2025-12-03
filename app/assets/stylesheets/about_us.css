@@ -1,0 +1,175 @@
+/* White background */
+.about-section {
+  background-color: white;
+  padding: 0px 60px;
+  text-align: center;
+}
+
+/* Title */
+.section-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.section-description {
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  font-size: 1.1rem;
+  color: white;
+  line-height: 1.6;
+}
+
+/* FLEX container for the cards */
+.about-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Flip card container */
+.flip-card {
+  background-color: transparent;
+  width: 380px;
+  height: 520px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Inner container that flips */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Flip when clicked */
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Front & back sides */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  backface-visibility: hidden;
+}
+
+/* Back side styling */
+.flip-card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* pushes icons to bottom */
+  transform: rotateY(180deg);
+  background: rgba(106, 0, 218, 0.4); /* keep purple glass if applied */
+  color: white;
+  padding: 25px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+/* Card styling (reuse) */
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%);
+  padding: 25px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Image container */
+.image-container {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* Profile image */
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Name */
+.member-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* Role */
+.member-role {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* Description, skills, education, contact */
+.member-description {
+  font-size: 1rem;
+  opacity: 0.9;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-align: center; /* Center descriptions */
+}
+
+.member-skills ul {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.member-education,
+.member-contact {
+  font-size: 1rem;
+  opacity: 0.9;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-align: center; /* Center education & contact */
+}
+
+/* Social icons */
+.social-icons {
+  margin-top: auto; /* pushes icons to bottom */
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  color: white;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Purple glass container for header */
+.glass-container {
+  background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 30px 25px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
