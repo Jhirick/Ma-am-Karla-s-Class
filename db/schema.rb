@@ -79,7 +79,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_09_091221) do
     t.datetime "updated_at", null: false
     t.integer "number_of_units", default: 0
     t.integer "total_assessment", default: 0
-    t.integer "number_of_guardians"
     t.integer "no_of_guardians", default: 0
     t.index ["department_id"], name: "index_students_on_department_id"
   end

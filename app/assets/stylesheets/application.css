@@ -22,7 +22,7 @@ body, html {
 }
 
 /* 2. Main Sidebar Container (Rounded Card Look) */
-.sidebar-container {
+.side-container {
   width: 325px;
   /* Keep the sidebar gradient */
   background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%) !important;
