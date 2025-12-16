@@ -1,14 +1,15 @@
 /*
 ========================================
 WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS 
+(FINAL: Integrated, Responsive, and Carousel Fix Applied)
 ========================================
 */
 
 /* --- Color Variables --- */
 :root {
     /* Wisteria Grove Purple Colors */
-    --primary-purple: #4A148C;    
-    --accent-purple: #9C27B0;     
+    --primary-purple: #4A148C;    /* Deep Purple */
+    --accent-purple: #9C27B0;     /* Violet/Neon Accent */
     --text-light: #ffffff;
     --text-dark: #222222;
     --line-height: 6px;
@@ -21,10 +22,231 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
+/* GLOBAL FIX 1: Prevents horizontal scroll from fixed/absolute elements */
+body {
+    width: 100vw; 
+    overflow-x: hidden; 
+}
+
+/* ========================================
+I. HEADER & NAVIGATION STYLES
+========================================
+*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Mataas na Z-index para sa fixed header */
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Dark Purple Top Bar (Utility Links) --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between; 
+    font-size: 1rem;    
+    background-color: var(--primary-purple); 
+    padding: 16px 5%;
+    width: 100%;
+}
+
+.top-bar-left {
+    margin-left: -5px;   
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    margin-right: 75px;  
+}
+
+/* Hover Effect: Underline for Top Bar Links */
+.top-bar-left a,
+.top-bar-right a,
+.top-bar-right span {
+    color: var(--text-light); 
+    font-weight: 700; 
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s;
+    
+    display: inline-block; 
+    padding-bottom: 3px; 
+    border-bottom: 3px solid transparent; 
+    transition: border-bottom 0.2s ease-out;
+}
+
+.top-bar-right a:first-child {
+    margin-left: 0;
+}
+
+.top-bar-left a:hover,
+.top-bar-right a:hover {
+    color: var(--text-light); 
+    border-bottom: 3px solid var(--text-light); 
+}
+
+/* --- Main Nav Bar (The White Bar) --- */
+.main-nav-bar {
+    background-color: var(--text-light);
+    padding: 16px 5%;    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+}
+
+/* --- Logo Container and Absolute Positioning --- */
+.logo-container {
+    position: absolute; 
+    left: 2%; 
+    top: 55%;           
+    transform: translateY(-50%); 
+    z-index: 105; /* Mas mataas kaysa sa header base */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-purple); 
+    text-decoration: none;
+    padding: 0; 
+    display: flex; 
+    align-items: center;
+}
+
+.logo-image {
+    height: 160px;      
+    width: auto;
+    filter: none; 
+    margin: -20px;       
+    margin-left: 30px;   
+}
+
+.logo-text {
+    align-self: center;
+    font-size: 1.4rem; 
+    line-height: 1.1; 
+}
+
+.logo-text span {
+    font-size: 1rem;     
+    font-weight: 500; 
+    display: block; 
+}
+
+/* --- Main Navigation Adjustments --- */
+.main-nav {
+    margin-left: 500px;  
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; 
+}
+
+.main-nav ul li a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    padding: 15px 18px; 
+    margin-left: 0; 
+    font-size: 1.3rem;  
+    opacity: 1;
+    font-weight: 700;
+    transition: color 0.3s;
+    display: flex; 
+    align-items: center;
+}
+
+.main-nav ul li a:hover {
+    opacity: 1;
+    color: var(--accent-purple);
+}
+
+.dropdown-indicator {
+    content: ''; 
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--primary-purple); 
+    margin-left: 5px; 
+    margin-top: 2px; 
+}
+
+.main-nav ul li a:hover .dropdown-indicator {
+    border-top: 5px solid var(--accent-purple); 
+}
+
+/* --- DROPDOWN SPECIFIC STYLES --- */
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; 
+
+    position: fixed; 
+    top: 61px; 
+    left: calc(5% - 5px); 
+    
+    background-color: #300060; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    z-index: 110; 
+    
+    flex-direction: column; 
+    flex-wrap: wrap;       
+    height: 120px;         
+    min-width: 480px;      
+    width: max-content; 
+    
+    margin-top: 0; 
+    padding: 10px 20px; 
+}
+
+.dropdown-menu a {
+    color: var(--text-light) !important; 
+    padding: 5px 15px; 
+    text-decoration: none; 
+    display: block; 
+    font-weight: 500; 
+    margin-left: 0;
+    border-bottom: none !important;
+    transition: color 0.2s; 
+}
+
+.dropdown-menu a:hover {
+    background-color: transparent; 
+    color: var(--accent-purple) !important; 
+    text-decoration: none; 
+}
+
+.dropdown-menu.show {
+    display: flex !important;
+}
+
+.dropdown-toggle {
+    display: inline-block; 
+    padding-bottom: 3px; 
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.2s ease-out;
+}
+
+.dropdown-toggle:hover {
+    border-bottom: 3px solid var(--text-light); 
+}
+
+
 /* ============================================
-   HERO SECTION BASE
+II. HERO SECTION BASE (ABSOLUTE/CURVED SPLIT)
 ============================================ */
 .hero-section {
     position: relative;
@@ -34,33 +256,22 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
     display: block; 
 }
 
-/* ============================================
-   RIGHT SIDE — VIDEO BACKGROUND (BEHIND ARCH)
-============================================ */
-.hero-right-split {
-    position: absolute;
-    top: 100px;
-    left: 60%;
-    width: 40%;
-    height: calc(100vh - 100px);
-    overflow: hidden;
-    z-index: 0;
-}
-
+/* --- RIGHT SIDE — VIDEO BACKGROUND (ABSOLUTE) --- */
 .promo-video {
-    position: fixed;
-    top: 0;
-    left: 35%;    
-    width: 70%;   
-    height: 100%;
+    position: absolute; 
+    
+    left: 35vw;      
+    top: 100px;      
+    
+    width: 70vw;     
+    height: calc(100vh - 100px); 
+    
     object-fit: cover;
-    z-index: 0;
+    z-index: 0; 
 }
 
 
-/* ============================================
-   LEFT SIDE — CURVED ARCH PANEL (ABOVE VIDEO)
-============================================ */
+/* --- LEFT SIDE — CURVED ARCH PANEL (ABSOLUTE) --- */
 .hero-left-split {
     position: absolute;
     top: 100px;
@@ -77,7 +288,7 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
     justify-content: center;
     clip-path: ellipse(130% 110% at -50% 47%);
     overflow: hidden;
-    z-index: 5;
+    z-index: 5; 
 }
 
 /* PURPLE OVERLAY */
@@ -86,7 +297,6 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
     background-color: var(--primary-purple);
@@ -94,9 +304,7 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
     z-index: 1;
 }
 
-/* ============================================
-   LEFT SIDE CONTENT (TEXT + BUTTON)
-============================================ */
+/* --- LEFT SIDE CONTENT (TEXT + BUTTON) --- */
 .hero-content {
     position: relative;
     z-index: 6;
@@ -147,240 +355,874 @@ WISTERIA GROVE UNIVERSITY - HOMEPAGE.CSS
 }
 
 
-/* ========================================
-II. HEADER & NAVIGATION STYLES (PRESERVED SIZES)
-========================================
-*/
-.header {
-    position: fixed;
+/* ============================================
+III. WELCOME SECTION STYLES (TOP ALIGNED)
+============================================ */
+.welcome-section {
+    width: 100%;
+    padding: 80px 5%; 
+    min-height: 550px;
+    background-image: linear-gradient(180deg, #1a0033 0%, #300060 100%);
+    position: relative;
+    overflow: hidden; 
+}
+
+/* --- Header Block --- */
+.welcome-header {
+    max-width: 900px; 
+    margin: 0 0 50px 0; 
+    text-align: left; 
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: #a0a0a0; 
+    font-weight: 500;
+}
+
+.welcome-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; 
+    font-weight: 700;
+    color: var(--accent-purple); 
+    text-shadow: 0 0 15px rgba(156, 39, 176, 0.7), 0 0 3px #fff; 
+    margin-top: 5px;
+}
+
+.header-underline {
+    width: 100px; 
+    height: 5px;
+    background-color: var(--accent-purple); 
+    margin: 15px 0 0 0; 
+    box-shadow: 0 0 15px var(--accent-purple); 
+}
+
+/* --- Content Layout (Image + Text Block) --- */
+.welcome-content-container {
+    display: flex;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    gap: 40px; 
+    align-items: flex-start; 
+}
+
+/* --- 1. Image Column (Top Aligned) --- */
+.welcome-image-column {
+    flex-basis: 35%; 
+    max-width: 400px; 
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2; 
+    transform: none;      
+    margin-top: 0;        
+}
+
+.image-frame {
+    border: 3px solid var(--accent-purple); 
+    box-shadow: 0 0 30px rgba(156, 39, 176, 0.8); 
+    overflow: hidden;
+}
+
+.director-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.signature-block {
+    margin-top: 20px;
+    padding-left: 10px;
+    color: var(--text-light);
+}
+
+.signature-block h4 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: var(--accent-purple); 
+}
+
+.director-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #a0a0a0;
+    display: block;
+}
+
+/* --- 2. Text Block (Top Aligned) --- */
+.welcome-text-block {
+    flex-basis: 65%; 
+    padding: 30px;
+    line-height: 1.8;
+    color: #ffffff; 
+    
+    background-color: rgba(0, 0, 0, 0.55); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); 
+    position: relative;
+    z-index: 3;
+    margin-top: 0; 
+}
+
+.welcome-text-block p {
+    font-size: 1.1rem;
+    margin-bottom: 25px; 
+    text-shadow: 0 0 2px #000; 
+    text-align: left; 
+}
+
+.welcome-text-block strong {
+    color: var(--accent-purple); 
+    font-weight: 700;
+    text-shadow: 0 0 5px var(--accent-purple); 
+}
+
+
+/* ============================================
+IV. MISSION & VISION SECTION (FUTURISTIC LOOK - PURPLE NEON)
+============================================ */
+.mission-vision-section {
+    width: 100%;
+    padding: 100px 5%; 
+    background-color: var(--primary-purple); 
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+
+    background-image: 
+        url('future.png'), 
+        linear-gradient(0deg, var(--primary-purple) 0%, #300060 100%);
+    
+    background-size: cover, auto; 
+    background-position: center center, 0 0;
+    
+    background-blend-mode: luminosity; 
+}
+
+/* Optional: Subtle grid overlay for tech/future feel */
+.mission-vision-section::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
-    padding: 0; 
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(156, 39, 176, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(156, 39, 176, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px; 
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.section-title-wrapper {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; 
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #ffffff; 
+    text-shadow: 0 0 8px var(--accent-purple), 0 0 1px #000; 
+}
+
+.line-separator {
+    width: 120px;
+    height: 5px;
+    background-color: var(--accent-purple);
+    margin: 0 auto;
+    box-shadow: 0 0 10px var(--accent-purple); 
+}
+
+.mission-vision-container {
+    max-width: 1100px; 
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 60px; 
+    padding-top: 30px;
+    position: relative;
+    z-index: 1;
 }
 
-/* --- Dark Purple Top Bar (Utility Links) --- */
-.top-bar {
-    display: flex;
-    justify-content: space-between; 
-    font-size: 1rem;    
-    background-color: var(--primary-purple); 
-    padding: 16px 5%;
-    width: 100%;
+.vision-block,
+.mission-block {
+    flex-basis: 45%;
+    text-align: left;
+    padding: 30px;
+    line-height: 1.7;
+    
+    border: 1px solid var(--accent-purple); 
+    background-color: rgba(0, 0, 0, 0.6); 
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.4); 
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.top-bar-left {
-    margin-left: -5px;   
+.vision-block:hover,
+.mission-block:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 30px rgba(156, 39, 176, 0.6); 
 }
 
-.top-bar-right {
-    display: flex;
-    align-items: center;
-    margin-right: 75px;  
+.vision-block h3,
+.mission-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-purple); 
+    position: relative;
+    padding-bottom: 15px;
+    
+    text-shadow: 0 0 8px var(--accent-purple), 0 0 2px #000; 
 }
 
-.top-bar-right a,
-.top-bar-left a,
-.top-bar-right span {
-    color: var(--text-light); 
-    font-weight: 700; 
-    text-decoration: none;
-    margin-left: 15px;
-    transition: color 0.3s;
-}
-
-.top-bar-right a:first-child {
-    margin-left: 0;
-}
-
-/* --- Main Nav Bar (The White Bar) --- */
-.main-nav-bar {
+/* Accent Line under Headings - Thin bar */
+.vision-block h3::after,
+.mission-block h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
     background-color: var(--text-light);
-    padding: 16px 5%;    
+    box-shadow: 0 0 5px var(--text-light);
+}
+
+.vision-block p,
+.mission-block p {
+    font-size: 1.1rem;
+    color: #ffffff; 
+}
+
+
+/* ============================================
+V. NEWS & EVENTS SECTION (CAROUSEL LAYOUT) - FIX APPLIED
+============================================ */
+.news-events-section {
+    width: 100%;
+    /* 💥 FIX: Dinagdagan ang top padding para hindi mag-overlap sa fixed header */
+    padding: 120px 0 80px 0; 
+    background-color: #12002f; 
+    text-align: center;
+    color: var(--text-light);
+}
+
+.news-title {
+    margin-bottom: 50px;
+    padding: 0 5%;
+}
+
+.news-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; 
+    color: var(--accent-purple); 
+    text-shadow: 0 0 10px var(--accent-purple);
+    margin-bottom: 5px;
+}
+
+.news-title .sub-heading {
+    display: block;
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.news-separator {
+    width: 180px;
+    background-color: var(--accent-purple);
+    margin: 0 auto;
+    box-shadow: 0 0 10px var(--accent-purple); 
+    height: 3px;
+}
+
+/* --- Carousel Container (Holds cards and arrows) --- */
+.news-carousel-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    justify-content: center;
+    max-width: 1200px; 
+    margin: 0 auto;
+    position: relative;
+}
+
+/* --- Carousel Arrows (FIXED position relative to container) --- */
+.carousel-arrow {
+    position: absolute; 
+    top: 50%; /* NASA GITNA na ng container (na may sapat na padding) */
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-purple); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 15px rgba(156, 39, 176, 0.6); 
+    text-decoration: none;
+}
+
+.carousel-arrow:hover {
+    background-color: #bb5be9;
+}
+
+.carousel-arrow a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    line-height: 0;
+    text-decoration: none;
+}
+
+.left-arrow {
+    left: 0; 
+    margin-left: 5px; 
+}
+
+.right-arrow {
+    right: 0;
+    margin-right: 5px; 
+}
+
+/* Disabled State for Arrows */
+.carousel-arrow.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+
+/* --- Cards Wrapper (Scrollable area controlled by JS) --- */
+.news-cards-wrapper {
+    display: flex;
+    gap: 30px; 
+    
+    overflow-x: hidden; 
+    scroll-behavior: smooth; 
+    
+    width: 100%; 
+    justify-content: flex-start; 
+    
+    padding: 0 50px; 
+    
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+.news-cards-wrapper::-webkit-scrollbar {
+    display: none; 
+}
+
+
+/* --- Individual News Card --- */
+.news-card {
+    flex: 0 0 calc(33.33% - 20px); 
+    max-width: 380px;
+    min-width: 280px;
+    
+    border: 1px solid rgba(156, 39, 176, 0.3); 
+    box-shadow: 0 0 5px rgba(156, 39, 176, 0.2); 
+    background-color: #220042; 
+    color: var(--text-light);
+    
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    text-align: center;
     position: relative; 
 }
 
-/* --- Logo Container and Absolute Positioning --- */
-.logo-container {
-    position: absolute; 
-    left: 2%; 
-    top: 55%;           
-    transform: translateY(-50%); 
-    z-index: 15;
+.news-card:hover {
+    box-shadow: 0 0 25px rgba(156, 39, 176, 0.8); 
+    transform: translateY(-5px);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-purple); 
-    text-decoration: none;
-    padding: 0; 
-    display: flex; 
-    align-items: center;
-}
-
-/* STYLING FOR THE INTEGRATED LOGO IMAGE (Shield) */
-.logo-image {
-    height: 160px;      
-    width: auto;
-    filter: none; 
-    margin: -20px;       
-    margin-left: 30px;   
-}
-
-/* Style for the two-line text block */
-.logo-text {
-    align-self: center;
-    font-size: 1.4rem; 
-    line-height: 1.1; 
-}
-
-/* Style for the second line (UNIVERSITY) to be smaller and lighter */
-.logo-text span {
-    font-size: 1rem;     
-    font-weight: 500; 
-    display: block; 
-}
-
-/* --- Main Navigation Adjustments --- */
-.main-nav {
-    margin-left: 500px;  
-}
-
-.main-nav ul {
-    list-style: none;
+/* --- Card Image Area --- */
+.card-image-bg {
+    height: 250px;
+    background-size: cover;
+    background-position: center center;
     display: flex;
-    align-items: center; 
-}
-
-.main-nav ul li a {
-    color: var(--primary-purple);
-    text-decoration: none;
-    padding: 15px 18px; 
-    margin-left: 0; 
-    font-size: 1.3rem;  
-    opacity: 1;
-    font-weight: 700;
-    transition: color 0.3s;
-    display: flex; 
+    justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.main-nav ul li a:hover {
+/* --- Feature Card Specific Styles (Honor Roll look) --- */
+.feature-card .card-image-bg {
+    background-color: var(--primary-purple); 
+    background-image: none; 
+}
+
+.card-overlay {
+    background-color: rgba(0, 0, 0, 0.6); 
+    width: 80%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--accent-purple); 
+    box-shadow: 0 0 15px rgba(156, 39, 176, 0.4);
+    transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Feature Card Hover Animation (Inner border glow) */
+.news-card:hover.feature-card .card-overlay {
+    border: 3px solid var(--accent-purple); 
+    box-shadow: 0 0 25px var(--accent-purple); 
+}
+
+/* --- Card Text Content --- */
+.card-content {
+    padding: 20px 15px;
+    min-height: 110px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; 
+}
+
+.card-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-purple); 
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-date {
+    font-size: 0.85rem;
+    color: #a0a0a0; 
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* --- Hover Specific Styles --- */
+
+/* 1. Read More Button Styling (Initially Hidden) */
+.read-more-btn {
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%) translateY(20px); 
+    
+    padding: 10px 20px;
+    background-color: var(--accent-purple); 
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s;
+}
+
+.read-more-btn:hover {
+    background-color: #bb5be9; 
+}
+
+/* 2. Card Border Glow Effect (::after element) */
+.news-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    pointer-events: none; 
+    opacity: 0;
+    transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 5;
+}
+
+/* Apply border glow effect on hover for all cards */
+.news-card:hover::after {
     opacity: 1;
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 15px var(--accent-purple); 
+}
+
+/* 3. Show Read More button on Hover */
+.news-card:hover .read-more-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); 
+}
+
+
+/* ============================================
+VI. FOOTER SECTION STYLES
+============================================ */
+.main-footer.new-design {
+    width: 100%;
+    /* Campus background image blended with Purple gradient */
+    background-image: 
+        linear-gradient(rgba(74, 20, 140, 0.8), rgba(74, 20, 140, 0.8)), 
+        url('campus-transparent.png'); 
+    
+    background-size: cover;
+    background-position: center bottom;
+    color: var(--text-light);
+    padding: 0;
+    position: relative;
+}
+
+.footer-bg-overlay {
+    width: 100%;
+    padding: 80px 5%; /* Top/Bottom padding for content */
+    background-color: rgba(74, 20, 140, 0.5); /* Semi-transparent Purple overlay */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-col {
+    padding: 0 15px;
+}
+
+/* --- COLUMN 1: Logo & Tagline --- */
+.col-logo-tagline {
+    flex-basis: 35%;
+}
+
+.tagline-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.footer-logo-image {
+    height: 100px; 
+    width: auto;
+    margin-right: 0;
+}
+
+.footer-logo-text {
+    align-self: flex-start;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.footer-logo-text span {
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+}
+
+.est-date {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    padding-left: 2px;
+}
+
+
+/* --- COLUMN 2 & 3: Quick Links & Resources --- */
+.col-links {
+    flex-basis: 20%;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-purple); 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.col-links ul {
+    list-style: none;
+    columns: 2; 
+    column-gap: 30px;
+}
+
+.col-links ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    line-height: 2.2;
+    font-size: 1rem;
+    transition: color 0.2s, text-decoration 0.2s;
+    display: block;
+}
+
+.col-links ul li a:hover {
+    color: var(--accent-purple);
+    text-decoration: underline;
+}
+
+/* --- COLUMN 4: Request Info Button & Locations --- */
+.col-request {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.request-info-btn {
+    display: block;
+    width: 100%;
+    max-width: 250px; 
+    text-align: center;
+    padding: 12px 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    transition: background-color 0.2s, border-color 0.2s;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    background-color: transparent;
+}
+
+.request-info-btn:hover {
+    background-color: var(--accent-purple);
+    border-color: var(--accent-purple);
+}
+
+.campus-locations p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+/* ============================================
+   BOTTOM BAR (Copyright & Socials)
+============================================ */
+.footer-bottom-bar {
+    background-color: #300060; 
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+.social-icons-bottom a {
+    color: #cccccc;
+    font-size: 1.1rem;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.social-icons-bottom a:hover {
     color: var(--accent-purple);
 }
 
-/* Styling for the Dropdown Indicator (The small triangle) */
-.dropdown-indicator {
-    content: ''; 
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 5px solid var(--primary-purple); 
-    margin-left: 5px; 
-    margin-top: 2px; 
-}
-
-.main-nav ul li a:hover .dropdown-indicator {
-    border-top: 5px solid var(--accent-purple); 
-}
-
-/* --- DROPDOWN SPECIFIC STYLES (3x3 Grid Layout, Click-Activated) --- */
-.dropdown {
-    display: inline-block;
-}
-
-.dropdown-menu {
-    display: none; 
-
-    position: fixed; 
-    top: 61px; 
-    left: calc(5% - 5px); 
-    
-    background-color: #300060; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    z-index: 20;
-    
-    /* Flex properties (3x3 Grid Layout) */
-    flex-direction: column; 
-    flex-wrap: wrap;       
-    height: 120px;         
-    min-width: 480px;      
-    width: max-content; 
-    
-    margin-top: 0; 
-    padding: 10px 20px; 
-}
-
-.dropdown-menu a {
-    color: var(--text-light) !important; 
-    padding: 5px 15px; 
-    
-    text-decoration: none; 
-    
-    display: block; 
-    font-weight: 500; 
-    margin-left: 0;
-    border-bottom: none !important;
-    transition: color 0.2s; 
-}
-
-.dropdown-menu a:hover {
-    background-color: transparent; 
-    color: var(--accent-purple) !important; 
-    text-decoration: none; 
-}
-
-/* NEW: Class to show the menu when clicked (activated by JS) */
-.dropdown-menu.show {
-    display: flex !important;
-}
-
-.dropdown-toggle {
-    display: inline-block; 
-    padding-bottom: 3px; 
-    border-bottom: 3px solid transparent;
-    transition: border-bottom 0.2s ease-out;
-}
-
-.dropdown-toggle:hover {
-    border-bottom: 3px solid var(--text-light); 
-}
-
-/* --- Hover Effect: Underline for Top Bar Links --- */
-.top-bar-left a,
-.top-bar-right a {
-    color: var(--text-light); 
-    font-weight: 700; 
-    text-decoration: none;
-    margin-left: 15px;
-    transition: color 0.3s;
-    
-    display: inline-block; 
-    padding-bottom: 3px; 
-    border-bottom: 3px solid transparent; 
-    transition: border-bottom 0.2s ease-out;
-}
-.top-bar-left a:hover,
-.top-bar-right a:hover {
-    color: var(--text-light); 
-    border-bottom: 3px solid var(--text-light); 
-}
 
 /* ========================================
-III. RESPONSIVE MEDIA QUERIES (MOBILE)
+VII. RESPONSIVE MEDIA QUERIES
 ========================================
 */
 
+/* --- 1100px Tablet/Small Desktop --- */
+@media (max-width: 1100px) {
+    .news-cards-wrapper {
+        gap: 20px;
+    }
+
+    .news-card {
+        flex: 0 0 calc(33.33% - 14px);
+    }
+}
+
+/* --- 992px Tablet --- */
+@media (max-width: 992px) {
+    /* Header (Hide Main Nav and adjust logo for wider view) */
+    .main-nav {
+        display: none;
+    }
+    .logo-container {
+        position: static;
+        transform: none;
+        margin-left: 0;
+        width: 100%;
+        text-align: left;
+    }
+    .main-nav-bar {
+        justify-content: center;
+    }
+
+    /* Welcome */
+    .welcome-content-container {
+        flex-direction: column; 
+        gap: 20px;
+        align-items: center;
+    }
+
+    .welcome-header {
+        text-align: center;
+        margin: 0 auto 30px auto; 
+    }
+
+    .header-underline {
+        margin: 15px auto 0 auto; 
+    }
+
+    .welcome-image-column,
+    .welcome-text-block {
+        flex-basis: 100%; 
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto; 
+        transform: none; 
+    }
+
+    .welcome-image-column {
+        order: 1; 
+        margin-bottom: 20px;
+    }
+    
+    .signature-block {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    /* News Carousel Responsive (2 cards visible) */
+    .news-carousel-container {
+        max-width: 700px;
+    }
+    .news-cards-wrapper {
+        padding: 0 40px;
+    }
+    .news-card {
+        flex: 0 0 calc(50% - 10px); 
+        min-width: 300px; 
+    }
+
+    .left-arrow {
+        left: -10px; 
+    }
+
+    .right-arrow {
+        right: -10px; 
+    }
+
+    /* Footer Responsiveness */
+    .footer-container {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .col-logo-tagline {
+        flex-basis: 100%; 
+        text-align: center;
+    }
+
+    .tagline-header {
+        text-align: center;
+    }
+
+    .footer-logo {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-logo-text,
+    .est-date {
+        align-self: center;
+        text-align: center;
+    }
+
+    .col-links {
+        flex-basis: 45%; 
+    }
+
+    .col-request {
+        flex-basis: 45%;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .campus-locations p {
+        text-align: center;
+    }
+}
+
+/* --- 768px Mobile Landscape/Small Tablet --- */
+@media (max-width: 768px) {
+    
+    /* Mission/Vision Responsiveness */
+    .mission-vision-container {
+        flex-direction: column;
+    }
+    .vision-block,
+    .mission-block {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    /* Center accent line on mobile for Mission/Vision */
+    .vision-block h3::after,
+    .mission-block h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* News Carousel Responsive (1 card visible) */
+    .news-carousel-container {
+        max-width: 90%; 
+    }
+    .news-cards-wrapper {
+        padding: 0 20px;
+    }
+    .news-card {
+        flex: 0 0 90%; 
+        min-width: 250px; 
+    }
+
+    .left-arrow, .right-arrow {
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .left-arrow {
+        left: -5px; 
+    }
+
+    .right-arrow {
+        right: -5px; 
+    }
+}
+
+/* --- 600px Mobile Portrait --- */
 @media (max-width: 600px) {
     
     /* 1. Header Adjustments */
@@ -408,6 +1250,8 @@ III. RESPONSIVE MEDIA QUERIES (MOBILE)
     
     .logo-image {
         height: 50px; 
+        margin-left: 0;
+        margin: 0 10px 0 0;
     }
 
     .logo {
@@ -443,14 +1287,24 @@ III. RESPONSIVE MEDIA QUERIES (MOBILE)
         display: block; 
     }
     
-    .hero-left-split, .hero-right-split {
+    .hero-left-split {
         width: 100%;
         height: 50%; 
         position: static; 
+        clip-path: none; 
     }
     
     .hero-left-split::before {
         clip-path: none; 
+    }
+
+    /* Video adjustment for mobile view */
+    .promo-video {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 50%;
     }
 
     .hero-content {
@@ -473,5 +1327,53 @@ III. RESPONSIVE MEDIA QUERIES (MOBILE)
     
     .learn-more-btn {
         margin-top: 15px;
+    }
+
+    /* 3. Section Headers Adjustment */
+    .section-title-wrapper h2,
+    .news-title h2 {
+        font-size: 2rem;
+    }
+
+    /* 4. Welcome Section Adjustments */
+    .welcome-section {
+        padding: 40px 5%;
+    }
+    
+    .welcome-header {
+        text-align: center;
+        margin: 0 auto 30px auto; 
+    }
+
+    .header-underline {
+        margin: 10px auto 0 auto; 
+    }
+    
+    /* 5. News Section Adjustments */
+    .news-events-section {
+        /* I-adjust ang padding dahil mas maliit na ang header sa mobile */
+        padding: 80px 0 60px 0; 
+    }
+
+    .news-cards-wrapper {
+        padding: 0 10px;
+        gap: 10px;
+    }
+
+    .news-card {
+        flex: 0 0 95%; 
+        min-width: 200px; 
+    }
+
+    /* Footer Responsiveness */
+    .col-links ul {
+        columns: 1; 
+        text-align: center;
+    }
+    .col-links {
+        flex-basis: 100%;
+    }
+    .col-request {
+        flex-basis: 100%;
     }
 }

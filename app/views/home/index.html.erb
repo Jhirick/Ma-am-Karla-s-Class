@@ -12,6 +12,9 @@
     
     <%# ADDED: Google Font Link for Playfair Display (Serif Font) %>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <%# NOTE: Font Awesome for Social Icons (Requires external link) %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
@@ -21,7 +24,6 @@
             <%# START: LEFT-ALIGNED SCHOOL MANAGER DROPDOWN %>
             <div class="top-bar-left">
                 <div class="dropdown" id="schoolManagerDropdown"> 
-                <%# Ang "School Manager" text ay ang link mismo na may ID para sa JS click handler %>
                     <a href="#" class="dropdown-toggle" id="dropdownBtn">School Manager</a>
                 
                     <%# Dropdown Menu List (3x3 Grid) %>
@@ -81,7 +83,6 @@
         <%# LEFT SIDE PANEL (Image/Content) %>
         <div class="hero-left-split">
             <div class="hero-content">
-                <%# UPDATED: Unique Tagline %>
                 <h1>
                     Discover <br>
                     your Purpose.
@@ -99,22 +100,260 @@
         </div>
 
         <%# RIGHT SIDE VIDEO %>
-        <div class="hero-right-split">
-            <%= video_tag "Promotional.mp4",
-                autoplay: true,
-                muted: true,
-                loop: true,
-                playsinline: true,
-                class: "promo-video" %>
-        </div>
+        <%= video_tag "Promotional.mp4",
+            autoplay: true,
+            muted: true,
+            loop: true,
+            playsinline: true,
+            class: "promo-video" %>
+            
     </div>
     <%# END: HERO SECTION %>
 
-    <%# Dito natin ilalagay ang Footer Section %>
+    <%# START: WELCOME SECTION (Top-aligned) %>
+    <section class="welcome-section clean-asymmetrical">
+        
+        <div class="welcome-header">
+            <h2>A Message from the President</h2>
+            <div class="header-underline"></div>
+        </div>
+
+        <div class="welcome-content-container">
+            
+            <%# LEFT COLUMN: Image Block - Top Aligned %>
+            <div class="welcome-image-column">
+                <div class="image-frame">
+                    <%= image_tag "director-image.png",
+                        alt: "Image of the University President, Dr. Alistair Vance",
+                        class: "director-photo" %>
+                </div>
+
+                <div class="signature-block">
+                    <h4>President Dr. Alistair Vance</h4>
+                    <span class="director-title">PRESIDENT, WISTERIA GROVE UNIVERSITY</span>
+                </div>
+            </div>
+
+            <%# RIGHT COLUMN: Single Large Text Block - Top Aligned %>
+            <div class="welcome-text-block">
+                <p>
+                    "For generations, Wisteria Grove University has stood as a beacon of academic rigor and transformative innovation. We do not merely adapt to the future; we **actively forge** it through the brilliance and dedication of our students, faculty, and research teams.
+                </p>
+                <p>
+                    Here, education transcends the classroom. It is a commitment to excellence, a deep dive into profound, ethical leadership, and a journey toward mastering one's discipline for the **greater good** of the global community. Our purpose is to transform your passion into genuine mastery.
+                </p>
+                <p>
+                    I welcome you to a community where ambition finds its voice, curiosity ignites global change, and every individual is empowered to transcend their perceived limits. Together, let us shape a legacy that reflects our commitment to **higher purpose** and continuous discovery."
+                </p>
+            </div>
+        </div>
+    </section>
+    <%# END: WELCOME SECTION %>
+
+    <%# START: MISSION & VISION SECTION (FUTURISTIC - HIGH VISIBILITY) %>
+    <section class="mission-vision-section">
+        <div class="section-title-wrapper">
+            <h2>Our Mission & Vision</h2>
+            <div class="line-separator"></div>
+        </div>
+
+        <div class="mission-vision-container">
+            
+            <div class="vision-block">
+                <h3>Our Vision</h3>
+                <p>
+                    To be the foremost institution recognized globally for cultivating purpose-driven leaders who empower communities and drive sustainable innovation.
+                </p>
+            </div>
+
+            <div class="mission-block">
+                <h3>Our Mission</h3>
+                <p>
+                    Wisteria Grove University is committed to fostering academic excellence, pioneering research, and holistic development by providing transformative educational experiences in a nurturing, inclusive, and diverse environment.
+                </p>
+            </div>
+            
+        </div>
+    </section>
+    <%# END: MISSION & VISION SECTION %>
+
+    <%# START: NEWS & EVENTS SECTION (CAROUSEL LAYOUT) %>
+    <section class="news-events-section">
+        <div class="section-title-wrapper news-title">
+            <h2>News & Events</h2>
+            <span class="sub-heading">News from Wisteria Grove</span>
+            <div class="line-separator news-separator"></div>
+        </div>
+
+        <div class="news-carousel-container">
+            
+            <%# NEW: Left Arrow Button (Sa labas ng cards) %>
+            <div class="carousel-arrow left-arrow" id="prevBtn">
+                <a href="#">&larr;</a>
+            </div>
+
+            <%# Added id="newsWrapper" for JavaScript use %>
+            <div class="news-cards-wrapper" id="newsWrapper">
+                
+                <%# Card 1: Christmas Vacation (Feature Card) %>
+                <div class="news-card feature-card">
+                    <div class="card-image-bg" style="background-image: url('christmas-vacation-bg.png');">
+                        <div class="card-overlay">
+                            <h3 class="ribbon-text">Holiday Break</h3>
+                            <span class="ribbon-subtext">DEC 20 | 2025 - JAN 5 | 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h4>WGU ANNOUNCES SCHEDULE FOR UPCOMING CHRISTMAS VACATION</h4>
+                        <span class="card-date">DEC 16</span>
+                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <%# Card 2: Uniform Policy (Image focused) %>
+                <div class="news-card">
+                    <div class="card-image-bg" style="background-image: url('uniform-policy-update.png');">
+                    </div>
+                    
+                    <div class="card-content">
+                        <h4>NEW UNIFORM POLICY FOR SPRING TRIMESTER RELEASED</h4>
+                        <span class="card-date">DEC 10</span>
+                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <%# Card 3: Intramurals (Image focused) %>
+                <div class="news-card">
+                    <div class="card-image-bg" style="background-image: url('intramurals-champs.png');">
+                    </div>
+                    
+                    <div class="card-content">
+                        <h4>COLLEGE OF ENGINEERING CLAIMS INTRAMURAL CUP CHAMPIONSHIP</h4>
+                        <span class="card-date">NOV 29</span>
+                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <%# --- DUMMY CARDS FOR CAROUSEL FUNCTIONALITY (4, 5, 6) --- %>
+                <div class="news-card">
+                    <div class="card-image-bg" style="background-image: url('new-research-grant.png');"></div>
+                    <div class="card-content">
+                        <h4>WGU RESEARCH TEAM RECEIVES MAJOR STEM GRANT</h4>
+                        <span class="card-date">NOV 25</span>
+                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-image-bg" style="background-image: url('alumni-donations.png');"></div>
+                    <div class="card-content">
+                        <h4>ALUMNI DONATIONS HIT RECORD HIGH FOR Q4</h4>
+                        <span class="card-date">NOV 20</span>
+                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-image-bg" style="background-image: url('arts-festival.png');"></div>
+                    <div class="card-content">
+                        <h4>ANNUAL ARTS FESTIVAL SHOWCASES STUDENT TALENT</h4>
+                        <span class="card-date">NOV 15</span>
+                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+                    </div>
+                </div>
+                <%# --- END DUMMY CARDS --- %>
+
+            </div>
+
+            <%# NEW: Right Arrow Button (Sa labas ng cards) %>
+            <div class="carousel-arrow right-arrow" id="nextBtn">
+                <a href="#">&rarr;</a>
+            </div>
+
+        </div>
+    </section>
+    <%# END: NEWS & EVENTS SECTION %>
+
+    <%# START: FOOTER SECTION (New Transparent Background Design) %>
+    <footer class="main-footer new-design">
+        <div class="footer-bg-overlay">
+            
+            <div class="footer-container">
+                
+                <%# COLUMN 1: Logo & Tagline %>
+                <div class="footer-col col-logo-tagline">
+                    <h2 class="tagline-header">Higher purpose. Greater good.</h2>
+                    
+                    <div class="footer-logo">
+                        <%= image_tag "wisteria-logo-shield.png",
+                            alt: "Wisteria Grove University Logo",
+                            class: "footer-logo-image" %>
+
+                        <span class="footer-logo-text">WISTERIA GROVE<br><span>UNIVERSITY</span></span>
+                        <span class="est-date">EST. 1923</span>
+                    </div>
+                </div>
+
+                <%# COLUMN 2: Quick Links %>
+                <div class="footer-col col-links">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#">myWGU</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                        <li><a href="#">Work at WGU</a></li>
+                        <li><a href="#">Emergency Info</a></li>
+                        <li><a href="#">A-Z Directory</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <%# COLUMN 3: Resources For You %>
+                <div class="footer-col col-links">
+                    <h4>RESOURCES FOR YOU</h4>
+                    <ul>
+                        <li><a href="#">Parents and Families</a></li>
+                        <li><a href="#">Alumni</a></li>
+                        <li><a href="#">Donors</a></li>
+                        <li><a href="#">Current Students</a></li>
+                        <li><a href="#">Faculty and Staff</a></li>
+                        <li><a href="#">WGU-Online</a></li>
+                    </ul>
+                </div>
+
+                <%# COLUMN 4: Request Info Button %>
+                <div class="footer-col col-request">
+                    
+                    <a href="#" class="request-info-btn">Request Information</a>
+                    
+                    <div class="campus-locations">
+                        <p>Wisteria Grove, WG (Main Campus)</p>
+                        <p>Wisteria Grove - Online Division</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="footer-bottom-bar">
+            <p>&copy; <%= Time.now.year %> Wisteria Grove University. All rights reserved.</p>
+            <div class="social-icons-bottom">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+    <%# END: FOOTER SECTION %>
     
-    <%# START: JAVASCRIPT FOR CLICK-ACTIVATED DROPDOWN MENU %>
+    <%# START: JAVASCRIPT FOR DROPDOWN MENU AND CAROUSEL %>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- DROPDOWN MENU LOGIC ---
             const dropdownBtn = document.getElementById('dropdownBtn');
             const dropdownMenu = document.getElementById('dropdownMenu');
             const dropdownContainer = document.getElementById('schoolManagerDropdown');
@@ -123,26 +362,103 @@
                 
                 // Toggle function when the button is clicked
                 dropdownBtn.addEventListener('click', function(event) {
-                    // Pinipigilan ang default action (pag-navigate)
                     event.preventDefault(); 
-                    // Toggle the 'show' class (na nagpapalit ng display: none sa display: flex)
                     dropdownMenu.classList.toggle('show');
                 });
 
                 // Close the dropdown when clicking outside of the container
                 document.addEventListener('click', function(event) {
-                    // Tinitingnan kung ang click ay nasa labas ng dropdown container
                     if (!dropdownContainer.contains(event.target)) {
-                        // Tinitiyak na naka-hide ang menu kung ito ay naka-display
                         if (dropdownMenu.classList.contains('show')) {
                             dropdownMenu.classList.remove('show');
                         }
                     }
                 });
             }
+
+
+            // --- NEWS CAROUSEL LOGIC (FINAL: SINGLE CARD SCROLL WITH LOOPING) ---
+            const wrapper = document.getElementById('newsWrapper');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // Initial disable state for prevBtn
+            if (prevBtn) {
+                prevBtn.classList.add('disabled');
+            }
+
+            if (wrapper && prevBtn && nextBtn) {
+                
+                const firstCard = wrapper.querySelector('.news-card');
+                
+                if (!firstCard) return; 
+
+                const cardWidth = firstCard.offsetWidth;
+                const GAP = 30; // Based on CSS gap: 30px
+                const scrollDistance = cardWidth + GAP; 
+                
+                // Kukunin ang pinakamalaking scroll position
+                const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+
+                // Function to update the disabled state of arrows
+                function updateArrows() {
+                    // Ang 'nextBtn' ay HINDI na madi-disable dahil looping na.
+                    
+                    // Ang 'prevBtn' lang ang madi-disable kapag nasa pinaka-simula (scrollLeft = 0)
+                    prevBtn.classList.toggle('disabled', wrapper.scrollLeft <= 5); 
+                }
+                
+                // Set initial state
+                updateArrows();
+                
+                // --- Next Button Click Handler (Scroll 1 Card or Loop to Start) ---
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Kung ang current scroll ay nasa dulo na, bumalik sa simula (scrollLeft = 0)
+                    if (wrapper.scrollLeft >= maxScroll - 5) {
+                        wrapper.scrollLeft = 0; // Loop back to the first card
+                    } else {
+                        // Kung hindi pa nasa dulo, mag-scroll ng isang card
+                        wrapper.scrollLeft += scrollDistance;
+                    }
+                    
+                    // Always update arrows after scroll
+                    setTimeout(updateArrows, 300); 
+                });
+
+                // --- Previous Button Click Handler (Scroll 1 Card or Loop to End) ---
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Kung ang current scroll ay nasa simula na, pumunta sa dulo
+                    if (wrapper.scrollLeft <= 5) {
+                        // Kalkulahin ang target scroll position na naka-align sa cards sa dulo
+                        let targetScroll = Math.floor(maxScroll / scrollDistance) * scrollDistance;
+                        
+                        // Gumamit ng maxScroll kung ang calculated target ay masyadong malayo sa dulo.
+                        if (maxScroll - targetScroll < scrollDistance / 2) {
+                            targetScroll = maxScroll;
+                        }
+                        
+                        wrapper.scrollLeft = targetScroll; // Loop back to the last card set
+                    } else {
+                        // Kung hindi pa nasa simula, mag-scroll pabalik ng isang card
+                        wrapper.scrollLeft -= scrollDistance;
+                    }
+                    
+                    // Always update arrows after scroll
+                    setTimeout(updateArrows, 300);
+                });
+                
+                // Listen for user manual scroll or resize to update arrows
+                wrapper.addEventListener('scroll', updateArrows);
+                window.addEventListener('resize', updateArrows);
+
+            } // End of carousel if check
         });
     </script>
-    <%# END: JAVASCRIPT FOR CLICK-ACTIVATED DROPDOWN MENU %>
+    <%# END: JAVASCRIPT FOR DROPDOWN MENU AND CAROUSEL %>
 
 </body>
 </html>
