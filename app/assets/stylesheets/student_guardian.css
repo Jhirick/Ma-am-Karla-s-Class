@@ -1,34 +1,61 @@
-.page-header {
-  background-color: #4b3b2a;
-  padding: 15px 20px;
+/* ==============================
+   PAGE HEADER BAR
+================================ */
+.page-header-bar {
+  background-color: #682bd7;
+  padding: 15px 25px;
   border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-container {
-  background-color: #fff8dc;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* ==============================
+   TABLE CONTAINER
+================================ */
+.table-scroll-container {
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
 }
 
-.btn-back {
-  background-color: #6c757d;
-  color: white;
-  padding: 10px 20px;
+/* ==============================
+   TABLE
+================================ */
+.table {
+  background-color: white;
+}
+
+.table thead th {
+  background-color: #f3f0ff;
+  color: #333;
   font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-block;
+  text-align: center;
 }
 
-.btn-back:hover {
-  opacity: 0.9;
+.table tbody td {
+  vertical-align: middle;
 }
 
+/* ==============================
+   BUTTONS
+================================ */
+.btn-show {
+  background-color: #682bd7;
+  color: white;
+  border: none;
+}
 
+.btn-show:hover {
+  background-color: #5320b4;
+}
+
+.btn-warning {
+  color: #000;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+}

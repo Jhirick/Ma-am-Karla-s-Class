@@ -1,18 +1,31 @@
 <% content_for :title, "Relationships" %>
 
-<div class="d-flex justify-content-end">
-  <%= link_to "New Relationship", new_student_guardian_path, class: "btn btn-success mt-3" %>
+<!-- Header Bar -->
+<div class="page-header-bar d-flex justify-content-between align-items-center">
+    <h1 class="m-0 text-white me-4">Relationships</h1>
+
+<!-- SEARCH BAR (STUDENT STYLE) -->
+    <div class="input-group search-bar me-auto">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search Relationships..."
+        aria-label="Search"
+      >
+      <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+    </div>
+
+  <%= link_to "New Relationship",
+      new_student_guardian_path,
+      class: "btn btn-light ms-4" %>
 </div>
 
-<div class="students-container">
+<!-- Table Container -->
+<div class="table-scroll-container mt-3">
   <table class="table table-bordered table-striped">
     <thead>
-      <!-- Title Row -->
-      <tr>
-        <th colspan="4" class="table-title">Student - Guardian Relationships</th>
-      </tr>
-
-      <!-- Header Row -->
       <tr>
         <th>Student</th>
         <th>Guardian</th>
@@ -28,15 +41,19 @@
           <td><%= relationship.guardian.name %></td>
           <td><%= relationship.relationship %></td>
           <td>
-            <%= link_to "Show", student_guardian_path(relationship), class: "btn btn-sm", style: "background-color: #343a40; color: white;" %>
-            <%= link_to "Edit", edit_student_guardian_path(relationship), class: "btn btn-sm btn-warning", style: "background-color: #ffc107; color: black;" %>
+            <%= link_to "Show",
+                student_guardian_path(relationship),
+                class: "btn btn-sm btn-show" %>
+
+            <%= link_to "Edit",
+                edit_student_guardian_path(relationship),
+                class: "btn btn-sm btn-warning" %>
 
             <%= link_to "Delete",
                 student_guardian_path(relationship),
                 method: :delete,
                 data: { confirm: "Are you sure you want to delete this relationship?" },
-                class: "btn btn-danger btn-sm",
-                style: "background-color: #b02a37; color: white;" %>
+                class: "btn btn-sm btn-danger" %>
           </td>
         </tr>
       <% end %>

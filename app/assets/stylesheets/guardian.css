@@ -1,162 +1,72 @@
-.guardian-new-container {
-  min-height: 100vh;
-  background-color: transparent;
-  padding: 20px;
-}
-
-/* Header */
-.guardian-new-header {
-  background-color: #4b3b2b;
-  color: white;
-  padding: 18px 24px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-}
-
-.guardian-new-header h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Form box */
-.guardian-new-form {
-  background-color: #fff8e7;
-  border-radius: 10px;
-  padding: 25px 30px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-  max-width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 350px; 
-}
-
-/* Form labels */
-.guardian-new-form .form-label {
-  color: #4b3b2b;
-}
-
-/* Input fields */
-.guardian-new-form .form-control {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-/* Action buttons */
-.action-btn {
-  background-color: #4b3b2b;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.action-btn:hover {
-  background-color: #7b5e43;
-  transform: translateY(-2px);
-}
-
-.back-btn {
-  background-color: #6c757d;
-}
-
-.back-btn:hover {
-  background-color: #5a6268;
-}
-
-.guardian-edit-container {
-  min-height: 100vh;
-  background-color: transparent;
-  padding: 20px;
-}
-
-.guardian-edit-header {
-  background-color: #4b3b2b; 
-  color: white;
-  padding: 18px 24px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.guardian-edit-header h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.guardian-edit-form {
-  background-color: #fff8e7; 
-  border-radius: 10px;
-  padding: 25px 30px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.guardian-edit-form .form-label {
-  color: #4b3b2b;
-}
-
-.guardian-edit-form .form-control {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
+/* ===============================
+   SHARED CONTAINER
+================================ */
+.guardian-new-container,
+.guardian-edit-container,
 .guardian-show-container {
   min-height: 100vh;
   background-color: transparent;
   padding: 20px;
 }
 
+/* ===============================
+   HEADERS (MATCH STUDENT)
+================================ */
+.guardian-new-header,
+.guardian-edit-header,
 .guardian-show-header {
-  background-color: #4b3b2b;
-  color: white;
+  background-color: #682bd7;
+  color: #ffffff;
   padding: 18px 24px;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.guardian-new-header h1,
+.guardian-edit-header h1,
 .guardian-show-header h1 {
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0;
 }
 
-.guardian-info {
-  background-color: #fff8e7;
+/* ===============================
+   FORMS (NEW / EDIT)
+================================ */
+.guardian-new-form,
+.guardian-edit-form {
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 }
 
-.guardian-students table {
-  background-color: white;
+.guardian-new-form .form-label,
+.guardian-edit-form .form-label {
+  font-weight: 600;
+  color: #333;
 }
 
-.guardian-students h2 {
-  color: #4b3b2b;
+.guardian-new-form .form-control,
+.guardian-edit-form .form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
 }
 
-.guardian-actions-container .btn {
-  border-radius: 6px;
-}
-
-.guardian-show-container {
-  min-height: 100vh;
-  background-color: transparent;
-  padding: 20px;
-}
-
+/* ===============================
+   SHOW PAGE CARD
+================================ */
 .guardian-card {
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .guardian-card .card-header {
-  border-radius: 10px 10px 0 0;
+  background-color: #682bd7;
+  color: white;
+  font-weight: 600;
 }
 
 .guardian-card .card-body p {
@@ -164,59 +74,22 @@
   color: #333;
 }
 
+/* ===============================
+   STUDENT LIST
+================================ */
 .student-list-title {
-  color: #4b3b2a;
+  color: #682bd7;
   font-weight: 600;
-}
-
-.student-table {
-  background-color: white;
-}
-
-.action-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.edit-btn {
-  background-color: #146c43;
-}
-
-.edit-btn:hover {
-  background-color: #0f5132;
-}
-
-.back-btn {
-  background-color: #6c757d;
-}
-
-.back-btn:hover {
-  background-color: #5a6268;
-}
-
-.delete-btn {
-  background-color: #dc3545;
-}
-
-.delete-btn:hover {
-  background-color: #bb2d3b;
 }
 
 .student-table-wrapper {
-  border-radius: 10px;          
-  overflow: hidden;            
-  border: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .student-table {
+  background-color: #ffffff;
   margin-bottom: 0;
-  border: none;
-  border: #ccc;
 }
 
 .student-table th {
@@ -228,7 +101,6 @@
 }
 
 .student-table td {
-  text-align: left;
   vertical-align: middle;
 }
 
@@ -236,3 +108,51 @@
   background-color: #f1f1f1;
 }
 
+/* ===============================
+   BUTTONS (GLOBAL)
+================================ */
+.action-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Save / Create */
+.action-btn {
+  background-color: #682bd7;
+}
+
+.action-btn:hover {
+  background-color: #5722b3;
+  transform: translateY(-2px);
+}
+
+/* Edit */
+.edit-btn {
+  background-color: #146c43;
+}
+
+.edit-btn:hover {
+  background-color: #0f5132;
+}
+
+/* Back */
+.back-btn {
+  background-color: #6c757d;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Delete */
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #bb2d3b;
+}

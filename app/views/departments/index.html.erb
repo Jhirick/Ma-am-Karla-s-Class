@@ -1,26 +1,53 @@
-<div class="d-flex justify-content-end mb-2">
-  <%= link_to "New Department", new_department_path, class: "btn btn-success mt-3" %>
-</div>
+<div class="departments-container">
 
-<div class="departments-header px-3">
-  <h1 class="m-0">Departments</h1>
-</div>
+  <!-- Header (MATCH STUDENT INDEX STRUCTURE) -->
+  <div class="departments-header d-flex justify-content-between align-items-center mb-0">
 
-<div class="row mt-3">
-  <% @departments.each do |department| %>
-    <div class="col-md-2 col-sm-6 mb-4">
-      <div class="card department-card shadow-sm rounded-4 overflow-hidden">
-        <div class="card-body d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-start">
-            <h5 class="card-title mb-1"><%= department.name %></h5>
+    <h1 class="m-0 text-white me-4">Departments</h1>
+
+    <!-- Search Bar (SAME AS STUDENT SEARCH BAR) -->
+    <div class="input-group search-bar me-auto">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search Departments..."
+        aria-label="Search Departments"
+      >
+      <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+    </div>
+
+    <!-- New Department Button -->
+    <%= link_to "New Department",
+        new_department_path,
+        class: "btn btn-light ms-4 fw-semibold" %>
+
+  </div>
+
+  <!-- Department Cards -->
+  <div class="row mt-3">
+    <% @departments.each do |department| %>
+      <div class="col-md-2 col-sm-6 mb-4">
+        <div class="card department-card">
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title mb-1">
+              <%= department.name %>
+            </h5>
+
+            <p class="card-text mb-3">
+              <%= department.location %>
+            </p>
+
+            <%= link_to "Show Department",
+                department_path(department),
+                class: "btn btn-sm w-100 mt-auto show-btn" %>
+
           </div>
-
-          <p class="card-text mb-3"><%= department.location %></p>
-
-          <%= link_to "Show Department", department_path(department),
-            class: "btn btn-sm w-100 mt-auto show-btn" %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>

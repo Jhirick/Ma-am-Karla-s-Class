@@ -1,94 +1,120 @@
 .departments-container {
-  min-height: 100vh;
-  padding: 30px;
+  margin-top: -30px;
   background-color: transparent !important;
 }
 
-/* --- Topbar with New Department Button --- */
-.departments-topbar {
+/* ============================= */
+/* Header (MATCH STUDENT INDEX)  */
+/* ============================= */
+.departments-header {
+  background: linear-gradient(90deg, #682bd7, #8b5cf6);
+  color: white;
+  padding: 18px 24px;
+  border-radius: 12px;
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.btn-new {
-  background-color: #198754;
-  color: #fff;
-  padding: 10px 18px;
+.departments-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Search inside header */
+.departments-search {
+  flex-grow: 1;
+  max-width: 420px;
+}
+
+.departments-search input {
+  width: 100%;
+  padding: 8px 14px;
   border-radius: 8px;
-  font-weight: 600;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+/* New Department Button (inside header) */
+.btn-new {
+  background-color: #ede9fe;
+  color: #6b21a8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
   border: none;
   text-decoration: none;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-new:hover {
-  background-color: #157347;
+  background-color: #ddd6fe;
   transform: translateY(-2px);
 }
 
-/* --- Page Header --- */
-.departments-header {
-  background-color: #4b3b2b;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Department Cards --- */
+/* ============================= */
+/* Department Cards              */
+/* ============================= */
 .department-card {
-  border: 1px solid #4b3b2b;
-  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
   background-color: #ffffff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .department-card:hover {
-  background-color: #fff8e7; 
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .department-card .card-title {
   text-align: left;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #4b3b2b;
+  color: #1f2937;
 }
 
 .department-card .card-text {
   text-align: right;
-  color: #3a2e27;
+  color: #374151;
   font-size: 0.95rem;
   margin-top: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* --- Show Button inside Card --- */
+/* Show Button — PURPLE */
 .department-card .show-btn {
-  background-color: #4b3b2b;
-  color: #fff;
+  background-color: #5b21b6 !important;
+  color: #ffffff !important;
   border: none;
   border-radius: 8px;
-  font-weight: 600;
-  padding: 8px 12px;
+  font-weight: 700;
+  padding: 8px 14px;
   transition: all 0.3s ease;
 }
 
 .department-card .show-btn:hover {
-  background-color: #7b5e43;
+  background-color: #7a00db !important;
   transform: translateY(-2px);
 }
 
-/* --- Grid Layout --- */
+/* ============================= */
+/* Grid Layout                   */
+/* ============================= */
 .departments-container .row {
-  margin-top: 20px;
+  margin-top: 24px;
   justify-content: start;
 }
 
+/* ============================= */
+/* Show Page                     */
+/* ============================= */
 .department-show-container {
   width: 100%;
   max-width: none;
@@ -96,6 +122,9 @@
   padding: 20px 40px;
 }
 
+/* ============================= */
+/* Edit Page                     */
+/* ============================= */
 .department-edit-container {
   min-height: 100vh;
   background-color: transparent;
@@ -103,60 +132,65 @@
 }
 
 .department-edit-header {
-  background-color: #4b3b2b;
+  background: linear-gradient(90deg, #8f00ff, #a855f7);
   color: white;
   padding: 18px 24px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .department-edit-header h1 {
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
 }
 
 .department-edit-form {
-  background-color: #fff8e7;
-  border-radius: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
   padding: 25px 30px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .department-edit-form .form-label {
-  color: #4b3b2b;
+  color: #374151;
 }
 
 .department-edit-form .form-control {
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
 }
 
-/* --- Action Buttons --- */
+/* ============================= */
+/* Action Buttons                */
+/* ============================= */
 .department-actions-container .action-btn {
-  background-color: #4b3b2b;
+  background-color: #8f00ff;
   color: white;
   border: none;
   padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 8px;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .department-actions-container .action-btn:hover {
-  background-color: #7b5e43;
+  background-color: #7a00db;
   transform: translateY(-2px);
 }
 
 .department-actions-container .back-btn {
-  background-color: #6c757d;
+  background-color: #6b7280;
 }
 
 .department-actions-container .back-btn:hover {
-  background-color: #5a6268;
+  background-color: #4b5563;
 }
 
+/* ============================= */
+/* New Department Page           */
+/* ============================= */
 .department-new-container {
   min-height: 100vh;
   background-color: transparent;
@@ -164,31 +198,28 @@
 }
 
 .department-new-header {
-  background-color: #4b3b2b;
+  background: linear-gradient(90deg, #8f00ff, #a855f7);
   color: white;
-  padding: 18px 24px; 
-  border-radius: 10px;
+  padding: 18px 24px;
+  border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
 }
 
 .department-new-header h1 {
-  font-size: 1.8rem; 
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 700;
   margin: 0;
 }
 
 /* Form Section */
 .department-new-form {
-  background-color: #fff8e7;
-  border-radius: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
   padding: 25px 30px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
-  max-width: auto;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .department-new-form form .actions {
@@ -199,26 +230,16 @@
 
 /* Create button */
 .department-new-form form input[type="submit"] {
-  background-color: #0f5132;
+  background-color: #8f00ff;
   color: white;
   border: none;
   padding: 8px 20px;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 8px;
+  font-weight: 700;
   transition: all 0.3s ease;
-  width: auto;
 }
 
 .department-new-form form input[type="submit"]:hover {
-  background-color: #198754;
-  transform: translateY(-2px);
-}
-
-/* Back Button */
-.department-actions-container .btn {
-  transition: all 0.3s ease;
-}
-
-.department-actions-container .btn:hover {
+  background-color: #7a00db;
   transform: translateY(-2px);
 }

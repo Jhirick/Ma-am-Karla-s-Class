@@ -1,23 +1,62 @@
 <% content_for :title, "Subjects" %>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <div class="subjects-header" style="background-color: #5d4037; padding: 10px 20px; border-radius: 5px; width: 100%;">
-    <h1 class="m-0 text-white">Subjects</h1>
+<div class="subjects-container">
+
+  <!-- HEADER BAR (MATCH STUDENT STRUCTURE) -->
+  <div class="page-header-bar d-flex justify-content-between align-items-center mb-0">
+
+    <!-- Page Title -->
+    <h1 class="m-0 text-white me-4">Subjects</h1>
+
+    <!-- SEARCH BAR (COPIED FROM STUDENT INDEX) -->
+    <div class="input-group search-bar me-auto">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search Subjects..."
+        aria-label="Search"
+      />
+      <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+    </div>
+
+    <!-- NEW SUBJECT BUTTON (MATCH NEW STUDENT) -->
+    <%= link_to "New Subject",
+        new_subject_path,
+        class: "btn btn-light ms-4" %>
+
   </div>
-  <%= link_to "New Subject", new_subject_path, class: "btn btn-dark ms-3" %>
-</div>
-<div class="row mt-4">
-  <% @subjects.each do |subject| %>
-    <div class="col-md-3 mb-3">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <div class="card-body">
-          <h5 class="card-title fw-bold text-dark"><%= subject.name %></h5>
-          <p class="mb-1 text-muted"><strong>Teacher:</strong> <%= subject.teacher.name %></p>
-          <p class="mb-1 text-muted"><strong>Units:</strong> <%= subject.number_of_units %></p>
-          <%= link_to "View Subject", subject_path(subject),
-            class: "btn btn-dark btn-sm w-100 mt-3 show-btn" %>
+
+  <!-- SUBJECT CARDS -->
+  <div class="row mt-3">
+    <% @subjects.each do |subject| %>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card subject-card h-100">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title mb-2">
+              <%= subject.name %>
+            </h5>
+
+            <p class="card-text mb-1">
+              <strong>Teacher:</strong> <%= subject.teacher.name %>
+            </p>
+
+            <p class="card-text mb-3">
+              <strong>Units:</strong> <%= subject.number_of_units %>
+            </p>
+
+            <!-- Show Button (same hook as Teacher/Department) -->
+            <%= link_to "View Subject",
+                subject_path(subject),
+                class: "btn btn-sm w-100 mt-auto show-btn" %>
+
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>
