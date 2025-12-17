@@ -1,1 +1,330 @@
-<h2> This is Chrizraine. </h2>
+<!-- CV PAGE – FINAL JOB-READY VERSION -->
+<div class="content-card-container cv-page">
+  <div class="cv-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="cv-left">
+
+      <!-- PROFILE -->
+      <div class="cv-card profile-card text-center">
+        <div class="profile-img-wrapper">
+          <%= image_tag "Ren.jpeg", class: "profile-img", alt: "Profile" %>
+        </div>
+
+        <h2 class="cv-name">Chrizraine P. Pena</h2>
+        <p class="cv-role">Computer Engineering Graduate</p>
+
+        <div class="cv-contact-list">
+          <div>📧 chrpena@gbox.adnu.edu.ph</div>
+          <div>📞 +63 921 781 8126</div>
+          <div>📍 Philippines</div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+<div class="cv-card">
+  <h4 class="cv-section-title">Technical Skills</h4>
+
+  <div class="skill-item">
+    <span>Ruby on Rails</span>
+    <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>HTML / CSS / JavaScript</span>
+    <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>Python</span>
+    <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>C / C++</span>
+    <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>Git & Version Control</span>
+    <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>RESTful API Development</span>
+    <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+  </div>
+</div>
+
+
+      <!-- PROGRAMMING LANGUAGES -->
+<div class="cv-card">
+  <h4 class="cv-section-title">Programming Languages</h4>
+  <ul class="cv-list">
+    <li>Ruby – Intermediate (Rails framework, MVC architecture)</li>
+    <li>JavaScript – Intermediate (DOM manipulation, ES6)</li>
+    <li>Python – Intermediate (Scripting, data handling)</li>
+    <li>HTML / CSS – Advanced (Responsive layouts, Flexbox, Grid)</li>
+    <li>C – Basic (Procedural programming)</li>
+    <li>C++ – Basic (Object-oriented concepts)</li>
+    <li>SQL – Intermediate (Queries, joins, normalization)</li>
+  </ul>
+</div>
+
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="cv-right">
+
+      <!-- ABOUT ME -->
+      <div class="cv-card">
+        <h4 class="cv-section-title">About Me</h4>
+        <p class="cv-text">
+          Job-ready Computer Engineering graduate with a strong foundation in software development,
+          digital systems, and web technologies. Experienced in Ruby on Rails and academic engineering
+          projects, with strong analytical and problem-solving skills.
+        </p>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="cv-card">
+        <h4 class="cv-section-title">Education</h4>
+
+        <div class="cv-timeline-item">
+          <h5>Master of Science in Computer Engineering</h5>
+          <span class="cv-sub">Ateneo de Manila University</span>
+        </div>
+
+        <div class="cv-timeline-item">
+          <h5>Bachelor of Science in Computer Engineering</h5>
+          <span class="cv-sub">Ateneo de Naga University</span>
+        </div>
+
+        <div class="cv-timeline-item">
+          <h5>Secondary Education</h5>
+          <span class="cv-sub">Colegio Del Santisimo Rosario</span>
+        </div>
+
+        <div class="cv-timeline-item">
+          <h5>Primary Education</h5>
+          <span class="cv-sub">Fundado Elementary School</span>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="cv-card">
+        <h4 class="cv-section-title">Projects</h4>
+
+        <div class="cv-timeline-item">
+          <h5>GaBuy: Digital Price Comparison System</h5>
+          <span class="cv-sub">Ruby on Rails · Google Maps API</span>
+          <p class="cv-text">
+            A web-based platform designed to help wet-market consumers compare prices across vendors.
+            Includes price tracking, interactive mapping, and budget-aware buying support.
+          </p>
+        </div>
+
+        <div class="cv-timeline-item">
+          <h5>Student Management System</h5>
+          <span class="cv-sub">Ruby on Rails Academic Project</span>
+          <p class="cv-text">
+            Developed a CRUD-based Rails application with authentication, validations,
+            and relational database support.
+          </p>
+        </div>
+
+        <div class="cv-timeline-item">
+          <h5>Light-Activated Relay System</h5>
+          <span class="cv-sub">Hardware–Software Integration Project</span>
+          <p class="cv-text">
+            Designed and implemented a light-sensing relay circuit with schematic design
+            and PCB layout.
+          </p>
+        </div>
+      </div>
+
+      <!-- CORE COMPETENCIES -->
+      <div class="cv-card">
+        <h4 class="cv-section-title">Core Competencies</h4>
+        <div class="competency-tags">
+          <span>Problem Solving</span>
+          <span>Software Development</span>
+          <span>Web Applications</span>
+          <span>System Analysis</span>
+          <span>Debugging</span>
+          <span>Team Collaboration</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+/* ===== BASE CONTAINER ===== */
+.content-card-container {
+  background: linear-gradient(180deg, #f7f4ff, #ede7ff);
+  border-radius: 26px;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ===== GRID ===== */
+.cv-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 18px;
+}
+
+.cv-left,
+.cv-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== CARD ===== */
+.cv-card {
+  position: relative;
+  background: linear-gradient(160deg, #1e1b2e, #141225);
+  border-radius: 18px;
+  padding: 12px;
+  color: #f1edff;
+  box-shadow: 0 14px 30px rgba(104,43,215,0.35);
+  overflow: hidden;
+}
+
+/* accent stripe */
+.cv-card::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 4px;
+  height: calc(100% - 24px);
+  background: linear-gradient(180deg, #682bd7, #9c6bff);
+  border-radius: 10px;
+}
+
+/* ===== PROFILE ===== */
+.profile-img-wrapper {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 10px;
+  border-radius: 12px;   /* ⬅ square with rounded corners */
+  padding: 3px;
+  background: conic-gradient(from 180deg, #682bd7, #9c6bff, #682bd7);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;    /* ⬅ remove circle */
+  object-fit: cover;
+}
+
+.cv-name {
+  font-size: 1.15rem;
+  margin: 6px 0 2px;
+}
+
+.cv-role {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #bda8ff;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cv-contact-list div {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+/* ===== TITLES ===== */
+.cv-section-title {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #cbb8ff;
+}
+
+/* ===== TEXT ===== */
+.cv-text {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.cv-sub {
+  font-size: 0.72rem;
+  color: #9c6bff;
+}
+
+/* ===== SKILLS ===== */
+.skill-item {
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+.progress {
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #682bd7, #9c6bff);
+}
+
+/* ===== LIST ===== */
+.cv-list {
+  padding-left: 18px;
+  font-size: 0.75rem;
+}
+
+/* ===== TAGS ===== */
+.competency-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.competency-tags span {
+  background: rgba(104,43,215,0.2);
+  border: 1px solid rgba(156,107,255,0.4);
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 0.65rem;
+  color: #efe9ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .cv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Make left column stretch */
+.cv-left {
+  height: 100%;
+}
+
+/* Let the bottom two cards expand */
+.cv-left .cv-card:nth-child(2),
+.cv-left .cv-card:nth-child(3) {
+  flex-grow: 1;
+}
+
+</style>
+
