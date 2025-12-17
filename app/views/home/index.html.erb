@@ -376,85 +376,117 @@
     </section>
 
     <section class="news-events-section">
-        <div class="section-title-wrapper news-title">
-            <h2>News & Events</h2>
-            <span class="sub-heading">News from Wisteria Grove</span>
-            <div class="line-separator news-separator"></div>
-        </div>
+    <div class="section-title-wrapper news-title">
+        <h2>News & Events</h2>
+        <span class="sub-heading">News from Wisteria Grove</span>
+        <div class="line-separator news-separator"></div>
+    </div>
 
-        <div class="news-carousel-container">
-            <div class="carousel-arrow left-arrow" id="prevBtn"><a href="#">&larr;</a></div>
+    <div class="news-carousel-container">
+        <div class="carousel-arrow left-arrow" id="prevBtn"><a href="#">&larr;</a></div>
 
-            <div class="news-cards-wrapper" id="newsWrapper">
-                <%# Card 1 %>
-                <div class="news-card feature-card">
-                    <div class="card-image-bg" style="background-image: url('<%= asset_path("christmas-vacation-bg.png") %>');">
-                        <div class="card-overlay">
-                            <h3 class="ribbon-text">Holiday Break</h3>
-                            <span class="ribbon-subtext">DEC 20 | 2025 - JAN 5 | 2026</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h4>WGU ANNOUNCES SCHEDULE FOR UPCOMING CHRISTMAS VACATION</h4>
-                        <span class="card-date">DEC 16</span>
-                        <a href="#" class="read-more-btn">Read More &rarr;</a>
+        <div class="news-cards-wrapper" id="newsWrapper">
+            <%# Card 1 - Holiday Break %>
+            <div class="news-card feature-card">
+                <div class="card-image-bg" style="background-image: url('<%= asset_path("christmas-vacation-bg.png") %>');">
+                    <div class="card-overlay">
+                        <h3 class="ribbon-text">Holiday Break</h3>
+                        <span class="ribbon-subtext">DEC 20 | 2025 - JAN 5 | 2026</span>
                     </div>
                 </div>
-
-                <%# Card 2 %>
-                <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('<%= asset_path("uniform-policy-update.png") %>');"></div>
-                    <div class="card-content">
-                        <h4>NEW UNIFORM POLICY FOR SPRING TRIMESTER RELEASED</h4>
-                        <span class="card-date">DEC 10</span>
-                        <a href="#" class="read-more-btn">Read More &rarr;</a>
-                    </div>
-                </div>
-
-                <%# Card 3 %>
-                <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('<%= asset_path("intramurals-champs.png") %>');"></div>
-                    <div class="card-content">
-                        <h4>COLLEGE OF ENGINEERING CLAIMS INTRAMURAL CUP CHAMPIONSHIP</h4>
-                        <span class="card-date">NOV 29</span>
-                        <a href="#" class="read-more-btn">Read More &rarr;</a>
-                    </div>
-                </div>
-
-                <%# Card 4 %>
-                <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('<%= asset_path("new-research-grant.png") %>');"></div>
-                    <div class="card-content">
-                        <h4>WGU RESEARCH TEAM RECEIVES MAJOR STEM GRANT</h4>
-                        <span class="card-date">NOV 25</span>
-                        <a href="#" class="read-more-btn">Read More &rarr;</a>
-                    </div>
-                </div>
-
-                <%# Card 5 %>
-                <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('<%= asset_path("alumni-donations.png") %>');"></div>
-                    <div class="card-content">
-                        <h4>ALUMNI DONATIONS HIT RECORD HIGH FOR Q4</h4>
-                        <span class="card-date">NOV 20</span>
-                        <a href="#" class="read-more-btn">Read More &rarr;</a>
-                    </div>
-                </div>
-
-                <%# Card 6 %>
-                <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('<%= asset_path("arts-festival.png") %>');"></div>
-                    <div class="card-content">
-                        <h4>ANNUAL ARTS FESTIVAL SHOWCASES STUDENT TALENT</h4>
-                        <span class="card-date">NOV 15</span>
-                        <a href="#" class="read-more-btn">Read More &rarr;</a>
-                    </div>
+                <div class="card-content">
+                    <h4>WGU ANNOUNCES SCHEDULE FOR UPCOMING CHRISTMAS VACATION</h4>
+                    <span class="card-date">DEC 16</span>
+                    <a href="#" class="read-more-btn" 
+                       data-title="WGU ANNOUNCES SCHEDULE FOR UPCOMING CHRISTMAS VACATION" 
+                       data-date="DEC 16"
+                       data-image="<%= asset_path("christmas-vacation-bg.png") %>"
+                       data-content="Wisteria Grove University officially announced the holiday break starting December 20, 2025. All administrative offices will be closed, and classes will resume on January 5, 2026. Have a safe and blessed holiday!">Read More &rarr;</a>
                 </div>
             </div>
 
-            <div class="carousel-arrow right-arrow" id="nextBtn"><a href="#">&rarr;</a></div>
+            <%# Card 2 - Uniform Policy %>
+            <div class="news-card">
+                <div class="card-image-bg" style="background-image: url('<%= asset_path("uniform-policy-update.png") %>');"></div>
+                <div class="card-content">
+                    <h4>NEW UNIFORM POLICY FOR SPRING TRIMESTER RELEASED</h4>
+                    <span class="card-date">DEC 10</span>
+                    <a href="#" class="read-more-btn"
+                       data-title="NEW UNIFORM POLICY FOR SPRING TRIMESTER RELEASED"
+                       data-date="DEC 10"
+                       data-image="<%= asset_path("uniform-policy-update.png") %>"
+                       data-content="The Office of the Registrar has released the updated uniform guidelines for the Spring Trimester. This includes new comfortable fabric options for STEM students. Please check the student portal for the full memo.">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <%# Card 3 - Intramurals %>
+            <div class="news-card">
+                <div class="card-image-bg" style="background-image: url('<%= asset_path("intramurals-champs.png") %>');"></div>
+                <div class="card-content">
+                    <h4>COLLEGE OF ENGINEERING CLAIMS INTRAMURAL CUP CHAMPIONSHIP</h4>
+                    <span class="card-date">NOV 29</span>
+                    <a href="#" class="read-more-btn"
+                       data-title="COLLEGE OF ENGINEERING CLAIMS INTRAMURAL CUP CHAMPIONSHIP"
+                       data-date="NOV 29"
+                       data-image="<%= asset_path("intramurals-champs.png") %>"
+                       data-content="After a nail-biting finale, the Engineering Bolts took home the gold in the 2025 Intramural Cup. The team showcased incredible teamwork and strategy, winning by a margin of only 2 points.">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <%# Card 4 - STEM Grant %>
+            <div class="news-card">
+                <div class="card-image-bg" style="background-image: url('<%= asset_path("new-research-grant.png") %>');"></div>
+                <div class="card-content">
+                    <h4>WGU RESEARCH TEAM RECEIVES MAJOR STEM GRANT</h4>
+                    <span class="card-date">NOV 25</span>
+                    <a href="#" class="read-more-btn"
+                       data-title="WGU RESEARCH TEAM RECEIVES MAJOR STEM GRANT"
+                       data-date="NOV 25"
+                       data-image="<%= asset_path("new-research-grant.png") %>"
+                       data-content="The WGU Science Department has been awarded a $2.5 million grant to pursue groundbreaking research in renewable energy. This funding will support 20 student interns and state-of-the-art laboratory upgrades.">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <%# Card 5 - Alumni %>
+            <div class="news-card">
+                <div class="card-image-bg" style="background-image: url('<%= asset_path("alumni-donations.png") %>');"></div>
+                <div class="card-content">
+                    <h4>ALUMNI DONATIONS HIT RECORD HIGH FOR Q4</h4>
+                    <span class="card-date">NOV 20</span>
+                    <a href="#" class="read-more-btn"
+                       data-title="ALUMNI DONATIONS HIT RECORD HIGH FOR Q4"
+                       data-date="NOV 20"
+                       data-image="<%= asset_path("alumni-donations.png") %>"
+                       data-content="Our alumni community continues to show their support. This quarter's donations reached a record high, which will go directly towards the New Student Center and the Grove Library Expansion project.">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <%# Card 6 - Arts Festival %>
+            <div class="news-card">
+                <div class="card-image-bg" style="background-image: url('<%= asset_path("arts-festival.png") %>');"></div>
+                <div class="card-content">
+                    <h4>ANNUAL ARTS FESTIVAL SHOWCASES STUDENT TALENT</h4>
+                    <span class="card-date">NOV 15</span>
+                    <a href="#" class="read-more-btn"
+                       data-title="ANNUAL ARTS FESTIVAL SHOWCASES STUDENT TALENT"
+                       data-date="NOV 15"
+                       data-image="<%= asset_path("arts-festival.png") %>"
+                       data-content="The campus turned into a vibrant gallery last week. Over 500 students participated in the Annual Arts Festival, featuring traditional painting, digital media, and performance arts.">Read More &rarr;</a>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <div class="carousel-arrow right-arrow" id="nextBtn"><a href="#">&rarr;</a></div>
+    </div>
+</section>
+
+<div id="newsModal" class="news-modal">
+    <div class="news-modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <div id="modalBody">
+            </div>
+    </div>
+</div>
 
     <footer class="main-footer new-design">
         <div class="footer-bg-overlay">
@@ -506,112 +538,169 @@
     </footer>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- TOP DROPDOWN (SCHOOL MANAGER) ---
-            const dropdownBtn = document.getElementById('dropdownBtn');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            const dropdownContainer = document.getElementById('schoolManagerDropdown');
-            if (dropdownBtn && dropdownMenu) {
-                dropdownBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    dropdownMenu.classList.toggle('show');
-                });
-                document.addEventListener('click', (e) => {
-                    if (!dropdownContainer.contains(e.target)) dropdownMenu.classList.remove('show');
-                });
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- 1. TOP DROPDOWN (SCHOOL MANAGER) ---
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const dropdownWrapper = document.querySelector('.manager-wrapper');
+
+        if (dropdownBtn && dropdownMenu) {
+            dropdownBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (dropdownWrapper && !dropdownWrapper.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        }
+
+        // --- 2. SCROLL / STICKY NAVBAR LOGIC ---
+        window.addEventListener('scroll', function() {
+            const originalHeader = document.querySelector('.header');
+            const compactNav = document.getElementById('compactNav');
+
+            if (window.scrollY > 150) { 
+                if(originalHeader) originalHeader.classList.add('header-fade-out');
+                if(compactNav) compactNav.classList.add('is-visible');
+            } else {
+                if(originalHeader) originalHeader.classList.remove('header-fade-out');
+                if(compactNav) compactNav.classList.remove('is-visible');
             }
+        });
 
-            // --- SCROLL NAVBAR LOGIC ---
-const fixedNav = document.getElementById('fixedNav');
+        // --- 3. PREMIUM NEWS MODAL LOGIC ---
+        const modal = document.getElementById("newsModal");
+        const closeModal = document.getElementById("closeModal");
+        const modalBody = document.getElementById("modalBody");
+        const readMoreBtns = document.querySelectorAll(".read-more-btn");
 
-window.addEventListener('scroll', function() {
-    const originalHeader = document.querySelector('.header');
-    const compactNav = document.getElementById('compactNav');
+        const closeActions = () => {
+            if (modal) modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Ibalik ang scroll ng page
+        };
 
-    if (window.scrollY > 150) { 
-        // Kapag nag-scroll pababa
-        originalHeader.classList.add('header-fade-out');
-        compactNav.classList.add('is-visible');
-    } else {
-        // Kapag bumalik sa pinakataas
-        originalHeader.classList.remove('header-fade-out');
-        compactNav.classList.remove('is-visible');
-    }
-});
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                const title = this.getAttribute("data-title");
+                const date = this.getAttribute("data-date");
+                const content = this.getAttribute("data-content");
+                const image = this.getAttribute("data-image") || ""; // Siguraduhing may data-image sa HTML
 
-            // --- MULTI MEGA MENU LOGIC ---
-            const menuConfigs = [
-                { toggle: 'academicsToggle', panel: 'academicsMegaMenu', close: 'academicsCloseBtn' },
-                { toggle: 'admissionToggle', panel: 'admissionMegaMenu', close: 'admissionCloseBtn' },
-                { toggle: 'lifeToggle', panel: 'lifeMegaMenu', close: 'lifeCloseBtn' },
-                { toggle: 'researchToggle', panel: 'researchMegaMenu', close: 'researchCloseBtn' },
-                { toggle: 'athleticsToggle', panel: 'athleticsMegaMenu', close: 'athleticsCloseBtn' },
-                { toggle: 'aboutToggle', panel: 'aboutMegaMenu', close: 'aboutCloseBtn' }
-            ];
+                if (modalBody) {
+                    modalBody.innerHTML = `
+    <div style="display: flex; flex-direction: column; max-height: 88vh;">
+        <div style="width: 100%; height: 400px; flex-shrink: 0; overflow: hidden; background-color: #f0f0f0;">
+            <img src="${image}" 
+                 style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%;" 
+                 alt="News Image">
+        </div>
 
-            menuConfigs.forEach(config => {
-                const btn = document.getElementById(config.toggle);
-                const panel = document.getElementById(config.panel);
-                const close = document.getElementById(config.close);
+        <div class="modal-text-container" style="padding: 40px 50px; overflow-y: auto;">
+            <span class="modal-category" style="color: #b38d1d; text-transform: uppercase; font-weight: bold; font-size: 0.9rem; letter-spacing: 1.5px;">University News</span>
+            <h2 style="color: #1a237e; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0; line-height: 1.2;">${title}</h2>
+            
+            <p style="color: #666; margin-bottom: 25px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                <i class="far fa-calendar-alt"></i> Published: ${date}, 2025
+            </p>
 
-                if (btn && panel) {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        // Close other open panels first
-                        menuConfigs.forEach(c => {
-                            if (c.panel !== config.panel) {
-                                const otherPanel = document.getElementById(c.panel);
-                                if(otherPanel) otherPanel.classList.remove('active');
-                            }
-                        });
-                        panel.classList.toggle('active');
+            <div style="border-top: 2px solid #f0f0f0; padding-top: 25px; line-height: 1.8; color: #333; font-size: 1.15rem; text-align: justify; padding-bottom: 20px;">
+                ${content}
+            </div>
+        </div>
+    </div>
+`;
+                }
+                if (modal) {
+                    modal.style.display = "block";
+                    document.body.style.overflow = "hidden"; // I-stop ang scroll ng main page
+                }
+            });
+        });
+
+        if (closeModal) closeModal.onclick = closeActions;
+        
+        window.onclick = (event) => {
+            if (event.target == modal) closeActions();
+        };
+
+        // --- 4. MULTI MEGA MENU LOGIC ---
+        const menuConfigs = [
+            { toggle: 'academicsToggle', panel: 'academicsMegaMenu', close: 'academicsCloseBtn' },
+            { toggle: 'admissionToggle', panel: 'admissionMegaMenu', close: 'admissionCloseBtn' },
+            { toggle: 'lifeToggle', panel: 'lifeMegaMenu', close: 'lifeCloseBtn' },
+            { toggle: 'researchToggle', panel: 'researchMegaMenu', close: 'researchCloseBtn' },
+            { toggle: 'athleticsToggle', panel: 'athleticsMegaMenu', close: 'athleticsCloseBtn' },
+            { toggle: 'aboutToggle', panel: 'aboutMegaMenu', close: 'aboutCloseBtn' }
+        ];
+
+        menuConfigs.forEach(config => {
+            const btn = document.getElementById(config.toggle);
+            const panel = document.getElementById(config.panel);
+            const close = document.getElementById(config.close);
+
+            if (btn && panel) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    menuConfigs.forEach(c => {
+                        if (c.panel !== config.panel) {
+                            const otherPanel = document.getElementById(c.panel);
+                            if(otherPanel) otherPanel.classList.remove('active');
+                        }
                     });
-                    if(close) {
-                        close.addEventListener('click', () => panel.classList.remove('active'));
-                    }
+                    panel.classList.toggle('active');
+                });
+
+                if(close) {
+                    close.addEventListener('click', () => panel.classList.remove('active'));
+                }
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            menuConfigs.forEach(config => {
+                const panel = document.getElementById(config.panel);
+                const btn = document.getElementById(config.toggle);
+                if (panel && !panel.contains(e.target) && e.target !== btn) {
+                    panel.classList.remove('active');
+                }
+            });
+        });
+
+        // --- 5. NEWS CAROUSEL LOGIC ---
+        const wrapper = document.getElementById('newsWrapper');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        
+        if (wrapper && nextBtn && prevBtn) {
+            const firstCard = wrapper.querySelector('.news-card');
+            
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const scrollDistance = firstCard ? firstCard.offsetWidth + 30 : 350;
+                const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+                if (wrapper.scrollLeft >= maxScroll - 5) {
+                    wrapper.scrollLeft = 0;
+                } else {
+                    wrapper.scrollLeft += scrollDistance;
                 }
             });
 
-            // Close menu if clicked outside
-            document.addEventListener('click', (e) => {
-                menuConfigs.forEach(config => {
-                    const panel = document.getElementById(config.panel);
-                    const btn = document.getElementById(config.toggle);
-                    if (panel && !panel.contains(e.target) && e.target !== btn) {
-                        panel.classList.remove('active');
-                    }
-                });
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const scrollDistance = firstCard ? firstCard.offsetWidth + 30 : 350;
+                if (wrapper.scrollLeft <= 5) {
+                    wrapper.scrollLeft = wrapper.scrollWidth;
+                } else {
+                    wrapper.scrollLeft -= scrollDistance;
+                }
             });
-
-            // --- NEWS CAROUSEL LOGIC ---
-            const wrapper = document.getElementById('newsWrapper');
-            const nextBtn = document.getElementById('nextBtn');
-            const prevBtn = document.getElementById('prevBtn');
-            
-            if (wrapper && nextBtn && prevBtn) {
-                const firstCard = wrapper.querySelector('.news-card');
-                const scrollDistance = firstCard.offsetWidth + 30;
-
-                nextBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-                    if (wrapper.scrollLeft >= maxScroll - 5) {
-                        wrapper.scrollLeft = 0;
-                    } else {
-                        wrapper.scrollLeft += scrollDistance;
-                    }
-                });
-
-                prevBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (wrapper.scrollLeft <= 5) {
-                        wrapper.scrollLeft = wrapper.scrollWidth;
-                    } else {
-                        wrapper.scrollLeft -= scrollDistance;
-                    }
-                });
-            }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
