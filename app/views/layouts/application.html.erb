@@ -39,7 +39,15 @@
   </head>
 
  <body>
-  <% if controller_name == "home" && action_name == "index" %>
+  <% 
+    # Check kung ang current page ay ang specific CV ni Rick
+    is_rick_cv = (controller_name == "home" && action_name == "cvRick") 
+    
+    # Conditional logic: True kung Home Index O kung Full Screen View
+    is_full_screen_view = (controller_name == "home" && action_name == "index") 
+  %>
+  
+  <% if is_full_screen_view %>
     <%= yield %>
   <% else %>
     
@@ -103,63 +111,54 @@
               <div class="collapse <%= 'show' if manager_controllers.include?(controller_name) %>" id="managerSubmenu">
                 <ul class="nav flex-column ms-4 mt-2 border-start ps-2">
 
-                  <!-- Departments -->
                   <li class="nav-item">
                     <%= link_to departments_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'departments'}" do %>
                       <span>Departments</span>
                     <% end %>
                   </li>
 
-                  <!-- Teachers -->
                   <li class="nav-item">
                     <%= link_to teachers_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'teachers'}" do %>
                       <span>Teachers</span>
                     <% end %>
                   </li>
 
-                  <!-- Students -->
                   <li class="nav-item">
                     <%= link_to students_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'students'}" do %>
                       <span>Students</span>
                     <% end %>
                   </li>
 
-                  <!-- Subjects -->
                   <li class="nav-item">
                     <%= link_to subjects_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'subjects'}" do %>
                       <span>Subjects</span>
                     <% end %>
                   </li>
 
-                  <!-- Sections -->
                   <li class="nav-item">
                     <%= link_to sections_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'sections'}" do %>
                       <span>Sections</span>
                     <% end %>
                   </li>
 
-                  <!-- Staffs -->
                   <li class="nav-item">
                     <%= link_to staffs_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'staffs'}" do %>
                       <span>Staffs</span>
                     <% end %>
                   </li>
 
-                  <!-- Classlists -->
                   <li class="nav-item">
                     <%= link_to classlists_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'classlists'}" do %>
                       <span>Classlists</span>
                     <% end %>
                   </li>
 
-                  <!-- Guardians -->
                   <li class="nav-item">
                     <%= link_to guardians_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'guardians'}" do %>
                       <span>Guardians</span>
                     <% end %>
                   </li>
 
-                  <!-- Relationships -->
                   <li class="nav-item">
                     <%= link_to student_guardians_path, class: "nav-link py-1 text-white #{'submenu-active-link' if controller_name == 'relationships'}" do %>
                       <span>Relationships</span>
@@ -204,7 +203,12 @@
 
       <main class="content-wrapper flex-grow-1">
         
-        <div class="content-card-container">
+        <% 
+          # I-set ang style: black background at white text KUNG rick_cv page lang.
+          custom_bg_style = is_rick_cv ? "background-color: #0f0f0f; color: #ffffff;" : ""
+        %>
+        
+        <div class="content-card-container" style="<%= custom_bg_style %>">
 
           <div class="flash-container position-relative">
             <% flash.each do |key, message| %>
@@ -214,7 +218,7 @@
             <% end %>
           </div>
 
-          <div class="p-4">
+          <div style="<%= is_rick_cv ? "" : "padding: 1rem;" %>">
             <%= yield %>
           </div>
           

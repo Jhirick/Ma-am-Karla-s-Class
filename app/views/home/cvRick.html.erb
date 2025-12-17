@@ -1,0 +1,245 @@
+<%# FINAL optimized code for cvRick.html.erb (Dark Theme, Photo Space Utilized, ALL PURPLE Scheme, ABSOLUTE ZERO SCROLL OPTIMIZED, FINAL BALANCED) %>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Base CSS Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Custom Styles para sa Aesthetic */
+  .brushstroke {
+    position: absolute;
+    background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%); /* Deep Purple/Magenta */
+    filter: blur(40px);
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .skill-bar {
+    height: 6px; 
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background-color: #374151;
+  }
+
+  .skill-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s ease-out;
+  }
+
+  /* Styling for Cards (AGAIN REDUCED vertical padding) */
+  .info-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 0.6rem; /* Mas maliit pa */
+  }
+  
+  /* REDUCED FONT SIZE for overall content */
+  .cv-content {
+      font-size: 0.9rem; /* Reduced from 1rem to 0.9rem */
+      line-height: 1.25; /* Tighter line height */
+  }
+  
+  /* Large Profile size (200px) - Retained as requested */
+  .profile-container {
+      max-width: 200px; 
+      height: 200px;
+  }
+  
+  /* Aggressive reduction of heading margins and spacing */
+  h1 { margin-bottom: 0 !important; font-size: 2.25rem !important; } /* Adjusted h1 size for tighter fit */
+  h2 { margin-bottom: 0 !important; font-size: 1.5rem !important; } /* Adjusted h2 size */
+  h3 { margin-bottom: 0.1rem !important; font-size: 1.15rem !important; } /* Adjusted h3 size */
+
+  /* Reduced component spacing */
+  /* --- KEY CHANGE FOR BALANCING --- */
+  .space-y-3 { --tw-space-y-reverse: 0; margin-top: 0.5rem; margin-bottom: 0.5rem; } /* Slightly increased margin for balance */
+  .space-y-2 > div { margin-top: 0.5rem; margin-bottom: 0.5rem; } /* Slightly increased margin for balance */
+  /* -------------------------------- */
+  
+  /* Style for the form inputs (Reduced padding) */
+  .form-input-field {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #a855f7; /* Purple border */
+    color: #ffffff;
+    padding: 0.3rem; /* Smallest padding */
+    border-radius: 0.4rem; /* Reduced border radius */
+    width: 100%;
+    outline: none;
+  }
+  .form-input-field:focus {
+    border-color: #d946ef; /* Magenta border on focus */
+  }
+
+</style>
+
+<div id="app-wrapper" class="w-full cv-content"> 
+ 
+ <section class="relative py-2 px-3"> 
+  <div class="w-full mx-auto">
+   
+    <header class="mb-3 flex items-start gap-3 p-2 rounded-lg info-card">
+        
+        <div class="flex-shrink-0">
+            <div class="relative z-10 rounded-2xl overflow-hidden profile-container">
+                <%= image_tag "rick_profile.png", alt: "Profile Photo", class: "w-full h-full object-cover" %>
+            </div>
+        </div>
+
+        <div class="flex flex-col justify-start w-full pt-1">
+            <h1 class="font-extrabold" style="color: #ffffff;">Jhirick Rijhi Milano Flores</h1>
+            <h2 class="font-semibold" style="color: #a855f7;">Computer Engineer</h2>
+            
+            <div class="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 mb-1" style="color: #9ca3af;">
+                <p class="flex items-center gap-1">
+                    <i class="fas fa-envelope text-base" style="color: #a855f7;"></i>
+                    <span style="color: #ffffff;">jhirickrijhiflores@gmail.com</span>
+                </p>
+                <p class="flex items-center gap-1">
+                    <i class="fas fa-phone-alt text-base" style="color: #a855f7;"></i>
+                    <span style="color: #ffffff;">09673321495</span>
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="font-bold" style="color: #ffffff;">About Me</h3>
+                <p style="color: #9ca3af;">
+                    A dedicated Computer Engineer specializing in full-stack system architecture, system administration, and robust software deployment. Experienced in optimizing computing environments and implementing efficient, secure, and high-performance solutions.
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> 
+    
+    <div class="space-y-4"> 
+     
+        <div class="space-y-3 pt-1">
+            <h3 class="font-bold" style="color: #ffffff;">Software Skills</h3>
+            <div>
+                <div class="flex justify-between mb-0.5"><span class="font-semibold" style="color: #ffffff;">Python/Data</span> <span style="color: #d946ef;">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 90%; background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-0.5"><span class="font-semibold" style="color: #ffffff;">C/C++ (Embedded)</span> <span style="color: #d946ef;">85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 85%; background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-0.5"><span class="font-semibold" style="color: #ffffff;">Ruby/Rails (Web)</span> <span style="color: #d946ef;">95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 95%; background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);"></div></div>
+            </div>
+        </div>
+
+        <div class="space-y-2 pt-1">
+            <h3 class="font-bold" style="color: #ffffff;">Languages</h3>
+            <div>
+                <div class="flex justify-between mb-0.5"><span class="font-semibold" style="color: #ffffff;">English</span> <span style="color: #d946ef;">85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 85%; background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-0.5"><span class="font-semibold" style="color: #ffffff;">Filipino</span> <span style="color: #d946ef;">95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 95%; background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-0.5"><span class="font-semibold" style="color: #ffffff;">Bicol</span> <span style="color: #d946ef;">80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 80%; background: linear-gradient(90deg, #a855f7 0%, #d946ef 100%);"></div></div>
+            </div>
+        </div>
+        
+        <div class="p-2 rounded-lg info-card"> 
+            <h3 class="font-bold mb-2" style="color: #ffffff; border-bottom: 2px solid #a855f7; padding-bottom: 0.3rem;">Contact Me</h3>
+            
+            <form class="space-y-2">
+                
+                <div class="grid grid-cols-1 gap-1">
+                     <div>
+                        <input type="text" id="name" class="form-input-field" placeholder="Your Name">
+                    </div>
+                     <div>
+                        <input type="email" id="email" class="form-input-field" placeholder="Your Email">
+                    </div>
+                </div>
+
+                <div>
+                    <textarea id="message" rows="2" class="form-input-field resize-none" placeholder="Type your message here..."></textarea>
+                </div>
+    
+                <div class="pt-1">
+                    <button type="submit" class="w-full py-1.5 rounded-lg font-bold text-sm transition duration-300" 
+                            style="background-color: #a855f7; color: #ffffff; border: 2px solid #d946ef;">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                    </div>
+            </form>
+        </div>
+        
+    </div>
+    
+    <div class="space-y-3"> 
+        <div>
+            <h3 class="font-bold" style="color: #ffffff;">Education</h3>
+            <div class="space-y-2"> 
+                
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #a855f7;">
+                    <h4 class="font-bold" style="color: #ffffff;">M.S. Computer Engineering</h4>
+                    <p class="font-semibold" style="color: #d946ef;">Ateneo de Manila University</p>
+                </div>
+                
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #a855f7;">
+                    <h4 class="font-bold" style="color: #ffffff;">B.S. Computer Engineering</h4>
+                    <p class="font-semibold" style="color: #d946ef;">Ateneo de Naga University</p>
+                </div>
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #a855f7;">
+                    <h4 class="font-bold" style="color: #ffffff;">Secondary Education</h4>
+                    <p class="font-semibold" style="color: #d946ef;">Cararayan National High School</p>
+                </div>
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #a855f7;">
+                    <h4 class="font-bold" style="color: #ffffff;">Primary Education</h4>
+                    <p class="font-semibold" style="color: #d946ef;">Naga Central School I</p>
+                </div>
+            </div>
+        </div>
+     
+        <div>
+            <h3 class="font-bold" style="color: #ffffff;">Professional Experience</h3>
+            <div class="space-y-2"> 
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #d946ef;">
+                    <h4 class="font-bold" style="color: #ffffff;">Associate Systems Engineer</h4>
+                    <span class="text-xs px-1 py-0.5 rounded-full float-right" style="background-color: #a855f7; color: #ffffff;">2024-Present</span>
+                    <p class="font-semibold" style="color: #d946ef;">TechSolutions Philippines</p>
+                </div>
+                
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #d946ef;">
+                    <h4 class="font-bold" style="color: #ffffff;">Jr. Software Developer</h4>
+                    <span class="text-xs px-1 py-0.5 rounded-full float-right" style="background-color: #a855f7; color: #ffffff;">2023</span>
+                    <p class="font-semibold" style="color: #d946ef;">Digital Innovation Hub</p>
+                </div>
+                <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #d946ef;">
+                    <h4 class="font-bold" style="color: #ffffff;">Intern: Systems Support</h4>
+                    <span class="text-xs px-1 py-0.5 rounded-full float-right" style="background-color: #a855f7; color: #ffffff;">2022</span>
+                    <p class="font-semibold" style="color: #d946ef;">Local IT Firm</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="font-bold" style="color: #ffffff;">Core Competencies</h3>
+            <div class="p-2 rounded-lg info-card" style="border-left: 3px solid #a855f7;">
+                <div class="flex flex-wrap gap-1.5"> 
+                    <span class="px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: #a855f7; color: #ffffff;">Embedded Design</span>
+                    <span class="px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: #a855f7; color: #ffffff;">Network Admin</span>
+                    <span class="px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: #a855f7; color: #ffffff;">Full-Stack Web</span>
+                    <span class="px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: #a855f7; color: #ffffff;">Debugging</span>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
