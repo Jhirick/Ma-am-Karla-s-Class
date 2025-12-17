@@ -1,14 +1,23 @@
-<div class="section-edit-container">
-  <div class="section-edit-header d-flex align-items-center">
+<% content_for :title, "Create Section" %>
+
+<div class="student-edit-container">
+
+  <!-- Purple Header (Matches Student New) -->
+  <div class="student-edit-header d-flex align-items-center">
     <i class="bi bi-journal-plus ms-3 me-2 fs-3"></i>
-    <h3>Creating Section</h3>
+    <h1>Creating Section</h1>
   </div>
 
-  <%= render "form", section: @section %>
-
-  <br>
-
-  <div>
-    <%= link_to "Back to Sections", sections_path, class: "btn-custom back-btn" %>
+  <!-- White Card Form -->
+  <div class="student-edit-form mt-4">
+    <%= render "form", section: @section %>
   </div>
+
+  <!-- Back Button -->
+  <div class="mt-4">
+    <%= link_to "Back to Sections",
+        sections_path,
+        class: "btn-custom back-btn" %>
+  </div>
+
 </div>
