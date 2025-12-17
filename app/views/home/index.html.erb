@@ -10,174 +10,371 @@
     <%# CORRECT RAILS WAY TO LOAD homepage.css %>
     <%= stylesheet_link_tag "homepage", media: "all" %>
     
-    <%# ADDED: Google Font Link for Playfair Display (Serif Font) %>
+    <%# Google Font Link for Playfair Display (Serif Font) %>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
-    <%# NOTE: Font Awesome for Social Icons (Requires external link) %>
+    <%# Font Awesome for Social Icons %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
+<div class="compact-nav" id="compactNav">
+    <div class="compact-container">
+        <div class="compact-logo">
+            <%= image_tag "wisteria-logo-shield.png", class: "c-logo-img" %>
+            <span class="c-logo-text">
+        WISTERIA GROVE UNIVERSITY
+    </span>
+        </div>
+    </div>
+</div>
+
     <header class="header">
         <div class="top-bar">
-            
-            <%# START: LEFT-ALIGNED SCHOOL MANAGER DROPDOWN %>
-            <div class="top-bar-left">
-                <div class="dropdown" id="schoolManagerDropdown"> 
-                    <a href="#" class="dropdown-toggle" id="dropdownBtn">School Manager</a>
-                
-                    <%# Dropdown Menu List (3x3 Grid) %>
-                    <div class="dropdown-menu" id="dropdownMenu">
-                        <a href="http://0.0.0.0:3001/departments">Departments</a>
-                        <a href="http://0.0.0.0:3001/teachers">Teachers</a>
-                        <a href="http://0.0.0.0:3001/students">Students</a>
-
-                        <a href="http://0.0.0.0:3001/subjects">Subjects</a>
-                        <a href="http://0.0.0.0:3001/sections">Sections</a>
-                        <a href="http://0.0.0.0:3001/staffs">Staffs</a>
-
-                        <a href="http://0.0.0.0:3001/classlists">Classlists</a>
-                        <a href="http://0.0.0.0:3001/guardians">Guardians</a>
-                        <a href="http://0.0.0.0:3001/student_guardians">Relationships</a>
-                    </div>
-                </div>
-            </div>
-            <%# END: LEFT-ALIGNED SCHOOL MANAGER DROPDOWN %>
-
-            <div class="top-bar-right">
-                <a href="#">Request Info</a>
-                <a href="#">Visit</a>
-                <a href="#">Apply</a>
-                <a href="#">Give</a>
-            </div>
+    <div class="top-bar-left">
+    <div class="manager-wrapper">
+        <a href="#" class="school-manager-label" id="dropdownBtn">
+            <i class="fas fa-th-large"></i> 
+    <span>SCHOOL MANAGER</span>
+    <span class="dropdown-indicator-right"></span>
+        </a>
+        <div class="manager-inline-links" id="dropdownMenu">
+            <a href="http://0.0.0.0:3001/departments">Departments</a>
+            <a href="http://0.0.0.0:3001/teachers">Teachers</a>
+            <a href="http://0.0.0.0:3001/students">Students</a>
+            <a href="http://0.0.0.0:3001/subjects">Subjects</a>
+            <a href="http://0.0.0.0:3001/sections">Sections</a>
+            <a href="http://0.0.0.0:3001/staffs">Staffs</a>
+            <a href="http://0.0.0.0:3001/classlists">Classlists</a>
+            <a href="http://0.0.0.0:3001/guardians">Guardians</a>
+            <a href="http://0.0.0.0:3001/student_guardians">Relationships</a>
         </div>
+    </div>
+</div>
+</div>
 
         <nav class="main-nav-bar">
-
             <div class="logo-container"> 
                 <a href="#" class="logo">
-                    <%= image_tag "wisteria-logo-shield.png",
-                        alt: "Wisteria Grove University Logo",
-                        class: "logo-image" %>
-
+                    <%= image_tag "wisteria-logo-shield.png", alt: "WGU Logo", class: "logo-image" %>
                     <span class="logo-text">WISTERIA GROVE<br><span>UNIVERSITY</span></span>
                 </a>
             </div>
 
             <div class="main-nav">
                 <ul>
-                    <li><a href="#">Academics <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Admission and Aid <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Life at WGU <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Research <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">Athletics <span class="dropdown-indicator"></span></a></li>
-                    <li><a href="#">About WGU <span class="dropdown-indicator"></span></a></li>
+                    <%# 1. ACADEMICS MEGA MENU %>
+                    <li class="has-mega-menu">
+                        <a href="#" id="academicsToggle">Academics <span class="dropdown-indicator"></span></a>
+                        <div class="mega-menu-panel" id="academicsMegaMenu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-sidebar">
+                                    <h3>Academics</h3>
+                                    <ul>
+                                        <li><a href="#">Undergraduate Education</a></li>
+                                        <li><a href="#">Graduate Education</a></li>
+                                        <li><a href="#">Online Education</a></li>
+                                        <li><a href="#">Course Search</a></li>
+                                        <li><a href="#">Academic Support</a></li>
+                                        <li><a href="#">University Registrar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-cards">
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("degrees-programs.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>Degrees and Programs</h4>
+                                            <p>With nearly 100 undergraduate, 140 graduate programs and many more minors, concentrations and certificates, Wisteria Grove University offers a truly personalized experience.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("academic-calendar.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>Academic Calendar</h4>
+                                            <p>Keep up with important dates, including withdrawal deadlines, exam schedules and University breaks.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("university-libraries.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>University Libraries</h4>
+                                            <p>WGU libraries offer access to experienced librarians, comprehensive databases and more to help you succeed.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="mega-close" id="academicsCloseBtn">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <%# 2. ADMISSION AND AID MEGA MENU %>
+                    <li class="has-mega-menu">
+                        <a href="#" id="admissionToggle">Admission and Aid <span class="dropdown-indicator"></span></a>
+                        <div class="mega-menu-panel" id="admissionMegaMenu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-sidebar">
+                                    <h3>Admission and Aid</h3>
+                                    <ul>
+                                        <li><a href="#">Financial Aid</a></li>
+                                        <li><a href="#">Plan Your Campus Visit</a></li>
+                                        <li><a href="#">Take a Virtual Tour</a></li>
+                                        <li><a href="#">Connect with Your Admission Counselor</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-cards">
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("first-year.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>New First-Year Students</h4>
+                                            <p>Apply to be a Wisteria student through the Common Application and find important information on financial aid, visits and more.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("international.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>International Students</h4>
+                                            <p>WGU is home to many highly competitive graduate programs. Learn how you can be a part of our diverse community of scholars.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("deadlines.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>Dates and Deadlines</h4>
+                                            <p>Explore WGU's different application paths and discover which is the right fit for you.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="mega-close" id="admissionCloseBtn">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <%# 3. LIFE AT WGU MEGA MENU %>
+                    <li class="has-mega-menu">
+                        <a href="#" id="lifeToggle">Life at WGU <span class="dropdown-indicator"></span></a>
+                        <div class="mega-menu-panel" id="lifeMegaMenu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-sidebar">
+                                    <h3>Life at WGU</h3>
+                                    <ul>
+                                        <li><a href="#">Campus Ministry</a></li>
+                                        <li><a href="#">Campus Recreation and Wellness</a></li>
+                                        <li><a href="#">Center for Social Action</a></li>
+                                        <li><a href="#">Diversity on Campus</a></li>
+                                        <li><a href="#">Student Success Center</a></li>
+                                        <li><a href="#">Student Health</a></li>
+                                        <li><a href="#">University Counseling Center</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-cards">
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("housing.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>Housing and Residence Life</h4>
+                                            <p>Life: Single or double? Suite or community-style living? Find out what you need to make WGU home.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("involvement.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>Student Involvement</h4>
+                                            <p>With more than 250 student organizations on campus, Wisteria Grove University makes it easy to find your niche.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-card">
+                                        <div class="mega-card-img" style="background-image: url('<%= asset_path("career.png") rescue "" %>');"></div>
+                                        <div class="mega-card-body">
+                                            <h4>Career Services</h4>
+                                            <p>Career Services helps students and alumni develop into successful professionals.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="mega-close" id="lifeCloseBtn">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <%# 4. RESEARCH MEGA MENU %>
+<li class="has-mega-menu">
+    <a href="#" id="researchToggle">Research <span class="dropdown-indicator"></span></a>
+    <div class="mega-menu-panel" id="researchMegaMenu">
+        <div class="mega-menu-content">
+            <div class="mega-menu-sidebar">
+                <h3>Research</h3>
+                <ul>
+                    <li><a href="#">Faculty Resources</a></li>
+                    <li><a href="#">About WGU Research</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu-cards">
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("student-research.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Student Research</h4>
+                        <p>Students can get involved with groundbreaking research as early as their freshmen year.</p>
+                    </div>
+                </div>
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("research-institute.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Research Institute</h4>
+                        <p>WGU's Research Institute pushes the boundaries of what's possible through innovation and collaboration.</p>
+                    </div>
+                </div>
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("left.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Research Impact</h4>
+                        <p>Find out how WGU researchers have impacted humanity by taking on its biggest challenges.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="mega-close" id="researchCloseBtn">&times;</button>
+        </div>
+    </div>
+</li>
+
+                    <li class="has-mega-menu">
+    <a href="#" id="athleticsToggle">Athletics <span class="dropdown-indicator"></span></a>
+    <div class="mega-menu-panel" id="athleticsMegaMenu">
+        <div class="mega-menu-content">
+            <div class="mega-menu-sidebar">
+                <h3>Athletics</h3>
+                <ul>
+                    <li><a href="#">Men's Sports</a></li>
+                    <li><a href="#">Women's Sports</a></li>
+                    <li><a href="#">Tickets and Fan Zone</a></li>
+                    <li><a href="#">Facilities</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu-cards">
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("mens-sports.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Men's Sports</h4>
+                        <p>Explore our Division I men's teams, schedules, and player highlights.</p>
+                    </div>
+                </div>
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("womens-sports.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Women's Sports</h4>
+                        <p>Learn about our women's programs, recent victories, and athlete profiles.</p>
+                    </div>
+                </div>
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("intramurals.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Intramurals and Club Sports</h4>
+                        <p>From intramurals to club sports, create plenty of memories in any of WGU's 30-plus athletic clubs.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="mega-close" id="athleticsCloseBtn">&times;</button>
+        </div>
+    </div>
+</li>
+
+<%# 6. ABOUT WGU MEGA MENU %>
+<li class="has-mega-menu">
+    <a href="#" id="aboutToggle">About WGU <span class="dropdown-indicator"></span></a>
+    <div class="mega-menu-panel" id="aboutMegaMenu">
+        <div class="mega-menu-content">
+            <div class="mega-menu-sidebar">
+                <h3>About WGU</h3>
+                <ul>
+                    <li><a href="#">What is a Wisteria?</a></li>
+                    <li><a href="#">About Wisteria Grove</a></li>
+                    <li><a href="#">Safety at WGU</a></li>
+                    <li><a href="#">WGU Leadership</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu-cards">
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("history.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>History</h4>
+                        <p>Wisteria Grove University has been providing students with a rigorous, excellent education for over 20 years.</p>
+                    </div>
+                </div>
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("key-facts.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Key Facts</h4>
+                        <p>Looking for some fast facts? Find out more about Wisteria Grove University's impact and community.</p>
+                    </div>
+                </div>
+                <div class="mega-card">
+                    <div class="mega-card-img" style="background-image: url('<%= asset_path("identity.png") rescue "" %>');"></div>
+                    <div class="mega-card-body">
+                        <h4>Our Catholic, Jesuit Identity</h4>
+                        <p>Learn how WGU's Catholic, Jesuit identity shapes how we teach, lead, and serve the greater good.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="mega-close" id="aboutCloseBtn">&times;</button>
+        </div>
+    </div>
+</li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <%# START: HERO SECTION %>
     <div class="hero-section">
-
-        <%# LEFT SIDE PANEL (Image/Content) %>
         <div class="hero-left-split">
             <div class="hero-content">
-                <h1>
-                    Discover <br>
-                    your Purpose.
-                </h1>
-
+                <h1>Discover <br>your Purpose.</h1>
                 <div class="line-break"></div>
-
-                <h1>
-                    Ignite your<br>
-                    Future.
-                </h1>
-
+                <h1>Ignite your<br>Future.</h1>
                 <a href="#" class="learn-more-btn">Learn more</a>
             </div>
         </div>
-
-        <%# RIGHT SIDE VIDEO %>
-        <%= video_tag "Promotional.mp4",
-            autoplay: true,
-            muted: true,
-            loop: true,
-            playsinline: true,
-            class: "promo-video" %>
-            
+        <%= video_tag "Promotional.mp4", autoplay: true, muted: true, loop: true, playsinline: true, class: "promo-video" %>
     </div>
-    <%# END: HERO SECTION %>
 
-    <%# START: WELCOME SECTION (Top-aligned) %>
     <section class="welcome-section clean-asymmetrical">
-        
         <div class="welcome-header">
             <h2>A Message from the President</h2>
             <div class="header-underline"></div>
         </div>
 
         <div class="welcome-content-container">
-            
-            <%# LEFT COLUMN: Image Block - Top Aligned %>
             <div class="welcome-image-column">
                 <div class="image-frame">
-                    <%= image_tag "director-image.png",
-                        alt: "Image of the University President, Dr. Alistair Vance",
-                        class: "director-photo" %>
+                    <%= image_tag "director-image.png", alt: "President", class: "director-photo" %>
                 </div>
-
                 <div class="signature-block">
                     <h4>President Dr. Alistair Vance</h4>
                     <span class="director-title">PRESIDENT, WISTERIA GROVE UNIVERSITY</span>
                 </div>
             </div>
 
-            <%# RIGHT COLUMN: Single Large Text Block - Top Aligned %>
             <div class="welcome-text-block">
-                <p>
-                    "For generations, Wisteria Grove University has stood as a beacon of academic rigor and transformative innovation. We do not merely adapt to the future; we **actively forge** it through the brilliance and dedication of our students, faculty, and research teams.
-                </p>
-                <p>
-                    Here, education transcends the classroom. It is a commitment to excellence, a deep dive into profound, ethical leadership, and a journey toward mastering one's discipline for the **greater good** of the global community. Our purpose is to transform your passion into genuine mastery.
-                </p>
-                <p>
-                    I welcome you to a community where ambition finds its voice, curiosity ignites global change, and every individual is empowered to transcend their perceived limits. Together, let us shape a legacy that reflects our commitment to **higher purpose** and continuous discovery."
-                </p>
+                <p>"For generations, Wisteria Grove University has stood as a beacon of academic rigor and transformative innovation. We do not merely adapt to the future; we **actively forge** it through the brilliance and dedication of our students, faculty, and research teams."</p>
+                <p>"Here, education transcends the classroom. It is a commitment to excellence, a deep dive into profound, ethical leadership, and a journey toward mastering one's discipline for the **greater good** of the global community. Our purpose is to transform your passion into genuine mastery."</p>
+                <p>"I welcome you to a community where ambition finds its voice, curiosity ignites global change, and every individual is empowered to transcend their perceived limits. Together, let us shape a legacy that reflects our commitment to **higher purpose** and continuous discovery."</p>
             </div>
         </div>
     </section>
-    <%# END: WELCOME SECTION %>
 
-    <%# START: MISSION & VISION SECTION (FUTURISTIC - HIGH VISIBILITY) %>
     <section class="mission-vision-section">
         <div class="section-title-wrapper">
             <h2>Our Mission & Vision</h2>
             <div class="line-separator"></div>
         </div>
-
         <div class="mission-vision-container">
-            
             <div class="vision-block">
                 <h3>Our Vision</h3>
-                <p>
-                    To be the foremost institution recognized globally for cultivating purpose-driven leaders who empower communities and drive sustainable innovation.
-                </p>
+                <p>To be the foremost institution recognized globally for cultivating purpose-driven leaders who empower communities and drive sustainable innovation.</p>
             </div>
-
             <div class="mission-block">
                 <h3>Our Mission</h3>
-                <p>
-                    Wisteria Grove University is committed to fostering academic excellence, pioneering research, and holistic development by providing transformative educational experiences in a nurturing, inclusive, and diverse environment.
-                </p>
+                <p>Wisteria Grove University is committed to fostering academic excellence, pioneering research, and holistic development by providing transformative educational experiences in a nurturing, inclusive, and diverse environment.</p>
             </div>
-            
         </div>
     </section>
-    <%# END: MISSION & VISION SECTION %>
 
-    <%# START: NEWS & EVENTS SECTION (CAROUSEL LAYOUT) %>
     <section class="news-events-section">
         <div class="section-title-wrapper news-title">
             <h2>News & Events</h2>
@@ -186,24 +383,17 @@
         </div>
 
         <div class="news-carousel-container">
-            
-            <%# NEW: Left Arrow Button (Sa labas ng cards) %>
-            <div class="carousel-arrow left-arrow" id="prevBtn">
-                <a href="#">&larr;</a>
-            </div>
+            <div class="carousel-arrow left-arrow" id="prevBtn"><a href="#">&larr;</a></div>
 
-            <%# Added id="newsWrapper" for JavaScript use %>
             <div class="news-cards-wrapper" id="newsWrapper">
-                
-                <%# Card 1: Christmas Vacation (Feature Card) %>
+                <%# Card 1 %>
                 <div class="news-card feature-card">
-                    <div class="card-image-bg" style="background-image: url('christmas-vacation-bg.png');">
+                    <div class="card-image-bg" style="background-image: url('<%= asset_path("christmas-vacation-bg.png") %>');">
                         <div class="card-overlay">
                             <h3 class="ribbon-text">Holiday Break</h3>
                             <span class="ribbon-subtext">DEC 20 | 2025 - JAN 5 | 2026</span>
                         </div>
                     </div>
-                    
                     <div class="card-content">
                         <h4>WGU ANNOUNCES SCHEDULE FOR UPCOMING CHRISTMAS VACATION</h4>
                         <span class="card-date">DEC 16</span>
@@ -211,11 +401,9 @@
                     </div>
                 </div>
 
-                <%# Card 2: Uniform Policy (Image focused) %>
+                <%# Card 2 %>
                 <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('uniform-policy-update.png');">
-                    </div>
-                    
+                    <div class="card-image-bg" style="background-image: url('<%= asset_path("uniform-policy-update.png") %>');"></div>
                     <div class="card-content">
                         <h4>NEW UNIFORM POLICY FOR SPRING TRIMESTER RELEASED</h4>
                         <span class="card-date">DEC 10</span>
@@ -223,11 +411,9 @@
                     </div>
                 </div>
 
-                <%# Card 3: Intramurals (Image focused) %>
+                <%# Card 3 %>
                 <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('intramurals-champs.png');">
-                    </div>
-                    
+                    <div class="card-image-bg" style="background-image: url('<%= asset_path("intramurals-champs.png") %>');"></div>
                     <div class="card-content">
                         <h4>COLLEGE OF ENGINEERING CLAIMS INTRAMURAL CUP CHAMPIONSHIP</h4>
                         <span class="card-date">NOV 29</span>
@@ -235,9 +421,9 @@
                     </div>
                 </div>
 
-                <%# --- DUMMY CARDS FOR CAROUSEL FUNCTIONALITY (4, 5, 6) --- %>
+                <%# Card 4 %>
                 <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('new-research-grant.png');"></div>
+                    <div class="card-image-bg" style="background-image: url('<%= asset_path("new-research-grant.png") %>');"></div>
                     <div class="card-content">
                         <h4>WGU RESEARCH TEAM RECEIVES MAJOR STEM GRANT</h4>
                         <span class="card-date">NOV 25</span>
@@ -245,8 +431,9 @@
                     </div>
                 </div>
 
+                <%# Card 5 %>
                 <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('alumni-donations.png');"></div>
+                    <div class="card-image-bg" style="background-image: url('<%= asset_path("alumni-donations.png") %>');"></div>
                     <div class="card-content">
                         <h4>ALUMNI DONATIONS HIT RECORD HIGH FOR Q4</h4>
                         <span class="card-date">NOV 20</span>
@@ -254,211 +441,177 @@
                     </div>
                 </div>
 
+                <%# Card 6 %>
                 <div class="news-card">
-                    <div class="card-image-bg" style="background-image: url('arts-festival.png');"></div>
+                    <div class="card-image-bg" style="background-image: url('<%= asset_path("arts-festival.png") %>');"></div>
                     <div class="card-content">
                         <h4>ANNUAL ARTS FESTIVAL SHOWCASES STUDENT TALENT</h4>
                         <span class="card-date">NOV 15</span>
                         <a href="#" class="read-more-btn">Read More &rarr;</a>
                     </div>
                 </div>
-                <%# --- END DUMMY CARDS --- %>
-
             </div>
 
-            <%# NEW: Right Arrow Button (Sa labas ng cards) %>
-            <div class="carousel-arrow right-arrow" id="nextBtn">
-                <a href="#">&rarr;</a>
-            </div>
-
+            <div class="carousel-arrow right-arrow" id="nextBtn"><a href="#">&rarr;</a></div>
         </div>
     </section>
-    <%# END: NEWS & EVENTS SECTION %>
 
-    <%# START: FOOTER SECTION (New Transparent Background Design) %>
     <footer class="main-footer new-design">
         <div class="footer-bg-overlay">
-            
             <div class="footer-container">
-                
-                <%# COLUMN 1: Logo & Tagline %>
                 <div class="footer-col col-logo-tagline">
-                    <h2 class="tagline-header">Higher purpose. Greater good.</h2>
-                    
+                    <h2 class="tagline-header">Higher purpose.<br>Greater good.</h2>
                     <div class="footer-logo">
-                        <%= image_tag "wisteria-logo-shield.png",
-                            alt: "Wisteria Grove University Logo",
-                            class: "footer-logo-image" %>
-
-                        <span class="footer-logo-text">WISTERIA GROVE<br><span>UNIVERSITY</span></span>
-                        <span class="est-date">EST. 1923</span>
+                        <%= image_tag "footer-logo.png", alt: "WGU Logo", class: "footer-logo-image" %>
+                        <div class="footer-logo-text">WISTERIA GROVE<br><span>UNIVERSITY | EST. 2000</span></div>
                     </div>
                 </div>
-
-                <%# COLUMN 2: Quick Links %>
                 <div class="footer-col col-links">
                     <h4>QUICK LINKS</h4>
                     <ul>
-                        <li><a href="#">myWGU</a></li>
+                        <li><a href="#">myWGU Portal</a></li>
                         <li><a href="#">Campus Map</a></li>
                         <li><a href="#">Work at WGU</a></li>
                         <li><a href="#">Emergency Info</a></li>
                         <li><a href="#">A-Z Directory</a></li>
-                        <li><a href="#">Disclaimer</a></li>
                     </ul>
                 </div>
-
-                <%# COLUMN 3: Resources For You %>
                 <div class="footer-col col-links">
-                    <h4>RESOURCES FOR YOU</h4>
+                    <h4>RESOURCES</h4>
                     <ul>
                         <li><a href="#">Parents and Families</a></li>
-                        <li><a href="#">Alumni</a></li>
-                        <li><a href="#">Donors</a></li>
+                        <li><a href="#">Alumni Association</a></li>
+                        <li><a href="#">Donors & Giving</a></li>
                         <li><a href="#">Current Students</a></li>
-                        <li><a href="#">Faculty and Staff</a></li>
-                        <li><a href="#">WGU-Online</a></li>
                     </ul>
                 </div>
-
-                <%# COLUMN 4: Request Info Button %>
                 <div class="footer-col col-request">
-                    
                     <a href="#" class="request-info-btn">Request Information</a>
-                    
                     <div class="campus-locations">
-                        <p>Wisteria Grove, WG (Main Campus)</p>
-                        <p>Wisteria Grove - Online Division</p>
+                        <p><strong>Main Campus</strong><br>Wisteria Grove, WG 4502</p>
+                        <p><strong>Online Division</strong><br>online.wisteria.edu</p>
                     </div>
                 </div>
-
             </div>
         </div>
-        
         <div class="footer-bottom-bar">
             <p>&copy; <%= Time.now.year %> Wisteria Grove University. All rights reserved.</p>
             <div class="social-icons-bottom">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
-                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
-    <%# END: FOOTER SECTION %>
     
-    <%# START: JAVASCRIPT FOR DROPDOWN MENU AND CAROUSEL %>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // --- DROPDOWN MENU LOGIC ---
+            // --- TOP DROPDOWN (SCHOOL MANAGER) ---
             const dropdownBtn = document.getElementById('dropdownBtn');
             const dropdownMenu = document.getElementById('dropdownMenu');
             const dropdownContainer = document.getElementById('schoolManagerDropdown');
-
             if (dropdownBtn && dropdownMenu) {
-                
-                // Toggle function when the button is clicked
-                dropdownBtn.addEventListener('click', function(event) {
-                    event.preventDefault(); 
+                dropdownBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
                     dropdownMenu.classList.toggle('show');
                 });
-
-                // Close the dropdown when clicking outside of the container
-                document.addEventListener('click', function(event) {
-                    if (!dropdownContainer.contains(event.target)) {
-                        if (dropdownMenu.classList.contains('show')) {
-                            dropdownMenu.classList.remove('show');
-                        }
-                    }
+                document.addEventListener('click', (e) => {
+                    if (!dropdownContainer.contains(e.target)) dropdownMenu.classList.remove('show');
                 });
             }
 
+            // --- SCROLL NAVBAR LOGIC ---
+const fixedNav = document.getElementById('fixedNav');
 
-            // --- NEWS CAROUSEL LOGIC (FINAL: SINGLE CARD SCROLL WITH LOOPING) ---
-            const wrapper = document.getElementById('newsWrapper');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            
-            // Initial disable state for prevBtn
-            if (prevBtn) {
-                prevBtn.classList.add('disabled');
-            }
+window.addEventListener('scroll', function() {
+    const originalHeader = document.querySelector('.header');
+    const compactNav = document.getElementById('compactNav');
 
-            if (wrapper && prevBtn && nextBtn) {
-                
-                const firstCard = wrapper.querySelector('.news-card');
-                
-                if (!firstCard) return; 
+    if (window.scrollY > 150) { 
+        // Kapag nag-scroll pababa
+        originalHeader.classList.add('header-fade-out');
+        compactNav.classList.add('is-visible');
+    } else {
+        // Kapag bumalik sa pinakataas
+        originalHeader.classList.remove('header-fade-out');
+        compactNav.classList.remove('is-visible');
+    }
+});
 
-                const cardWidth = firstCard.offsetWidth;
-                const GAP = 30; // Based on CSS gap: 30px
-                const scrollDistance = cardWidth + GAP; 
-                
-                // Kukunin ang pinakamalaking scroll position
-                const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+            // --- MULTI MEGA MENU LOGIC ---
+            const menuConfigs = [
+                { toggle: 'academicsToggle', panel: 'academicsMegaMenu', close: 'academicsCloseBtn' },
+                { toggle: 'admissionToggle', panel: 'admissionMegaMenu', close: 'admissionCloseBtn' },
+                { toggle: 'lifeToggle', panel: 'lifeMegaMenu', close: 'lifeCloseBtn' },
+                { toggle: 'researchToggle', panel: 'researchMegaMenu', close: 'researchCloseBtn' },
+                { toggle: 'athleticsToggle', panel: 'athleticsMegaMenu', close: 'athleticsCloseBtn' },
+                { toggle: 'aboutToggle', panel: 'aboutMegaMenu', close: 'aboutCloseBtn' }
+            ];
 
-                // Function to update the disabled state of arrows
-                function updateArrows() {
-                    // Ang 'nextBtn' ay HINDI na madi-disable dahil looping na.
-                    
-                    // Ang 'prevBtn' lang ang madi-disable kapag nasa pinaka-simula (scrollLeft = 0)
-                    prevBtn.classList.toggle('disabled', wrapper.scrollLeft <= 5); 
+            menuConfigs.forEach(config => {
+                const btn = document.getElementById(config.toggle);
+                const panel = document.getElementById(config.panel);
+                const close = document.getElementById(config.close);
+
+                if (btn && panel) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Close other open panels first
+                        menuConfigs.forEach(c => {
+                            if (c.panel !== config.panel) {
+                                const otherPanel = document.getElementById(c.panel);
+                                if(otherPanel) otherPanel.classList.remove('active');
+                            }
+                        });
+                        panel.classList.toggle('active');
+                    });
+                    if(close) {
+                        close.addEventListener('click', () => panel.classList.remove('active'));
+                    }
                 }
-                
-                // Set initial state
-                updateArrows();
-                
-                // --- Next Button Click Handler (Scroll 1 Card or Loop to Start) ---
+            });
+
+            // Close menu if clicked outside
+            document.addEventListener('click', (e) => {
+                menuConfigs.forEach(config => {
+                    const panel = document.getElementById(config.panel);
+                    const btn = document.getElementById(config.toggle);
+                    if (panel && !panel.contains(e.target) && e.target !== btn) {
+                        panel.classList.remove('active');
+                    }
+                });
+            });
+
+            // --- NEWS CAROUSEL LOGIC ---
+            const wrapper = document.getElementById('newsWrapper');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            
+            if (wrapper && nextBtn && prevBtn) {
+                const firstCard = wrapper.querySelector('.news-card');
+                const scrollDistance = firstCard.offsetWidth + 30;
+
                 nextBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Kung ang current scroll ay nasa dulo na, bumalik sa simula (scrollLeft = 0)
+                    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
                     if (wrapper.scrollLeft >= maxScroll - 5) {
-                        wrapper.scrollLeft = 0; // Loop back to the first card
+                        wrapper.scrollLeft = 0;
                     } else {
-                        // Kung hindi pa nasa dulo, mag-scroll ng isang card
                         wrapper.scrollLeft += scrollDistance;
                     }
-                    
-                    // Always update arrows after scroll
-                    setTimeout(updateArrows, 300); 
                 });
 
-                // --- Previous Button Click Handler (Scroll 1 Card or Loop to End) ---
                 prevBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Kung ang current scroll ay nasa simula na, pumunta sa dulo
                     if (wrapper.scrollLeft <= 5) {
-                        // Kalkulahin ang target scroll position na naka-align sa cards sa dulo
-                        let targetScroll = Math.floor(maxScroll / scrollDistance) * scrollDistance;
-                        
-                        // Gumamit ng maxScroll kung ang calculated target ay masyadong malayo sa dulo.
-                        if (maxScroll - targetScroll < scrollDistance / 2) {
-                            targetScroll = maxScroll;
-                        }
-                        
-                        wrapper.scrollLeft = targetScroll; // Loop back to the last card set
+                        wrapper.scrollLeft = wrapper.scrollWidth;
                     } else {
-                        // Kung hindi pa nasa simula, mag-scroll pabalik ng isang card
                         wrapper.scrollLeft -= scrollDistance;
                     }
-                    
-                    // Always update arrows after scroll
-                    setTimeout(updateArrows, 300);
                 });
-                
-                // Listen for user manual scroll or resize to update arrows
-                wrapper.addEventListener('scroll', updateArrows);
-                window.addEventListener('resize', updateArrows);
-
-            } // End of carousel if check
+            }
         });
     </script>
-    <%# END: JAVASCRIPT FOR DROPDOWN MENU AND CAROUSEL %>
-
 </body>
 </html>
