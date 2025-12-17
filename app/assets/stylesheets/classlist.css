@@ -1,92 +1,131 @@
-.classlists-container {
-  min-height: 100vh;
-  background-color: transparent !important;
+/* ============================================
+   CLASSLIST PAGE – FULL MATCH TO STUDENTS
+   (NO application.css MODIFICATIONS)
+   ============================================ */
+
+.classlist-page {
+  width: 100%;
 }
 
-/* --- Topbar Button --- */
-.btn-new {
-  background-color: #198754;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  border: none;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-new:hover {
-  background-color: #157347;
-  transform: translateY(-2px);
-}
-
-/* --- Page Header --- */
-.classlists-header {
-  background-color: #4b3b2b;
-  color: white;
-  padding: 15px 20px;
+/* HEADER BAR */
+.classlist-page .page-header-bar {
+  background-color: #8a19cc;
+  padding: 15px 25px;
   border-radius: 10px;
-  font-size: 1.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-top: -30px;
+}
+
+.classlist-page .page-header-bar h1 {
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
 }
 
-/* --- Classlist Cards --- */
-.classlist-card {
-  width: 230px;
-  border: 1px solid #4b3b2b;
-  border-radius: 12px;
-  background-color: #ffffff;
-  transition: box-shadow 0.25s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+/* SEARCH BAR */
+.classlist-page .search-bar {
+  max-width: 400px;
 }
 
-.classlist-card:hover {
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-  background-color: #fff8e7;
-}
-
-/* --- Card Title/Text --- */
-.classlist-card .card-title {
-  text-align: left;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #4b3b2b;
-}
-
-.classlist-card .card-text {
-  color: #3a2e27;
-  font-size: 0.95rem;
-  margin-top: 5px;
-  margin-bottom: 8px;
-}
-
-/* --- Buttons (All) --- */
-.btn,
-.classlist-card .show-btn {
-  background-color: #4b3b2b;
-  color: #fff;
+.classlist-page .search-bar .form-control,
+.classlist-page .search-bar .input-group-text {
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
-  border-radius: 8px;
+}
+
+/* TABLE CARD */
+.classlist-page .table-scroll-container {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: -15px;
+  padding: 20px;
+  border: none;
+}
+
+/* TABLE RESET */
+.classlist-page .table,
+.classlist-page .table-bordered,
+.classlist-page .table-bordered > :not(caption) > * {
+  border: none !important;
+}
+
+.classlist-page .table thead th {
+  background-color: #E3D2FF;
+  color: #5D3F9E;
   font-weight: 600;
-  padding: 8px 12px;
-  transition: all 0.3s ease;
+  padding: 12px 15px;
+  border: none;
+  position: sticky;
+  top: -20px;
+  z-index: 5;
 }
 
-.btn:hover,
-.classlist-card .show-btn:hover {
-  background-color: #7b5e43;
-  transform: translateY(-2px);
+/* TABLE BODY */
+.classlist-page .table tbody tr:nth-child(even) {
+  background-color: #f7f7ff;
 }
 
-/* --- Layout --- */
-.classlist-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+.classlist-page .table tbody tr:hover {
+  background-color: #e9e9ff;
 }
 
-.classlist-item {
-  flex: 0 0 auto;
+.classlist-page .table td {
+  padding: 12px 15px;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  vertical-align: middle;
+}
+
+/* ACTION COLUMN */
+.classlist-page td:last-child {
+  white-space: nowrap;
+}
+
+/* BUTTONS */
+.classlist-page .table td .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  margin-right: 6px;
+  line-height: 1;
+}
+
+.classlist-page .table td .btn:last-child {
+  margin-right: 0;
+}
+
+/* DELETE BUTTON FORM FIX */
+.classlist-page td form {
+  display: inline;
+}
+
+/* BUTTON COLORS */
+.classlist-page .btn-show {
+  background-color: #7e57c2;
+  color: #ffffff;
+  border: none;
+}
+.classlist-page .btn-show:hover {
+  background-color: #673ab7;
+}
+
+.classlist-page .btn-warning {
+  background-color: #ffca28;
+  color: #333333;
+  border: none;
+}
+
+.classlist-page .btn-danger {
+  background-color: #ef5350;
+  color: #ffffff;
+  border: none;
 }
