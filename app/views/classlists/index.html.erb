@@ -1,55 +1,22 @@
 <% content_for :title, "Classlists" %>
 
-<div class="classlist-page">
-
-  <!-- HEADER BAR -->
-  <div class="page-header-bar d-flex justify-content-between align-items-center mb-0">
-    <h1 class="m-0 text-white me-4">Classlists</h1>
-
-    <!-- Search -->
-    <div class="input-group search-bar me-auto">
-      <input type="text"
-             class="form-control"
-             placeholder="Search Classlists..."
-             aria-label="Search">
-      <span class="input-group-text">
-        <i class="bi bi-search"></i>
-      </span>
-    </div>
-
-    <!-- New Button -->
-    <%= link_to "New Classlist", new_classlist_path, class: "btn btn-light ms-4" %>
+<div class="d-flex justify-content-between align-items-center mb-4 mt-1">
+  <div class="classlists-header">
+    <h1 class="m-0">Classlists</h1>
   </div>
-
-  <!-- TABLE CARD -->
-  <div class="table-scroll-container mt-3">
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Student</th>
-          <th>Section</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @classlists.each do |classlist| %>
-          <tr>
-            <td><%= classlist.student&.name %></td>
-            <td><%= classlist.section&.name %></td>
-            <td>
-              <%= link_to "Show", classlist, class: "btn btn-sm btn-show" %>
-              <%= link_to "Edit", edit_classlist_path(classlist), class: "btn btn-sm btn-warning" %>
-              <%= button_to "Delete",
-                    classlist,
-                    method: :delete,
-                    data: { confirm: "Are you sure?" },
-                    class: "btn btn-sm btn-danger" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-
+  <%= link_to "New Classlist", new_classlist_path, class: "btn btn-dark" %>
 </div>
+
+<div class="classlist-grid mt-3">
+  <% @classlists.each do |classlist| %>
+    <div class="classlist-item">
+        <div class="card classlist-card shadow-sm rounded-4 overflow-hidden">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-2"><%= classlist.student.name %></h5>
+            <p class="card-text mb-3"><strong>Section:</strong> <%= classlist.section.name %></p>
+            <%= link_to "Show Classlist", classlist_path(classlist), class: "btn btn-sm w-100 mt-auto show-btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

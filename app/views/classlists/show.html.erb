@@ -1,6 +1,9 @@
-<div class="mt-4" style="padding: 0 20px;">
-  <div class="card shadow-sm rounded-4" style="background-color: white; padding: 30px; width: 100%; max-width: 100%; height: auto;">
-    <div class="card-header text-white" style="background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%); border-radius: 12px 12px 0 0;">
+<% content_for :title, "Classlist Details" %>
+
+<div class="classlist-show-container mt-4">
+  <!-- Classlist Card -->
+  <div class="card shadow-sm rounded-4 mb-4">
+    <div class="card-header text-white" style="background-color: #4b3b2b;">
       <h3 class="m-0">Classlist Details</h3>
     </div>
     <div class="card-body">
@@ -9,18 +12,21 @@
     </div>
   </div>
 
-  <div class="d-flex gap-2 mt-4">
+  <!-- Actions -->
+  <div class="d-flex justify-content-between align-items-center mt-4">
     <%= link_to "Back to Classlists", classlists_path,
-        class: "btn text-white fw-semibold px-4 py-2",
-        style: "background-color: #6c757d; border-radius: 8px;" %>
+      class: "btn text-white fw-semibold px-4 py-2",
+      style: "background-color: #6c757d; border-radius: 8px;" %>
 
-    <%= link_to "Edit Classlist", edit_classlist_path(@classlist),
+    <div class="d-flex gap-2">
+      <%= link_to "Edit Classlist", edit_classlist_path(@classlist),
         class: "btn text-white fw-semibold px-4 py-2",
         style: "background-color: #198754; border-radius: 8px;" %>
 
-    <%= button_to "Delete Classlist", @classlist,
+      <%= button_to "Delete Classlist", @classlist,
         method: :delete, data: { confirm: 'Are you sure?' },
         class: "btn text-white fw-semibold px-4 py-2",
         style: "background-color: #dc3545; border-radius: 8px;" %>
+    </div>
   </div>
 </div>
