@@ -1,17 +1,17 @@
 <% content_for :title, "Guardian Details" %>
 
 <div class="guardian-show-container w-100 px-0 mx-0">
-  <!-- Unified Guardian Info Card -->
-  <div class="card guardian-card shadow-sm">
-    <div class="card-header d-flex align-items-center" style="background-color: #4b3b2a; color: white;">
-      <i class="bi bi-person-vcard-fill ms-1 me-3 fs-1"></i>
+  <!-- Guardian Info Card -->
+  <div class="guardian-card" style="background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;">
+    <div class="guardian-card-header d-flex align-items-center" style="background-color: #8a19cc; color: #ffffff; padding: 20px 25px;">
+      <i class="bi bi-person-vcard-fill fs-2 me-3"></i>
       <div>
         <h3 class="guardian-name mb-0"><%= @guardian.name %></h3>
         <p class="guardian-subinfo mb-0">Guardian Information</p>
       </div>
     </div>
 
-    <div class="card-body">
+    <div class="guardian-card-body" style="padding: 20px 25px;">
       <p><strong>Email Address:</strong> <%= @guardian.email_address %></p>
       <p><strong>Contact Number:</strong> <%= @guardian.contact_number %></p>
       <p><strong>Number of Students:</strong> <%= @guardian.students.count %></p>
@@ -19,10 +19,10 @@
   </div>
 
   <!-- Students Table -->
-  <h4 class="student-list-title mt-4">👩‍🎓 List of Students</h4>
+  <h4 class="student-list-title mt-4" style="color: #5d3f9e; font-weight: 600;">👩‍🎓 List of Students</h4>
 
-  <div class="student-table-wrapper">
-    <table class="table table-bordered student-table">
+  <div class="student-table-wrapper" style="border-radius: 10px; overflow: hidden;">
+    <table class="table table-bordered student-table" style="background-color: #ffffff;">
       <thead>
         <tr>
           <th>Name</th>
@@ -42,20 +42,24 @@
 
   <!-- Action Buttons -->
   <div class="d-flex justify-content-between align-items-center w-100 px-3 mt-4">
-    <!-- Left side -->
+    <!-- Left side: Back -->
     <div class="flex-start">
-      <%= link_to guardians_path, class: "action-btn back-btn d-inline-flex align-items-center gap-2" do %>
+      <%= link_to guardians_path, class: "action-btn back-btn d-inline-flex align-items-center gap-2", style: "background-color: #7e57c2; color: #ffffff; border-radius: 5px; padding: 10px 18px;" do %>
         Back to Guardians
       <% end %>
     </div>
 
-    <!-- Right side -->
+    <!-- Right side: Edit/Delete -->
     <div class="flex-end d-flex gap-2">
-      <%= link_to "Edit this Guardian", edit_guardian_path(@guardian), class: "action-btn edit-btn" %>
+      <%= link_to "Edit this Guardian", edit_guardian_path(@guardian),
+          class: "action-btn edit-btn", 
+          style: "background-color: #ffca28; color: #333; border-radius: 5px; padding: 10px 18px;" %>
+
       <%= button_to "Delete this Guardian", @guardian,
             method: :delete,
             data: { confirm: "Are you sure you want to delete this guardian?" },
-            class: "action-btn delete-btn" %>
+            class: "action-btn delete-btn",
+            style: "background-color: #ef5350; color: #ffffff; border-radius: 5px; padding: 10px 18px;" %>
     </div>
   </div>
 </div>

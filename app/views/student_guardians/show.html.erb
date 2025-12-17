@@ -1,40 +1,43 @@
 <% content_for :title, "Student-Guardian Relationship" %>
 
-<div class="w-100 px-0 mx-0 mt-3">
-  <div class="card shadow-sm rounded-4 mb-4">
-    <div class="card-header text-white" style="background-color:#4b3b2a;">
+<div class="student-guardian-show-container w-100 px-0 mx-0 mt-3">
+  <!-- Relationship Info Card -->
+  <div class="card shadow-sm rounded-4 mb-4" style="background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <div class="card-header text-white d-flex align-items-center" style="background-color: #8a19cc; padding: 18px 25px;">
+      <i class="bi bi-people-fill fs-2 me-3"></i>
       <h3 class="m-0">Student-Guardian Details</h3>
     </div>
 
-    <div class="card-body">
+    <div class="card-body" style="padding: 20px 25px;">
       <p><strong>Student:</strong> <%= @student_guardian.student.name %></p>
       <p><strong>Guardian:</strong> <%= @student_guardian.guardian.name %></p>
       <p><strong>Relationship:</strong> <%= @student_guardian.relationship %></p>
     </div>
   </div>
 
-  <div class="d-flex justify-content-between align-items-center mt-3">
+  <!-- Action Buttons -->
+  <div class="d-flex justify-content-between align-items-center mt-3 px-3">
     <!-- Back button -->
     <div>
       <%= link_to "Back to Relationships",
           student_guardians_path,
-          class: "btn fw-semibold px-4 py-2",
-          style: "background-color: #6c757d; color:white; border-radius: 8px;" %>
+          class: "action-btn back-btn",
+          style: "background-color: #7e57c2; color: #ffffff; border-radius: 5px; padding: 10px 18px;" %>
     </div>
 
-    <!-- Edit + Delete -->
+    <!-- Edit + Delete buttons -->
     <div class="d-flex gap-2">
       <%= link_to "Edit Relationship",
           edit_student_guardian_path(@student_guardian),
-          class: "btn fw-semibold px-4 py-2",
-          style: "background-color: #198754; color:white; border-radius: 8px;" %>
+          class: "action-btn edit-btn",
+          style: "background-color: #ffca28; color: #333333; border-radius: 5px; padding: 10px 18px;" %>
 
       <%= button_to "Delete",
           @student_guardian,
           method: :delete,
           data: { confirm: "Are you sure?" },
-          class: "btn fw-semibold px-4 py-2",
-          style: "background-color: #dc3545; color:white; border-radius: 8px;" %>
+          class: "action-btn delete-btn",
+          style: "background-color: #ef5350; color: #ffffff; border-radius: 5px; padding: 10px 18px;" %>
     </div>
   </div>
 </div>
