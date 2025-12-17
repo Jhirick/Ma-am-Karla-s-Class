@@ -1,1 +1,344 @@
-<h2> This is Kristel. </h2>
+<!-- CV PAGE – FINAL PROFESSIONAL VERSION (AUTO-FIT CONTENT) -->
+<div class="content-card-container cv-page">
+  <div class="cv-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="cv-left">
+
+      <!-- PROFILE -->
+      <div class="cv-card profile-card">
+        <div class="text-center">
+          <div class="profile-img-wrapper">
+            <%= image_tag "tel.png", class: "profile-img", alt: "Profile" %>
+          </div>
+          <h2 class="cv-name">Kristel Anne Pabon</h2>
+          <p class="cv-role">Software Developer</p>
+          <div class="cv-contact-list">
+            <div>📧 kristel.pabon@example.com</div>
+            <div>📞 +63 912 345 6789</div>
+            <div>📍 Naga City, Philippines</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+      <div class="cv-card cv-stretch">
+        <h4 class="cv-section-title">Technical Skills</h4>
+        <div class="skill-item"><span>Ruby on Rails</span><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><span>JavaScript / React</span><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span>HTML / CSS</span><div class="progress"><div class="progress-bar" style="width:95%"></div></div></div>
+        <div class="skill-item"><span>PostgreSQL / MySQL</span><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span>Git / Version Control</span><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
+      </div>
+
+      <!-- PROGRAMMING LANGUAGES -->
+      <div class="cv-card auto-fit-card">
+        <h4 class="cv-section-title">Programming Languages</h4>
+        <ul class="cv-list" style="margin:0; padding-left:16px; font-size:0.78rem; line-height:1;">
+          <li>Ruby – Advanced</li>
+          <li>JavaScript – Advanced</li>
+          <li>Python – Intermediate</li>
+          <li>SQL – Intermediate</li>
+          <li>HTML / CSS – Advanced</li>
+        </ul>
+      </div>
+
+      <!-- AWARDS & ACHIEVEMENTS -->
+      <div class="cv-card auto-fit-card">
+        <h4 class="cv-section-title">Awards & Achievements</h4>
+        <ul class="cv-list">
+          <li>Best Capstone Project – Ateneo de Naga University, 2024</li>
+          <li>Dean's Lister – 2021 to 2024</li>
+          <li>Hackathon Winner – Local DevFest, 2025</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="cv-right">
+
+      <!-- ABOUT ME -->
+      <div class="cv-card cv-stretch">
+        <h4 class="cv-section-title">About Me</h4>
+        <p class="cv-text">Passionate and results-driven Software Developer with a strong foundation in Ruby on Rails, JavaScript, and web development. Skilled in designing and implementing scalable web applications, collaborating with cross-functional teams, and delivering high-quality software solutions. Adept at problem-solving, debugging, and learning new technologies quickly. Committed to continuous professional growth and contributing to innovative projects that improve user experiences and operational efficiency.</p>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="cv-card auto-fit-card">
+        <h4 class="cv-section-title">Education</h4>
+        <div class="cv-timeline-item">
+          <h5>Bachelor of Science in Computer Science</h5>
+          <span class="cv-sub">Ateneo de Naga University</span>
+          <span class="cv-date">2020 – 2024</span>
+        </div>
+        <div class="cv-timeline-item">
+          <h5>Senior High School – STEM Strand</h5>
+          <span class="cv-sub">Ateneo de Naga University Senior High</span>
+          <span class="cv-date">2018 – 2020</span>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="cv-card auto-fit-card">
+        <h4 class="cv-section-title">Experience</h4>
+        <div class="cv-timeline-item">
+          <h5>Software Developer</h5>
+          <span class="cv-sub">Innovatech Solutions Inc.</span>
+          <span class="cv-date">2025 – Present</span>
+          <p class="cv-text">Developing and maintaining web applications using Ruby on Rails and React. Collaborating with cross-functional teams to implement scalable solutions and optimize application performance.</p>
+        </div>
+        <div class="cv-timeline-item">
+          <h5>Junior Web Developer (Intern)</h5>
+          <span class="cv-sub">TechStart Labs</span>
+          <span class="cv-date">2024</span>
+          <p class="cv-text">Assisted in building front-end components and integrating APIs. Participated in code reviews and contributed to project documentation.</p>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="cv-card cv-stretch">
+        <h4 class="cv-section-title">Certifications</h4>
+        <ul class="cv-list">
+          <li>Ruby on Rails Developer – Online Academy, 2024</li>
+          <li>Full Stack Web Development – CodeCademy, 2023</li>
+          <li>React JS Professional – Coursera, 2024</li>
+        </ul>
+      </div>
+
+      <!-- CORE COMPETENCIES -->
+      <div class="cv-card cv-stretch">
+        <h4 class="cv-section-title">Core Competencies</h4>
+        <div class="competency-tags">
+          <span>Problem Solving</span>
+          <span>Team Collaboration</span>
+          <span>System Design</span>
+          <span>Web Development</span>
+          <span>Debugging</span>
+          <span>Agile Methodologies</span>
+          <span>API Integration</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+/* =============================
+   OUTER WHITE CARD
+============================= */
+.content-card-container {
+  background-color: white;
+  border-radius: 25px;
+  height: calc(100vh - 40px);
+  width: 100%;
+  padding: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+   CV ROOT
+============================= */
+.cv-page {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+   CV GRID
+============================= */
+.cv-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 10px;
+  height: 100%;
+}
+
+/* =============================
+   LEFT & RIGHT COLUMNS
+============================= */
+.cv-left,
+.cv-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+/* Stretch all cards except Profile, except auto-fit cards */
+.cv-left .cv-card:not(.profile-card):not(.auto-fit-card),
+.cv-right .cv-card:not(.auto-fit-card) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+   CV CARD
+============================= */
+.cv-card {
+  background-color: #111;
+  border-radius: 18px;
+  padding: 14px;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+   AUTO-FIT CARDS
+============================= */
+.auto-fit-card {
+  flex: unset;
+  display: block;
+  height: auto;
+}
+
+/* =============================
+   PROFILE CARD SPECIFIC
+============================= */
+.profile-card {
+  background: linear-gradient(160deg, #1c1c1c, #0f0f0f);
+}
+
+.profile-img-wrapper {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #9b5cff, #6a0dad);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cv-name {
+  margin: 6px 0 2px;
+  font-weight: 700;
+}
+
+.cv-role {
+  color: #b388ff;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.cv-contact-list div {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* =============================
+   SECTION TITLES
+============================= */
+.cv-section-title {
+  border-left: 3px solid #9b5cff;
+  padding-left: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+/* =============================
+   SKILLS
+============================= */
+.skill-item {
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+}
+
+.progress {
+  height: 5px;
+  background: #2b2b2b;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #9b5cff, #6a0dad);
+}
+
+/* =============================
+   LISTS
+============================= */
+.cv-list {
+  padding-left: 16px;
+  font-size: 0.8rem;
+}
+
+/* =============================
+   TEXT
+============================= */
+.cv-text {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* =============================
+   TIMELINE ITEMS
+============================= */
+.cv-timeline-item {
+  margin-bottom: 6px;
+}
+
+.cv-sub {
+  display: block;
+  color: #b388ff;
+  font-size: 0.8rem;
+}
+
+.cv-date {
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+/* =============================
+   COMPETENCY TAGS
+============================= */
+.competency-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.competency-tags span {
+  background: rgba(155, 92, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  color: #d6c4ff;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 992px) {
+  .cv-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .cv-page {
+    overflow: auto;
+  }
+
+  .cv-left .cv-card,
+  .cv-right .cv-card {
+    flex: unset;
+  }
+}
+</style>
