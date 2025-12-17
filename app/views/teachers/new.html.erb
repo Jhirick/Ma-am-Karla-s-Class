@@ -1,16 +1,23 @@
 <% content_for :title, "New Teacher" %>
 
-<div class="teacher-edit-container">
-  <div class="teacher-edit-header d-flex align-items-center">
+<div class="student-edit-container">
+
+  <!-- Purple Header (Matches Student New) -->
+  <div class="student-edit-header d-flex align-items-center">
     <i class="bi bi-person-plus-fill ms-3 me-2 fs-3"></i>
     <h1>Employing Teacher</h1>
   </div>
 
-  <%= render "form", teacher: @teacher %>
-
-  <br>
-
-  <div>
-    <%= link_to "Back to Teachers", teachers_path, class: "btn-custom back-btn" %>
+  <!-- White Card Form (Missing Before) -->
+  <div class="student-edit-form mt-4">
+    <%= render "form", teacher: @teacher %>
   </div>
+
+  <!-- Back Button -->
+  <div class="mt-4">
+    <%= link_to "Back to Teachers",
+        teachers_path,
+        class: "btn-custom back-btn" %>
+  </div>
+
 </div>

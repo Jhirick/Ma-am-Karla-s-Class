@@ -4,7 +4,6 @@
 .guardian-new-container,
 .guardian-edit-container,
 .guardian-show-container {
-  min-height: 100vh;
   background-color: transparent;
   padding: 20px;
 }

@@ -1,16 +1,23 @@
 <% content_for :title, "New Staff" %>
 
-<div class="staff-form-container mt-4">
-  <div class="card shadow-sm rounded-4">
-    <div class="card-header text-white" style="background-color: #4b3b2b;">
-      <h3 class="m-0">Create Staff</h3>
-    </div>
-    <div class="card-body">
-      <%= render "form", staff: @staff %>
-    </div>
+<div class="student-edit-container">
+
+  <!-- Purple Header (Matches Student New) -->
+  <div class="student-edit-header d-flex align-items-center">
+    <i class="bi bi-person-badge-fill ms-3 me-2 fs-3"></i>
+    <h1>Create Staff</h1>
   </div>
 
-  <div class="mt-4">
-    <%= link_to "Back to Staff", staffs_path, class: "action-btn back-btn" %>
+  <!-- White Card Form -->
+  <div class="student-edit-form mt-4">
+    <%= render "form", staff: @staff %>
   </div>
+
+  <!-- Back Button -->
+  <div class="mt-4">
+    <%= link_to "Back to Staff",
+        staffs_path,
+        class: "btn-custom back-btn" %>
+  </div>
+
 </div>

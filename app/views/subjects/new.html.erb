@@ -1,18 +1,23 @@
 <% content_for :title, "Create Subject" %>
 
-<div class="subject-form-container mt-4">
-  <div class="card shadow-sm rounded-4">
-    <div class="card-header text-white" style="background-color: #4b3b2b;">
-      <h3 class="m-0">Create Subject</h3>
-    </div>
-    <div class="card-body">
-      <%= render "form", subject: @subject %>
-    </div>
+<div class="student-edit-container">
+
+  <!-- Purple Header (Matches Student New) -->
+  <div class="student-edit-header d-flex align-items-center">
+    <i class="bi bi-book-fill ms-3 me-2 fs-3"></i>
+    <h1>Create Subject</h1>
   </div>
 
-  <div class="mt-4">
-    <%= link_to "Back to Subjects", subjects_path,
-      class: "btn text-white fw-semibold px-4 py-2",
-      style: "background-color: #6c757d; border-radius: 8px;" %>
+  <!-- White Card Form -->
+  <div class="student-edit-form mt-4">
+    <%= render "form", subject: @subject %>
   </div>
+
+  <!-- Back Button -->
+  <div class="mt-4">
+    <%= link_to "Back to Subjects",
+        subjects_path,
+        class: "btn-custom back-btn" %>
+  </div>
+
 </div>
