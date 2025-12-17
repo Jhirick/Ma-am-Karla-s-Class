@@ -2,13 +2,14 @@
    PAGE HEADER BAR STYLES (Updated for stickiness)
    ============================================ */
 .page-header-bar {
-  background-color: #8a19cc; 
+  background: linear-gradient(90deg, #682bd7, #8b5cf6);
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0px; 
   z-index: 10; 
+  margin-top: -30px !important;   /* Move header upward */
 }
 
 .page-header-bar h1 {
@@ -55,7 +56,7 @@
 }
 
 /* ============================================
-   STUDENT TABLE STYLES (Inspired by provided image)
+   STUDENT TABLE STYLES (Index View)
    ============================================ */
 .table {
   width: 100%;
@@ -65,7 +66,7 @@
   border-spacing: 0; /* Remove space between cells */
 }
 
-/* Table Header */
+/* Table Header (Index View) */
 .table thead th {
   background-color: #e0e0ff; /* Light purple/lavender for header background */
   color: #5d3f9e; /* Darker purple text for header */
@@ -77,6 +78,12 @@
   z-index: 5; /* Ensure it's above table rows but below the main header bar */
   text-align: left; /* Align text left */
   font-size: 0.9rem;
+}
+.table.table-bordered.table-striped thead th {
+  background-color: #E3D2FF !important; /* Lavender header */
+  color: #5D3F9E !important;            /* Medium purple text */
+  font-weight: 600;
+  border: none !important;
 }
 
 /* Rounded corners for the first/last header cells */
@@ -96,6 +103,12 @@
 
 .table tbody tr:nth-child(even) {
   background-color: #f7f7ff; /* Lighter shade of purple for even rows */
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff; /* Ensure odd rows are white */
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #f7f7ff; /* Ensure even rows have the light purple */
 }
 
 .table tbody tr:hover {
@@ -156,13 +169,6 @@
   border: none; /* Remove overall table border */
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #fff; /* Ensure odd rows are white */
-}
-.table-striped tbody tr:nth-of-type(even) {
-    background-color: #f7f7ff; /* Ensure even rows have the light purple */
-}
-
 
 /* Modal Header Styling (for delete confirmation) */
 .delete-modal-header {
@@ -210,13 +216,534 @@ body {
     color: #5d3f9e;
 }
 
+
+/* =========================================================
+   STUDENT SHOW VIEW STYLES (Added/Edited for Purple Theme)
+   ========================================================= */
+
+/* Ensure the main container has the card look */
+.student-show-container {
+    padding-top: 15px;
+}
+
+.student-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+  margin-bottom: 25px;
+}
+
+/* --- 1. STUDENT CARD HEADER FIX (Removes Brown, sets to Main Purple) --- */
+.student-card .card-header {
+  background-color: #8a19cc !important; /* MAIN PURPLE: Matches .page-header-bar */
+  color: white !important;
+  padding: 20px 25px;
+  border-bottom: none;
+}
+
+.student-card .card-body strong { 
+    font-weight: 600; 
+    color: #5d3f9e; /* Darker purple for detail labels */
+}
+
+/* Subject List Title */
+.subject-list-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5d3f9e; 
+  margin-bottom: 15px;
+  padding-left: 5px; 
+}
+
+/* Subject List Table Container Styling (giving it a card look) */
+.subject-table {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* --- 2. SUBJECT LIST TABLE HEADER FIX (Removes Brown, sets to Main Purple) --- */
+.subject-table thead th {
+  background-color: #8a19cc; /* MAIN PURPLE for bold header */
+  color: #fff; /* White text on purple */
+  font-weight: 600;
+  padding: 12px 15px; 
+  border: none; 
+  font-size: 0.9rem;
+}
+/* Ensure the body of this table is striped with light purple, like the index table */
+.subject-table tbody tr:nth-child(even) { background-color: #f7f7ff; }
+.subject-table tbody tr:hover { background-color: #e9e9ff; }
+
+
+/* --- 3. SHOW PAGE ACTION BUTTONS (Using the custom classes from your ERB) --- */
+
+/* Back Button */
+.btn-custom.back-btn {
+  background-color: #6c757d; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.btn-custom.back-btn:hover { background-color: #5a6268; color: white; }
+
+/* Edit Button (Matching the Index Yellow/Warning) */
+.action-btn.edit-btn {
+  background-color: #ffca28; /* Yellow/Warning */
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.action-btn.edit-btn:hover {
+  background-color: #ffc107;
+  color: #333;
+}
+
+/* Delete Button (Matching the Index Red/Danger) */
+.action-btn.delete-btn {
+  background-color: #ef5350; /* Red/Danger */
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.action-btn.delete-btn:hover {
+  background-color: #e53935;
+  color: #fff;
+}
+
+/* =========================================================
+   SHOW STUDENT – ADDITIVE STYLES ONLY
+   (DOES NOT TOUCH INDEX STYLES)
+   ========================================================= */
+
+/* Container spacing */
+.student-show-container {
+  padding-top: 10px;
+}
+
+/* -------------------------------
+   STUDENT CARD (HEADER + BODY)
+   ------------------------------- */
+.student-card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header bar (match index look WITHOUT overriding index) */
+.student-card .student-header {
+  background-color: #8a19cc;
+  color: #ffffff;
+  padding: 20px 25px;
+}
+
+.student-card .student-header i {
+  color: #ffffff;
+}
+
+.student-card .student-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.student-card .student-subinfo {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Card body spacing */
+.student-card .card-body {
+  padding: 20px 25px;
+}
+
+.student-card .card-body p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.student-card .card-body strong {
+  color: #5d3f9e;
+  font-weight: 600;
+}
+
+/* -------------------------------
+   SUBJECT LIST (SHOW PAGE)
+   ------------------------------- */
+.subject-list-title {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #5d3f9e;
+}
+
+/* Subject table wrapper only */
+.subject-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header styling (scoped ONLY to subject table) */
+.subject-table thead th {
+  background-color: #E3D2FF;
+  color: #5D3F9E;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+}
+
+/* Row styling */
+.subject-table tbody tr:nth-child(even) {
+  background-color: #f7f7ff;
+}
+
+.subject-table tbody tr:hover {
+  background-color: #e9e9ff;
+}
+
+.subject-table tbody td {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  border: none;
+}
+
+/* -------------------------------
+   SHOW PAGE ACTION BUTTON AREA
+   ------------------------------- */
+.student-show-container .flex-start,
+.student-show-container .flex-end {
+  margin-top: 25px;
+}
+
+/* Keep your existing button colors, just unify spacing */
+.student-show-container .action-btn,
+.student-show-container .btn-custom {
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   FINAL OVERRIDES — SHOW STUDENT ONLY
+   (NO EXISTING CODE TOUCHED)
+   ========================================================= */
+
+/* REMOVE BROWN FROM SUBJECT TABLE HEADER */
+.student-show-container .subject-table thead th {
+  background-color: #8a19cc !important;
+  color: #ffffff !important;
+}
+
+/* BACK TO STUDENTS — MATCH INDEX SHOW BUTTON */
+.student-show-container .back-btn {
+  background-color: #7e57c2 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.student-show-container .back-btn:hover {
+  background-color: #673ab7 !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   EDIT STUDENT PAGE — ADDITIVE STYLES ONLY
+   ========================================================= */
+
+.student-edit-container {
+  padding-top: 15px;
+}
+
+/* Header bar (match index/show purple) */
+.student-edit-header {
+  background-color: #8a19cc;
+  color: #ffffff;
+  padding: 18px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-edit-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.student-edit-header i {
+  color: #ffffff;
+}
+
+/* Form container (card look) */
+.student-edit-form {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Action buttons container spacing */
+.student-actions-container {
+  margin-top: 20px;
+}
+
+/* Back button — match index/show style */
+.student-actions .back-btn {
+  background-color: #7e57c2;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.student-actions .back-btn:hover {
+  background-color: #673ab7;
+  color: #ffffff;
+}
+
+/* Show Student button — dark consistent style */
+.student-actions .btn-sm {
+  background-color: #343a40;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.student-actions .btn-sm:hover {
+  background-color: #23272b;
+  color: #ffffff;
+}
+
+/* =========================================================
+   SHOW STUDENT — MATCH INDEX BUTTON BOLDNESS
+   ========================================================= */
+
+.student-show-container .action-btn,
+.student-edit-container .back-btn,
+.student-show-container .btn-custom {
+  font-weight: 600;
+}
+
+/* =========================================================
+   EDIT STUDENT — BUTTON COLOR FIX (THEME MATCH)
+   ========================================================= */
+
+/* Back to Students (Purple like Index) */
+.student-edit-container .back-btn {
+  background-color: #7e57c2;
+  color: #ffffff;
+  text-decoration: none !important;
+}
+
+.student-edit-container .back-btn:hover {
+  background-color: #673ab7;
+  color: #ffffff;
+}
+
+/* Show this Student (Dark like Index) */
+.student-edit-container .action-btn.btn-sm {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.student-edit-container .action-btn.btn-sm:hover {
+  background-color: #23272b;
+  color: #ffffff;
+}
+
+/* =========================================================
+   UPDATE STUDENT BUTTON — EDIT PAGE ONLY
+   ========================================================= */
+
+.student-edit-container input[type="submit"] {
+  background-color: #8a19cc; /* theme purple */
+  color: #ffffff;
+  border: none;
+  font-weight: 600; /* match index/show buttons */
+  padding: 10px 18px;
+  border-radius: 5px;
+}
+
+.student-edit-container input[type="submit"]:hover {
+  background-color: #6f14a6;
+  color: #ffffff;
+}
+
+/* ============================================
+   PAGE HEADER BAR STYLES (Updated for stickiness)
+   ============================================ */
 .page-header-bar {
-  margin-top: -30px !important;   /* Move header upward */
+  background-color: #682bd7; 
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0px; 
+  z-index: 10; 
+  margin-top: -30px !important;
+}
+
+.page-header-bar h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Search Input Styling */
+.search-bar {
+  max-width: 400px;
+}
+
+.search-bar .form-control {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px 0 0 5px;
+  color: #343a40;
+}
+
+.search-bar .form-control::placeholder {
+  color: #6c757d;
+}
+
+.search-bar .input-group-text {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #343a40;
+  border: none;
+  border-radius: 0 5px 5px 0;
+}
+
+/* ============================================
+   TABLE SCROLL CONTAINER
+   ============================================ */
+.table-scroll-container {
+  max-height: calc(100vh - 200px); 
+  overflow-y: auto;
+  padding-bottom: 20px; 
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: -15px;
+  padding-top: 20px;
+}
+
+/* ============================================
+   STUDENT TABLE STYLES (Index View)
+   ============================================ */
+.table {
+  width: 100%;
+  margin-bottom: 0;
+  color: #333;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  background-color: #e0e0ff;
+  color: #5d3f9e;
+  font-weight: 600;
+  padding: 12px 15px;
+  border: none;
+  position: sticky;
+  top: -20px;
+  z-index: 5;
+  text-align: left;
+  font-size: 0.9rem;
 }
 
 .table.table-bordered.table-striped thead th {
-  background-color: #E3D2FF !important; /* Lavender header */
-  color: #5D3F9E !important;            /* Medium purple text */
+  background-color: #E3D2FF !important;
+  color: #5D3F9E !important;
   font-weight: 600;
   border: none !important;
 }
+
+.table thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.table tbody tr {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f7f7ff;
+}
+
+.table tbody tr:hover {
+  background-color: #e9e9ff;
+  cursor: pointer;
+}
+
+.table tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  border: none;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+}
+
+/* Action Buttons */
+.btn-show {
+  background-color: #7e57c2;
+  color: #fff;
+  border: none;
+}
+.btn-show:hover {
+  background-color: #673ab7;
+}
+
+/* ============================================
+   STUDENT SHOW VIEW
+   ============================================ */
+
+.student-card .card-header {
+  background-color: #682bd7 !important;
+  color: white !important;
+  padding: 20px 25px;
+  border-bottom: none;
+}
+
+.subject-table thead th {
+  background-color: #682bd7;
+  color: #fff;
+}
+
+.student-card .student-header {
+  background-color: #682bd7;
+  color: #ffffff;
+  padding: 20px 25px;
+}
+
+/* FINAL OVERRIDES */
+.student-show-container .subject-table thead th {
+  background-color: #682bd7 !important;
+  color: #ffffff !important;
+}
+
+/* EDIT STUDENT PAGE */
+.student-edit-header {
+  background-color: #682bd7;
+  color: #ffffff;
+}
+
+.student-edit-container input[type="submit"] {
+  background-color: #682bd7;
+  color: #ffffff;
+}
+
+.student-edit-container input[type="submit"]:hover {
+  background-color: #5522b5;
+}
+

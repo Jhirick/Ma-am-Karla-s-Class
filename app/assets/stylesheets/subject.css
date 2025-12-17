@@ -1,54 +1,112 @@
+/* ============================= */
+/* SUBJECT INDEX CONTAINER       */
+/* ============================= */
 .subjects-container {
-  min-height: 100vh;
-  background-color: transparent !important;
+  margin-top: -30px;
+  background-color: transparent;
 }
 
-.btn-new {
-  background-color: #198754;
-  color: #fff;
-  padding: 12px 24px;
+/* ============================= */
+/* HEADER (MATCH STUDENT)        */
+/* ============================= */
+.subjects-header {
+  background-color: #682bd7;
+  color: white;
+  padding: 18px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.subjects-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ============================= */
+/* SEARCH BAR (MATCH STUDENT)    */
+/* ============================= */
+.subjects-search {
+  flex-grow: 1;
+  max-width: 420px;
+}
+
+.subjects-search .form-control {
+  border: none;
   border-radius: 8px;
-  font-weight: 600;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+}
+
+/* ============================= */
+/* NEW SUBJECT BUTTON            */
+/* ============================= */
+.btn-new {
+  background-color: #ede9fe;
+  color: #5b21b6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
   border: none;
   text-decoration: none;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-new:hover {
-  background-color: #157347;
+  background-color: #ddd6fe;
   transform: translateY(-2px);
 }
 
-.show-btn {
-  background-color: #4b3b2b !important;
-  color: #fff !important;
+/* ============================= */
+/* SUBJECT CARD                  */
+/* ============================= */
+.subject-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================= */
+/* CARD TITLE & TEXT             */
+/* ============================= */
+.subject-card .card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1f2937;
+}
+
+.subject-card .card-text {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ============================= */
+/* CARD BUTTON (MATCH TEACHER)   */
+/* ============================= */
+.subject-card .show-btn {
+  background-color: #682bd7 !important;
+  color: #ffffff !important;
   border: none;
   border-radius: 8px;
-  font-weight: 600;
+  padding: 8px 12px;
+  font-weight: 700;
+  text-decoration: none !important;
   transition: all 0.3s ease;
 }
 
-.show-btn:hover {
-  background-color: #7b5e43 !important;
+.subject-card .show-btn:hover {
+  background-color: #5b21b6 !important;
   transform: translateY(-2px);
-}
-
-.submit-btn:hover {
-  background-color: #198754 !important;
-  transform: translateY(-2px);
-}
-
-.subjects-header {
-  border: 2px solid #4b3b2b;
-  border-radius: 10px;
-  background-color: #fff8e7;
-  color: #4b3b2b;
-}
-
-.subjects-header {
-  background-color: #4b3b2b;
-  color: white;
-  border-radius: 10px;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }

@@ -1,59 +1,130 @@
-.btn-custom {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
+/* ============================= */
+/* TEACHER INDEX CONTAINER       */
+/* ============================= */
+.teachers-container {
+  margin-top: -30px;
+  background-color: transparent;
+}
+
+/* ============================= */
+/* HEADER (MATCH DEPARTMENT)     */
+/* ============================= */
+.teachers-header {
+  background: linear-gradient(90deg, #682bd7, #8b5cf6);
   color: white;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
+  padding: 18px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Back button */
-.back-btn {
-  background-color: #6c757d;
-}
-.back-btn:hover {
-  background-color: #5a6268;
-  transform: translateY(-3px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-  color: white !important;
-}
-
-/* TEACHERS TABLE HEADER STYLING */
-.table thead tr th {
-  background-color: #4b3b2a !important;
-  color: white !important;
-  text-align: left; 
-}
-
-.subject-table thead tr th {
-  background-color: #4b3b2a !important;
-  color: white !important;
-  text-align: left;
-}
-
-.teacher-edit-header {
-  background-color: #4b3b2b; 
-  color: white;
-  text-align: center;
-  padding: 10px 15px;
-  border-radius: 8px;
-  margin-bottom: 16px;
-}
-
-.teacher-edit-header h1 {
-  font-size: 2.9rem;
-  font-weight: 400;
+.teachers-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
   margin: 0;
+  white-space: nowrap;
 }
 
-.teacher-edit-container .card {
-  background-color: #fff8e7; 
+/* ============================= */
+/* SEARCH BAR (MATCH STUDENT)    */
+/* ============================= */
+.teachers-search {
+  flex-grow: 1;
+  max-width: 420px;
+}
+
+.teachers-search .form-control {
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
 }
 
+/* ============================= */
+/* NEW TEACHER BUTTON            */
+/* ============================= */
+.btn-new-teacher {
+  background-color: #ede9fe;
+  color: #5b21b6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-new-teacher:hover {
+  background-color: #ddd6fe;
+  transform: translateY(-2px);
+}
+
+/* ============================= */
+/* TEACHER CARD                  */
+/* ============================= */
+.teacher-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.teacher-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.teacher-card i {
+  color: #682bd7;
+}
+
+/* Card title */
+.teacher-card .card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1f2937;
+}
+
+/* Card text */
+.teacher-card .card-text {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ============================= */
+/* CARD BUTTON (EDITED)          */
+/* ============================= */
+.teacher-card .show-btn {
+  background-color: #682bd7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.teacher-card .show-btn:hover {
+  background-color: #5b21b6;
+  transform: translateY(-2px);
+}
+
+/* FORCE PURPLE SHOW BUTTON */
+.teacher-card .show-btn {
+  background-color: #682bd7 !important;
+  color: #ffffff !important;
+  border: none;
+}
+
+.teacher-card .show-btn:hover {
+  background-color: #5b21b6 !important;
+}
+
+/* REMOVE LINK UNDERLINE */
+.teacher-card .show-btn {
+  text-decoration: none !important;
+}
