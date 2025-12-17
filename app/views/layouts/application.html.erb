@@ -170,11 +170,58 @@
             </li>
 
             <li class="nav-item mb-2">
-              <%= link_to about_path, class: "nav-link d-flex align-items-center gap-3 text-white" do %>
-                <i class="bi bi-info-circle fs-5"></i>
-                <span>About Us</span>
-              <% end %>
-            </li>
+  <% about_controllers = ['home'] %>
+  <% about_actions = ['about', 'cvChrizraine', 'cvRick', 'cvKristel'] %>
+
+  <a class="nav-link d-flex align-items-center gap-3 text-white collapsed
+     <%= 'active-link' if about_controllers.include?(controller_name) && about_actions.include?(action_name) %>"
+     data-bs-toggle="collapse"
+     href="#aboutSubmenu"
+     role="button"
+     aria-expanded="<%= about_controllers.include?(controller_name) && about_actions.include?(action_name) %>">
+
+    <i class="bi bi-info-circle fs-5"></i>
+    <span class="flex-grow-1">About Us</span>
+    <i class="bi bi-chevron-down ms-auto small-icon"></i>
+  </a>
+
+  <div class="collapse
+      <%= 'show' if about_controllers.include?(controller_name) && about_actions.include?(action_name) %>"
+      id="aboutSubmenu">
+
+    <ul class="nav flex-column ms-4 mt-2 border-start ps-2">
+
+      <li class="nav-item">
+        <%= link_to about_path,
+          class: "nav-link py-1 text-white #{'submenu-active-link' if action_name == 'about'}" do %>
+          <span>About Team</span>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to cvChrizraine_path,
+          class: "nav-link py-1 text-white #{'submenu-active-link' if action_name == 'cvChrizraine'}" do %>
+          <span>About Chrizraine</span>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to cvRick_path,
+          class: "nav-link py-1 text-white #{'submenu-active-link' if action_name == 'cvRick'}" do %>
+          <span>About Jhirick</span>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to cvKristel_path,
+          class: "nav-link py-1 text-white #{'submenu-active-link' if action_name == 'cvKristel'}" do %>
+          <span>About Kristel</span>
+        <% end %>
+      </li>
+
+    </ul>
+  </div>
+</li>
 
             <li class="nav-item mb-2">
               <%= link_to "#", class: "nav-link d-flex align-items-center gap-3 text-white" do %>
