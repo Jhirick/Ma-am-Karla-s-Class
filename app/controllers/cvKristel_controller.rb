@@ -2,12 +2,6 @@ class HomeController < ApplicationController
   def index
   end
 
-  def cvRick
-  end
-  
   def cvKristel
-  end
-  
-  def cvChrizraine
   end
 end

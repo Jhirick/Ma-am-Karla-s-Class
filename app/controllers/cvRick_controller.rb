@@ -4,10 +4,4 @@ class HomeController < ApplicationController
 
   def cvRick
   end
-  
-  def cvKristel
-  end
-  
-  def cvChrizraine
-  end
 end

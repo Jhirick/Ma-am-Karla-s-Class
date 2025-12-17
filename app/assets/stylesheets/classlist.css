@@ -1,112 +1,131 @@
 /* ============================================
-   CLASSLISTS CONTAINER
+   CLASSLIST PAGE – FULL MATCH TO STUDENTS
+   (NO application.css MODIFICATIONS)
    ============================================ */
-.classlists-container {
-  margin-top: -30px;
-  background-color: transparent !important;
+
+.classlist-page {
+  width: 100%;
 }
 
-/* ============================================
-   PAGE HEADER BAR (MATCH STUDENT / TEACHER)
-   ============================================ */
-.page-header-bar {
-  background: linear-gradient(90deg, #682bd7, #8b5cf6);
+/* HEADER BAR */
+.classlist-page .page-header-bar {
+  background-color: #8a19cc;
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 10;
-  margin-top: -30px !important;
+  margin-top: -30px;
 }
 
-.page-header-bar h1 {
+.classlist-page .page-header-bar h1 {
   font-size: 1.5rem;
   font-weight: 600;
   color: #ffffff;
-  margin: 0;
 }
 
-/* ============================================
-   NEW CLASSLIST BUTTON (MATCH OTHERS)
-   ============================================ */
-.btn-new {
-  background-color: #ede9fe;
-  color: #5b21b6;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 700;
+/* SEARCH BAR */
+.classlist-page .search-bar {
+  max-width: 400px;
+}
+
+.classlist-page .search-bar .form-control,
+.classlist-page .search-bar .input-group-text {
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
-  text-decoration: none;
-  transition: all 0.3s ease;
+}
+
+/* TABLE CARD */
+.classlist-page .table-scroll-container {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: -15px;
+  padding: 20px;
+  border: none;
+}
+
+/* TABLE RESET */
+.classlist-page .table,
+.classlist-page .table-bordered,
+.classlist-page .table-bordered > :not(caption) > * {
+  border: none !important;
+}
+
+.classlist-page .table thead th {
+  background-color: #E3D2FF;
+  color: #5D3F9E;
+  font-weight: 600;
+  padding: 12px 15px;
+  border: none;
+  position: sticky;
+  top: -20px;
+  z-index: 5;
+}
+
+/* TABLE BODY */
+.classlist-page .table tbody tr:nth-child(even) {
+  background-color: #f7f7ff;
+}
+
+.classlist-page .table tbody tr:hover {
+  background-color: #e9e9ff;
+}
+
+.classlist-page .table td {
+  padding: 12px 15px;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  vertical-align: middle;
+}
+
+/* ACTION COLUMN */
+.classlist-page td:last-child {
   white-space: nowrap;
 }
 
-.btn-new:hover {
-  background-color: #ddd6fe;
-  transform: translateY(-2px);
+/* BUTTONS */
+.classlist-page .table td .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  margin-right: 6px;
+  line-height: 1;
 }
 
-/* ============================================
-   CLASSLIST GRID
-   ============================================ */
-.classlist-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 20px;
+.classlist-page .table td .btn:last-child {
+  margin-right: 0;
 }
 
-.classlist-item {
-  flex: 0 0 auto;
+/* DELETE BUTTON FORM FIX */
+.classlist-page td form {
+  display: inline;
 }
 
-/* ============================================
-   CLASSLIST CARD
-   ============================================ */
-.classlist-card {
-  width: 230px;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.classlist-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-}
-
-/* ============================================
-   CARD CONTENT
-   ============================================ */
-.classlist-card .card-title {
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: #1f2937;
-}
-
-.classlist-card .card-text {
-  font-size: 0.9rem;
-  color: #374151;
-}
-
-/* ============================================
-   SHOW BUTTON (MATCH TEACHER CARD)
-   ============================================ */
-.classlist-card .show-btn {
-  background-color: #682bd7 !important;
-  color: #ffffff !important;
+/* BUTTON COLORS */
+.classlist-page .btn-show {
+  background-color: #7e57c2;
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  text-decoration: none !important;
+}
+.classlist-page .btn-show:hover {
+  background-color: #673ab7;
 }
 
-.classlist-card .show-btn:hover {
-  background-color: #5b21b6 !important;
-  transform: translateY(-2px);
+.classlist-page .btn-warning {
+  background-color: #ffca28;
+  color: #333333;
+  border: none;
+}
+
+.classlist-page .btn-danger {
+  background-color: #ef5350;
+  color: #ffffff;
+  border: none;
 }
